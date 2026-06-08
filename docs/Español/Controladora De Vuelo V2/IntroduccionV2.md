@@ -4,6 +4,8 @@ La **Controladora de Vuelo V2** es el primer desarrollo de hardware y firmware d
 
 Esta tarjeta fue diseñada como una base de desarrollo abierta, documentada y extensible. A partir de ella, estudiantes, desarrolladores e investigadores pueden implementar funciones específicas para sus propios vehículos, integrar nuevos sensores, modificar el firmware, realizar pruebas en tierra y analizar datos de vuelo.
 
+![ControladoraDeVueloV2_IMG1](Controladora_v2_img1.jpg)
+
 ## Objetivo de la tarjeta
 
 El objetivo principal de la Controladora de Vuelo V2 es proporcionar una plataforma electrónica confiable para centralizar las funciones críticas de un cohete experimental, incluyendo:
@@ -75,3 +77,5 @@ La Controladora de Vuelo V2 se encuentra en una etapa inicial de desarrollo y do
 Conforme el proyecto evolucione, esta documentación se ampliará con guías de integración, ejemplos de uso, procedimientos de prueba, herramientas de análisis y resultados experimentales.
 
 En la siguiente imagen se agrega un "Roadmap" del estado actual y los planes a futuro del proyecto:
+
+![Roadmap_2026](Roadmap.png)
