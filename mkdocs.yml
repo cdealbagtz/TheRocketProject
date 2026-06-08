@@ -2,6 +2,7 @@ site_name: TheRocketProject
 site_url: https://therocketproject.com
 theme:
   name: material
+  logo: Logo.svg
   font:
     text: Roboto
     code: Roboto Mono
