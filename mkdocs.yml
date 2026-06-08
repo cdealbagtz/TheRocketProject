@@ -3,6 +3,7 @@ site_url: https://therocketproject.com
 theme:
   name: material
   logo: Logo.svg
+  favicon: Logo.svg
   font:
     text: Roboto
     code: Roboto Mono
