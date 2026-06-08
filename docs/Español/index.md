@@ -18,7 +18,7 @@ La plataforma está pensada para servir tanto como una base de desarrollo técni
 
 Actualmente, el proyecto cuenta con el desarrollo inicial de una tarjeta controladora de vuelo y su firmware correspondiente. La documentación del hardware, el firmware y una guía básica para programar la tarjeta ya se encuentran disponibles en el siguiente enlace:
 
-[Controladora de vuelo V2](../Español/ControladoraV2/IntroduccionV2.md)
+[Controladora de vuelo V2](Controladora%20De%20Vuelo%20V2/IntroduccionV2.md)
 
 Esta sección representa el punto de partida práctico del proyecto y servirá como base para futuras versiones de hardware, herramientas de software, sistemas de prueba y documentación técnica.
 
@@ -28,14 +28,14 @@ TheRocketProject se encuentra en una etapa inicial de desarrollo, por lo que cua
 
 Para conocer el flujo recomendado de colaboración, consulta la siguiente guía:
 
-[¿Cómo contribuir?](../Español/Contribuir.md)
+[¿Cómo contribuir?](Contribuir.md)
 
 ## Soporte y contacto
 
 Por el momento, TheRocketProject cuenta con una comunidad en crecimiento. Te invitamos a unirte a nuestro canal de [Discord](https://discord.gg/SXk5VCeyq), donde podrás hacer preguntas, proponer ideas, compartir avances y conversar con otras personas interesadas en el desarrollo de cohetería experimental.
 
-También puedes enviar un mensaje al correo de contacto del proyecto:
+También puedes enviar un mensaje al siguiente correo:
 
 [Christian.de.alba.240303@gmail.com](mailto:Christian.de.alba.240303@gmail.com)
 
-Intentaremos responder a la brevedad conforme el proyecto y la comunidad continúen creciendo.
+Intentare responder a la brevedad conforme el proyecto y la comunidad continúen creciendo.

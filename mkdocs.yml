@@ -12,14 +12,14 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Dark Mode
-      primary: light blue
+      primary: grey
       accent: blue grey
     # Light Mode
     - scheme: default
       toggle:
         icon: material/weather-night
         name: Light Mode
-      primary: light blue
+      primary: grey
       accent: blue grey
 
 extra:
