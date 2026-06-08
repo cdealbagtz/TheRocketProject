@@ -28,12 +28,13 @@ La Controladora de Vuelo V2 integra distintas interfaces y subsistemas orientado
 | -------------- | --------------------------------------------------------------------------------------------- |
 | Procesamiento  | Microcontrolador STM32F722RET6  para adquisición, control y registro de datos.                |
 | Sensores       | Integración de sensores inerciales y ambientales para estimación del estado del vehículo.     |
-| Almacenamiento | Registro de información de vuelo en memoria externa o microSD, según la revisión de hardware. |
-| Comunicación   | Interfaces de expansión como UART, SPI, I2C y CAN para periféricos externos.                  |
-| Actuadores     | Salidas para servos, actuadores o mecanismos auxiliares.                                      |
-| Recuperación   | Salidas dedicadas para sistemas de recuperación, separación o eventos de misión.              |
-| Alimentación   | Etapa de regulación y distribución de energía para la tarjeta y periféricos asociados.        |
-| Depuración     | Conexión USB o interfaz de programación para carga de firmware, pruebas y diagnóstico.        |
+| Almacenamiento | Registro de información de vuelo en memoria flash externa de 8 MB.                            |
+| Comunicación   | Interfaces de expansión como UART, USB y CAN para expandir funcionalidad.                     |
+| Telemetría     | Módulo LoRa para envio de telemetría y recepción de comandos. Compatible con protocolo SBUS.  |
+| Actuadores     | Salidas para servos, actuadores o mecanismos auxiliares por medio de PWM.                     |
+| Fases          | Tareas dedicadas para sistemas de recuperación, separación o eventos de misión.               |
+| Alimentación   | Capacidad de alimentación en un rango de voltaje desde 5 V hasta 28 V.                        |
+| Depuración     | Interfaz de programación para carga de firmware, pruebas y diagnóstico por medio de ST-Link.  |
 
 ## Uso previsto
 
@@ -46,6 +47,8 @@ La Controladora de Vuelo V2 puede utilizarse como plataforma base para:
 * Sistemas de recuperación electrónica.
 * Desarrollo de firmware embebido para aplicaciones aeroespaciales.
 * Validación de procedimientos de integración, prueba y análisis post-vuelo.
+* Identificación de sistemas e implementación de sistemas de control.
+* Ignisor de cargas pirotécnicas a distancia.
 
 Aunque la tarjeta está orientada inicialmente a cohetería experimental, su arquitectura también puede adaptarse a otros sistemas aeroespaciales donde se requiera adquisición de datos, control embebido, telemetría o registro de eventos.
 
