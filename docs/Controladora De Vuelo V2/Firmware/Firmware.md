@@ -20,5 +20,6 @@ El firmware se organiza en módulos independientes para facilitar su mantenimien
 ## Páginas relacionadas
 
 - [Arquitectura del firmware](arquitectura.md)
+- [Mensajes en Blackbox](Blackbox.md)
 - [Telemetría y comandos](telemetria-comandos.md)
 - [Compilación y carga](compilacion-carga.md)

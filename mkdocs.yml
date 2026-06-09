@@ -1,5 +1,5 @@
 site_name: TheRocketProject
-site_url: https://therocketproject.com
+site_url: https://cdealbagtz.github.io/TheRocketProject/
 theme:
   name: material
   logo: Logo.svg
@@ -23,11 +23,11 @@ theme:
       primary: grey
       accent: blue grey
 
-extra:
-  alternate:
-    - name: English
-      link: /English/
-      lang: en
-    - name: Español
-      link: /Español/
-      lang: es
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
