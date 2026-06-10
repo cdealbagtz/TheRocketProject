@@ -12,6 +12,8 @@
 
 Este documento define el **Concepto de Operaciones**, o **CONOPS**, de la Controladora de Vuelo para Cohete Experimental.
 
+![Ilustración de estados operativos](Diagrama%20ilustrativo%20del%20perfil%20de%20misión.png)
+
 Su propósito es describir cómo se utilizará la controladora durante una misión completa, desde la preparación en tierra hasta la recuperación del vehículo y el análisis post-vuelo.
 
 El CONOPS sirve como base para derivar:
@@ -102,8 +104,7 @@ Para esta versión del CONOPS se asume lo siguiente:
 * Las salidas críticas permanecen desactivadas después de encendido o reset.
 * El armado del sistema requiere una acción explícita.
 * El firmware registra datos durante la misión.
-* La controladora debe ejecutar la misión de forma autónoma, sin depender de telemetría.
-* La seguridad tiene prioridad sobre logging, comunicación, telemetría o descarga de datos.
+* La seguridad tiene prioridad sobre toda función.
 
 ---
 
@@ -124,8 +125,9 @@ La controladora se organiza mediante una máquina de estados. Cada estado limita
 | `RECOVERY_DEPLOYED` | Se ejecutó el evento de recuperación.                                           |
 | `DESCENT`           | El cohete se encuentra descendiendo.                                            |
 | `LANDED`            | El sistema detectó fin de vuelo.                                                |
-| `POST_FLIGHT`       | Estado para descarga, revisión y análisis de datos.                             |
 | `FAULT`             | Estado de falla controlada.                                                     |
+
+
 
 ---
 
@@ -595,7 +597,7 @@ Estas reglas deben convertirse en requisitos verificables.
 | `SAFE-RULE-006` | La falla del sistema de logging no deberá impedir la recuperación.                                                                                                            |
 | `SAFE-RULE-007` | Todo evento crítico deberá registrarse con timestamp.                                                                                                                         |
 | `SAFE-RULE-008` | Los comandos de configuración deberán bloquearse durante vuelo.                                                                                                               |
-| `SAFE-RULE-009` | El firmware deberá tener una respuesta definida para fallas de sensores.                                                                                                      |
+| `SAFE-RULE-009` | El firmware deberá tener una respuesta definida para fallas de sensores.                                                                                                          |
 | `SAFE-RULE-010` | El sistema deberá distinguir entre estado seguro, armado y vuelo.                                                                                                             |
 
 ---
@@ -715,4 +717,4 @@ A partir de este CONOPS se recomienda desarrollar:
 
 | Versión | Fecha      | Descripción                                  | Autor               |
 | ------- | ---------- | -------------------------------------------- | ------------------- |
-| v0.1    | 09/06/2026 | Versión inicial del Concepto de Operaciones. | Equipo del proyecto |
+| v0.1    | 09/06/2026 | Versión inicial del Concepto de Operaciones. | Christian de Alba   |
