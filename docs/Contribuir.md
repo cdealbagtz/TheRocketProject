@@ -427,7 +427,7 @@ Te invitamos a unirte a nuestra [comunidad de GitHub](https://github.com/cdealba
 
 ## Licencia
 
-TheRocketProject es un proyecto de código y hardware abierto. Antes de contribuir, revisa la licencia del repositorio para entender cómo se pueden usar, modificar y distribuir el código, los archivos de hardware y la documentación.
+TheRocketProject es un proyecto de código y hardware abierto bajo la licencia [BSD-3-Clause license](https://opensource.org/license/BSD-3-clause). Antes de contribuir, revisa la licencia del repositorio para entender cómo se pueden usar, modificar y distribuir el código, los archivos de hardware y la documentación.
 
 ## Agradecimientos
 
