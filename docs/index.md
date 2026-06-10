@@ -34,7 +34,7 @@ Para conocer el flujo recomendado de colaboración, consulta la siguiente guía:
 
 ## Soporte y contacto
 
-Por el momento, TheRocketProject cuenta con una comunidad en crecimiento. Te invitamos a unirte a nuestra comunidad de [GitHub](https://github.com/cdealbagtz/TheRocketProject/discussions), donde podrás hacer preguntas, proponer ideas, compartir avances y conversar con otras personas interesadas en el desarrollo de cohetería experimental.
+Por el momento, TheRocketProject cuenta con una comunidad en crecimiento. Te invitamos a unirte a nuestra [comunidad deGitHub](https://github.com/cdealbagtz/TheRocketProject/discussions), donde podrás hacer preguntas, proponer ideas, compartir avances y conversar con otras personas interesadas en el desarrollo de cohetería experimental.
 
 También puedes enviar un mensaje al siguiente correo:
 
