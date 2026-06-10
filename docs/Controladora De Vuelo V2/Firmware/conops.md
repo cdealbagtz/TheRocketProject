@@ -501,9 +501,9 @@ Acciones esperadas:
 * Desactivar salidas críticas.
 * Esperar recuperación física del cohete.
 
-### 7.12 FAULT
+### 7.13 FAULT
 
-Si en cualquiera de los estados se presentó un evento considerado como catastrofico que permite volver a una operación normal o degradada de la operación, se considera que el sistema entro en un estado de `FAULT`:
+Si en cualquiera de los estados se presentó un evento considerado como catastrofico que impide volver a una operación normal o degradada de la operación, se considera que el sistema entro en un estado de `FAULT`:
 
 !!! danger "Acciones después de entrar al estado"
     Si entra antes de que se haya armado:
