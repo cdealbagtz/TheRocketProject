@@ -5,7 +5,7 @@ TheRocketProject es un proyecto de código y hardware abierto orientado al desar
 Cualquier contribución es bienvenida, desde correcciones pequeñas en la documentación hasta propuestas de firmware, hardware, herramientas de análisis, procedimientos de prueba o contenido técnico relacionado con cohetería.
 
 !!! note "Proyecto en etapa inicial"
-TheRocketProject se encuentra en una etapa temprana de desarrollo. La estructura, documentación, firmware y hardware pueden cambiar conforme el proyecto evolucione. Las contribuciones tempranas son especialmente valiosas para definir buenas prácticas desde el inicio.
+    TheRocketProject se encuentra en una etapa temprana de desarrollo. La estructura, documentación, firmware y hardware pueden cambiar conforme el proyecto evolucione. Las contribuciones tempranas son especialmente valiosas para definir buenas prácticas desde el inicio.
 
 ## Formas de contribuir
 
@@ -50,17 +50,20 @@ Las contribuciones técnicas deben mantenerse dentro de un enfoque educativo, ex
 
 ## Flujo general de contribución
 
-**El flujo recomendado para contribuir es el siguiente: **
+**El flujo recomendado para contribuir es el siguiente:**
 
 1. Revisa la documentación existente.
 2. Busca si ya existe un `issue` relacionado con tu propuesta. Puedes revizar en el siguiente enlace: [Issues](https://github.com/cdealbagtz/TheRocketProject/issues). 
 3. Crea un nuevo `issue` si quieres reportar un error, proponer una mejora o discutir una idea.
 4. Haz un fork del repositorio.
 5. Crea una rama nueva para tu contribución.
-6. Realiza los cambios.
-7. Prueba los cambios en local.
-8. Envía un pull request.
-9. Espera revisión y realiza ajustes si es necesario.
+6. Si es un cambio mayor, agregalo al [concepto de operaciones](Controladora%20De%20Vuelo%20V2/Firmware/conops.md) y genera los requerimientos que satisface.
+7. Actualiza la arquitectura del proyecto según corresponda.
+7. Realiza los cambios.
+8. Prueba los cambios en local.
+9. Genera la documentación del cambio y las pruebas correspondientes.
+10. Envía un pull request.
+11. Espera revisión y realiza ajustes si es necesario.
 
 ## Crear una rama de trabajo
 
@@ -245,6 +248,7 @@ Las pruebas son una parte fundamental del proyecto. Una contribución de prueba 
 
 Una prueba bien documentada debería incluir:
 
+* Versión a probar.
 * Objetivo de la prueba.
 * Material necesario.
 * Configuración inicial.
@@ -259,6 +263,8 @@ Ejemplo de estructura:
 
 ```md
 # Prueba de almacenamiento en Blackbox
+
+##Versión a probar.
 
 ## Objetivo
 
@@ -287,7 +293,7 @@ Un buen reporte debería contener:
 * Pasos para reproducirlo.
 * Comportamiento esperado.
 * Comportamiento observado.
-* Versión del firmware o hardware.
+* Versión del firmware y/o hardware.
 * Capturas, logs o imágenes si están disponibles.
 * Condiciones en las que ocurrió el problema.
 
@@ -415,7 +421,7 @@ Canales recomendados:
 
 * GitHub Issues para errores, propuestas y tareas.
 * Pull Requests para cambios concretos.
-* Discord para discusión general, dudas y coordinación de la comunidad.
+* comunidad de GitHub para discusión general, dudas y coordinación de la comunidad.
 
 Te invitamos a unirte a nuestra [comunidad de GitHub](https://github.com/cdealbagtz/TheRocketProject/discussions).
 
