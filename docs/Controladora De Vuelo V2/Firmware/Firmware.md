@@ -4,20 +4,15 @@ El firmware de la Controladora de Vuelo V2 es el software embebido encargado de 
 
 Esta sección documenta la arquitectura general del firmware, su estructura de módulos, el flujo de ejecución, los drivers implementados, el manejo de errores y los procedimientos necesarios para compilar y cargar el programa en la tarjeta.
 
-## Objetivos del firmware
+## 1.1Objetivos del firmware
 
-- Inicializar los periféricos principales de la tarjeta.
-- Adquirir datos de sensores inerciales y ambientales.
-- Registrar datos de vuelo en memoria externa.
-- Administrar la comunicación por USB, UART, CAN o LoRa.
-- Ejecutar eventos de misión de forma controlada.
-- Proporcionar una base extensible para futuras funciones de control y telemetría.
+El objetivo de el firmware es cumplir de forma segura y eficiente con el [concepto de operaciones](conops.md), buscando que todas las directivas de diseño y requerimientos se cumplan satisfactoriamente para garantizar una operación confiable y segura del sistema. El [concepto de operaciones](conops.md) brinda
 
-## Estructura general
+## 1.2Estructura general
 
 El firmware se organiza en módulos independientes para facilitar su mantenimiento y expansión. Cada módulo cumple una función específica dentro del sistema, como adquisición de sensores, almacenamiento, comunicación, control de salidas o administración de estados.
 
-## Páginas relacionadas
+## 1.3Páginas relacionadas
 
 - [Arquitectura del firmware](arquitectura.md)
 - [Mensajes en Blackbox](Blackbox.md)

@@ -4,6 +4,8 @@ theme:
   name: material
   logo: Logo.svg
   favicon: Logo.svg
+  features:
+    - navigation.sections
   font:
     text: Roboto
     code: Roboto Mono
@@ -15,6 +17,8 @@ theme:
         name: Dark Mode
       primary: grey
       accent: blue grey
+      media: "(prefers-color-scheme: dark)"
+      
     # Light Mode
     - scheme: default
       toggle:
@@ -22,6 +26,7 @@ theme:
         name: Light Mode
       primary: grey
       accent: blue grey
+      media: "(prefers-color-scheme: light)"
 
 markdown_extensions:
   - admonition

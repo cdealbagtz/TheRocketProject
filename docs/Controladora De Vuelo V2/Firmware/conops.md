@@ -1,7 +1,9 @@
 # Concepto de Operaciones
 
 **Sistema:** Controladora de Vuelo V2
+
 **Versión:** v0.1
+
 **Fecha:** 09/06/2026
 
 ---
@@ -22,19 +24,9 @@ El CONOPS sirve como base para derivar:
 * Casos de prueba.
 * Matriz de trazabilidad.
 
-!!! info "Enfoque DO-178C"
-Este proyecto no busca certificación formal DO-178C.
-
-```
-Sin embargo, adopta sus principios de desarrollo basado en requisitos, trazabilidad, verificación, control de configuración y generación de evidencia objetiva.
-```
-
-!!! info "Estado de la telemetría"
-La telemetría se considera una función en desarrollo (**W.I.P.**) y no forma parte del alcance funcional mínimo de esta versión del sistema.
-
-```
 La controladora deberá ser capaz de ejecutar la misión de forma autónoma usando sensores embarcados, lógica interna de misión y registro local de datos.
-```
+
+!!! info "Estado de la telemetría: La telemetría se considera una función en desarrollo (**W.I.P.**) y no forma parte del alcance funcional mínimo de esta versión del sistema."
 
 ---
 
@@ -53,12 +45,7 @@ Su función principal es:
 
 La controladora puede integrar sensores inerciales, sensores ambientales, almacenamiento externo, interfaces de comunicación y salidas de actuación.
 
-!!! warning "Principio de seguridad"
-Las funciones críticas de seguridad, como recuperación y salidas pirotécnicas, deben operar de forma independiente de funciones no críticas como telemetría, USB o logging extendido.
-
-```
-La telemetría no deberá ser necesaria para ejecutar detección de lanzamiento, detección de MECO, detección de apogeo, recuperación o registro local de eventos críticos.
-```
+!!! warning "Principio de seguridad: Las funciones críticas de seguridad, como recuperación y salidas pirotécnicas, deben operar de forma independiente de funciones no críticas como telemetría, USB o logging extendido."
 
 ---
 
@@ -66,7 +53,7 @@ La telemetría no deberá ser necesaria para ejecutar detección de lanzamiento,
 
 El sistema cubre las operaciones desde la preparación previa al lanzamiento hasta la descarga y análisis de datos.
 
-### Incluido
+### Incluido:
 
 * Encendido del sistema.
 * Autodiagnóstico.
@@ -80,13 +67,13 @@ El sistema cubre las operaciones desde la preparación previa al lanzamiento has
 * Manejo de fallas.
 * Descarga de datos por interfaz local, si aplica.
 
-### No incluido en esta versión
+### No incluido en esta versión:
 
 * Sistemas de control de rate, actitud, trayectoria, etc.
 * Sistema de transmisión de telemetría. Actualmente se considera una función **W.I.P.**
 * Obtención de posición GNSS.
+* Estimación de actitud.
 * Control activo del vehículo.
-* Certificación formal bajo DO-178C.
 
 ---
 
@@ -98,7 +85,7 @@ El sistema cubre las operaciones desde la preparación previa al lanzamiento has
 | Equipo de integración   | Responsable de instalar la controladora en el cohete y verificar conexiones.                                                                                    |
 | Cohete                  | Vehículo portador de la controladora.                                                                                                                           |
 | Sistema de recuperación | Paracaídas, mecanismos de despliegue o cargas controladas por la tarjeta.                                                                                       |
-| Estación de tierra      | Computadora o interfaz USB utilizada para configuración, descarga de datos y revisión post-vuelo. La telemetría en tiempo real se considera una función futura. |
+| Estación de tierra      | Radiocontrol o interfaz USB utilizada para configuración, descarga de datos y revisión post-vuelo. La telemetría en tiempo real se considera una función futura.|
 | Firmware                | Software embebido encargado de ejecutar la lógica de misión.                                                                                                    |
 | Hardware de seguridad   | Elementos físicos de protección, inhibición, potencia y aislamiento.                                                                                            |
 
@@ -110,13 +97,12 @@ Para esta versión del CONOPS se asume lo siguiente:
 
 * El cohete es experimental y de uso académico.
 * La controladora se energiza antes del lanzamiento.
-* El sistema cuenta con al menos una IMU y un sensor barométrico.
+* El sistema cuenta con al menos una IMU y un sensor barométrico operativos.
 * Existen salidas dedicadas para eventos de recuperación.
 * Las salidas críticas permanecen desactivadas después de encendido o reset.
 * El armado del sistema requiere una acción explícita.
 * El firmware registra datos durante la misión.
 * La controladora debe ejecutar la misión de forma autónoma, sin depender de telemetría.
-* La telemetría se considera una función **W.I.P.** y no forma parte de las funciones críticas de esta versión.
 * La seguridad tiene prioridad sobre logging, comunicación, telemetría o descarga de datos.
 
 ---
@@ -153,12 +139,38 @@ La descripción de cada estado, sus tareas principales y condiciones de transici
 
 ```mermaid
 %%{init: {
+  "theme": "base",
   "flowchart": {
     "htmlLabels": true,
-    "curve": "linear"
+    "curve": "basis",
+    "nodeSpacing": 45,
+    "rankSpacing": 55
   },
   "themeVariables": {
-    "fontSize": "16px"
+    "background": "#ffffff",
+    "mainBkg": "#ffffff",
+    "fontFamily": "Roboto, Arial, sans-serif",
+    "fontSize": "16px",
+
+    "primaryColor": "#e3f2fd",
+    "primaryTextColor": "#0d1b2a",
+    "primaryBorderColor": "#1565c0",
+
+    "secondaryColor": "#fff3e0",
+    "secondaryTextColor": "#0d1b2a",
+    "secondaryBorderColor": "#ef6c00",
+
+    "tertiaryColor": "#e8f5e9",
+    "tertiaryTextColor": "#0d1b2a",
+    "tertiaryBorderColor": "#2e7d32",
+
+    "lineColor": "#37474f",
+    "textColor": "#0d1b2a",
+    "titleColor": "#0d1b2a",
+    "edgeLabelBackground": "#ffffff",
+
+    "clusterBkg": "#f8fafc",
+    "clusterBorder": "#90a4ae"
   }
 }}%%
 
@@ -180,7 +192,6 @@ flowchart TB
     subgraph RECOVERY["Recuperación"]
         RECOVERY_DEPLOYED["RECOVERY<br/>DEPLOYED"] --> DESCENT["DESCENT"]
         DESCENT --> LANDED["LANDED"]
-        LANDED --> POST["POST<br/>FLIGHT"]
     end
 
     ARMED --> BOOST
@@ -192,6 +203,7 @@ flowchart TB
     BOOST -.-> FAULT
     COAST -.-> FAULT
     DESCENT -.-> FAULT
+    RECOVERY_DEPLOYED -.-> FAULT
 
     classDef normal fill:#e3f2fd,stroke:#1565c0,stroke-width:1px,color:#0d1b2a;
     classDef flight fill:#fff3e0,stroke:#ef6c00,stroke-width:1px,color:#0d1b2a;
@@ -208,11 +220,13 @@ flowchart TB
 
 ## 7. Fases de operación
 
+Las fases de operación determinan el estado actual de la misión, las consideraciones que se deben de tener y las limitaciones operativas y de decisión que se tienen en cada etapa. Es importante definirlas para mantener la seguridad operativa en todo momento una vez inicializa la misión hasta que termina. Las fases de misión consideradas se encuentran detalladas en este capítulo.
+
 ### 7.1 Preparación en tierra
 
 Durante esta fase, la controladora puede estar fuera del cohete o integrada parcialmente.
 
-Actividades principales:
+**Actividades principales:**
 
 * Verificar versión de firmware.
 * Cargar parámetros de misión.
@@ -222,16 +236,13 @@ Actividades principales:
 * Preparar almacenamiento de datos.
 * Validar comunicación local con la estación de tierra, si aplica.
 
-!!! note "Resultado esperado"
-La controladora queda configurada y lista para integración o armado.
+!!! note "Resultado esperado: La controladora queda configurada y lista para integración o armado."
 
 ---
 
 ### 7.2 Encendido
 
-Al recibir alimentación, el sistema debe entrar en una condición segura.
-
-Acciones esperadas:
+Al recibir alimentación, el sistema debe entrar en una condición segura. El sistema inicializa en `SAFE` y **realiza las siguientes acciones**:
 
 * Inicializar microcontrolador.
 * Inicializar periféricos.
@@ -242,8 +253,9 @@ Acciones esperadas:
 * Cargar configuración.
 * Validar integridad de parámetros.
 
-!!! danger "Regla crítica"
-Después de cualquier encendido o reset, ninguna salida pirotécnica deberá activarse automáticamente.
+Al completar la lista de tareas, pasa al estado de `SELF_TEST`
+
+!!! danger "Regla crítica: Después de cualquier encendido o reset, ninguna salida pirotécnica deberá ser capaz de activarse automáticamente."
 
 ---
 
@@ -251,18 +263,17 @@ Después de cualquier encendido o reset, ninguna salida pirotécnica deberá act
 
 El sistema verifica que los módulos mínimos estén disponibles.
 
-Verificaciones recomendadas:
 
-| Módulo             | Verificación esperada                  |
-| ------------------ | -------------------------------------- |
-| IMU                | Comunicación y lectura válida.         |
-| Barómetro          | Comunicación y presión inicial válida. |
-| Memoria            | Montaje, escritura o disponibilidad.   |
-| Batería            | Voltaje dentro del rango permitido.    |
-| Configuración      | CRC, versión y parámetros válidos.     |
-| Salidas críticas   | Estado apagado confirmado.             |
-| Watchdog           | Inicializado y activo.                 |
-| Tiempo del sistema | Temporizador funcional.                |
+| Módulo             | Verificación esperada                       |
+| ------------------ | ------------------------------------------- |
+| IMU                | Comunicación y lectura válida.              |
+| Barómetro          | Comunicación y presión inicial válida.      |
+| Memoria            | Escritura o disponibilidad.                 |
+| Configuración      | CRC, versión y parámetros válidos.          |
+| Salidas críticas   | Estado apagado confirmado.                  |
+| Watchdog           | Inicializado y activo.                      |
+| Tiempo del sistema | Sistema operativo en tiempo real funcional. |
+
 
 Resultados posibles:
 
@@ -270,7 +281,9 @@ Resultados posibles:
 | -------------------- | --------------------------------------------- |
 | Diagnóstico aprobado | Pasar a `STANDBY`.                            |
 | Falla no crítica     | Permitir operación degradada con advertencia. |
-| Falla crítica        | Pasar a `FAULT` o permanecer en `SAFE`.       |
+| Falla crítica        | Pasar a `FAULT`.                              |
+
+!!! info "Si la dirección de memoria asignada a el registro de `FAULT` se encuentra en `0xAA`, cambia el estado automáticamente a `FAULT`."
 
 ---
 
@@ -282,7 +295,6 @@ Ejemplos de parámetros:
 
 * Frecuencia de logging.
 * Umbral de detección de lanzamiento.
-* Tiempo mínimo para habilitar detección de apogeo.
 * Criterios de detección de apogeo.
 * Temporizador de respaldo para recuperación.
 * Duración de activación de salidas.
@@ -291,8 +303,9 @@ Ejemplos de parámetros:
 * Parámetros de comunicación local, si aplica.
 * Parámetros de telemetría reservados para versiones futuras.
 
-!!! warning "Restricción"
-No se deberán modificar parámetros críticos cuando el sistema esté en `ARMED`, `BOOST`, `COAST`, `APOGEE_DETECTED`, `RECOVERY_DEPLOYED` o `DESCENT`.
+Para información detallada de las configuraciones actuales, consulta el apartado de [Configuraciones](configuraciones.md).
+
+!!! warning "Restricción: No deberán ser modificables parámetros críticos cuando el sistema esté en `ARMED`, `BOOST`, `COAST`, `APOGEE_DETECTED`, `RECOVERY_DEPLOYED` o `DESCENT`."
 
 ---
 
@@ -304,11 +317,9 @@ Condiciones mínimas para armar:
 
 * Autodiagnóstico aprobado.
 * Configuración válida.
-* Batería suficiente.
 * Sensores mínimos disponibles.
 * Salidas críticas en estado apagado.
 * Comando explícito de armado.
-* Confirmación física o lógica, si aplica.
 
 Estado resultante:
 
@@ -316,12 +327,7 @@ Estado resultante:
 ARMED
 ```
 
-!!! danger "Condición de seguridad"
-El estado `ARMED` no debe activar salidas críticas.
-
-```
-Únicamente habilita la lógica de detección de lanzamiento y posterior ejecución de misión.
-```
+!!! danger "Condición de seguridad: El estado `ARMED` no debe activar salidas críticas. Únicamente habilita la lógica de detección de lanzamiento y posterior ejecución de misión."
 
 ---
 
@@ -373,8 +379,7 @@ Criterios posibles para pasar a `COAST`:
 
 * Aceleración cae por debajo de un umbral.
 * Tiempo desde lanzamiento supera la duración esperada de motor.
-* Cambio en el perfil dinámico.
-* Condición configurada por misión.
+* La derivada de la velocidad vertical es negativa y menor a un umbral.
 
 ---
 
@@ -427,8 +432,7 @@ Acciones esperadas:
 * Bloquear reactivaciones no deseadas.
 * Pasar a `RECOVERY_DEPLOYED`.
 
-!!! warning "Restricción"
-La activación de recuperación deberá ocurrir una sola vez por evento, salvo que se defina explícitamente una lógica redundante.
+!!! warning "Restricción: La activación de recuperación deberá ocurrir una sola vez por evento, salvo que se defina explícitamente una lógica redundante."
 
 ---
 
@@ -495,28 +499,37 @@ Acciones esperadas:
 * Desactivar salidas críticas.
 * Esperar recuperación física del cohete.
 
----
+### 7.12 Aterrizaje
 
-### 7.13 Post-vuelo
+Si en cualquiera de los estados se presentó un evento considerado como catastrofico que permite volver a una operación normal o degradada de la operación, se considera que el sistema entro en un estado de `FAULT`:
 
-Después de recuperar el cohete, el operador descarga los datos.
+!!! danger "Acciones después de entrar al estado"
+    Si entra antes de que se haya armado:
+    
+    * Todos los actuadores y cargas pirotecnicas pasan a valor de `SAFE`.
 
-Estado:
+    * Desabilita la capacidad de armar el sistema.
 
-```text
-POST_FLIGHT
-```
+    * Escribe en la memoria flash interna del microcontrolador, en la dirección de memoria asignada un valor de `0xAA`.
 
-Actividades:
+    * Bloquea todos los comandos USB excepto FAULT_REGISTER.
 
-* Desarmar el sistema.
-* Apagar alimentación crítica.
-* Descargar logs.
-* Verificar integridad de datos.
-* Exportar archivo de vuelo.
-* Analizar eventos.
-* Documentar anomalías.
-* Preparar reporte de vuelo.
+
+    Si entra después de que el sistema se encuentre armado (Haya pasado por el estado de `Armed`):
+    
+    * Inicia un temporizador para ejecutar la tarea de despliegue del sistema de recuperación con el tiempo de falla configurado, si el valor es invalido o no puede ser leído, el temporizador por default es de 5 segundos.
+
+    * Una vez completada la secuencia, todos los actuadores y cargas pirotecnicas pasan a valor de `SAFE`.
+
+    * Escribe en la memoria flash interna del microcontrolador, en la dirección de memoria asignada un valor de `0xAA`.
+
+    * Bloquea todos los comandos USB excepto FAULT_REGISTER.
+
+
+
+
+!!! warning "Bajo ningún concepto el sistema debe volver a operar una vez presentada la falla. La única forma de regresar el registro a su estado seguro es enviando un comando para sobreescribir la dirección de memoria con un valor de `0x00`, lo que inicializará el sistema en estado `SAFE`"
+
 
 ---
 
@@ -529,9 +542,7 @@ Actividades:
 | Falla de memoria flash      | Continuar misión; registrar eventos mínimos si existe memoria alternativa.  |
 | Telemetría no disponible    | No afecta la misión nominal. La controladora debe operar de forma autónoma. |
 | Falla de IMU                | Usar barómetro o temporizador de respaldo, si está definido.                |
-| Falla de barómetro          | Usar IMU o temporizador de respaldo, si está definido.                      |
-| Batería baja en tierra      | Impedir armado.                                                             |
-| Batería baja en vuelo       | Priorizar recuperación y registro mínimo.                                   |
+| Falla de barómetro          | Usar IMU o temporizador de respaldo si en vuelo, no permite armado.         |
 | Sensor incoherente          | Rechazar muestra, filtrar o pasar a modo degradado.                         |
 | Comando inválido            | Rechazar comando y registrar evento.                                        |
 | Watchdog timeout            | Reiniciar sistema en condición segura.                                      |
@@ -648,22 +659,22 @@ La misión de la controladora se considera exitosa si:
 
 ---
 
-## 14. Relación con requisitos
+## 14. Relación con requerimientos
 
-A partir de este CONOPS se derivarán los siguientes grupos de requisitos:
+A partir de este CONOPS se derivarán los siguientes grupos de requerimientos:
 
-| Grupo       | Descripción                                                          |
-| ----------- | -------------------------------------------------------------------- |
-| `SYS-OPR`   | Requisitos operacionales.                                            |
-| `SYS-SAFE`  | Requisitos de seguridad.                                             |
-| `SYS-FSM`   | Requisitos de máquina de estados.                                    |
-| `SYS-SENS`  | Requisitos de sensores.                                              |
-| `SYS-REC`   | Requisitos de recuperación.                                          |
-| `SYS-LOG`   | Requisitos de logging.                                               |
-| `SYS-COM`   | Requisitos de comunicación local y futuras interfaces de telemetría. |
-| `SYS-PWR`   | Requisitos de alimentación.                                          |
-| `SYS-FAULT` | Requisitos de manejo de fallas.                                      |
-| `SYS-TEST`  | Requisitos de verificación.                                          |
+| Grupo       | Descripción                                                              |
+| ----------- | ------------------------------------------------------------------------ |
+| `SYS-OPR`   | requerimientos operacionales.                                            |
+| `SYS-SAFE`  | requerimientos de seguridad.                                             |
+| `SYS-FSM`   | requerimientos de máquina de estados.                                    |
+| `SYS-SENS`  | requerimientos de sensores.                                              |
+| `SYS-REC`   | requerimientos de recuperación.                                          |
+| `SYS-LOG`   | requerimientos de logging.                                               |
+| `SYS-COM`   | requerimientos de comunicación local y futuras interfaces de telemetría. |
+| `SYS-PWR`   | requerimientos de alimentación.                                          |
+| `SYS-FAULT` | requerimientos de manejo de fallas.                                      |
+| `SYS-TEST`  | requerimientos de verificación.                                          |
 
 ---
 
@@ -679,31 +690,6 @@ A partir de este CONOPS se derivarán los siguientes grupos de requisitos:
 | `SYS-COM-001`   | La controladora deberá ejecutar la misión nominal sin depender de telemetría en tiempo real.                                                                   | CONOPS, Secciones 3, 5 y 10       | Prueba funcional sin módulo de comunicación conectado. |
 | `SYS-FAULT-001` | El sistema deberá entrar en un estado de falla controlada cuando se detecte una falla crítica.                                                                 | CONOPS, Sección 9                 | Inyección de fallas.                                   |
 | `SYS-PWR-001`   | La controladora deberá impedir el armado si el voltaje de batería se encuentra por debajo del umbral configurado.                                              | CONOPS, Sección 7.3               | Prueba con fuente variable.                            |
-
----
-
-## 16. Trazabilidad inicial
-
-```mermaid
-%%{init: {
-  "flowchart": {
-    "htmlLabels": true,
-    "curve": "linear"
-  },
-  "themeVariables": {
-    "fontSize": "16px"
-  }
-}}%%
-
-flowchart TB
-    A["CONOPS"] --> B["Requisitos<br/>de sistema"]
-    B --> C["Requisitos<br/>de software"]
-    C --> D["Diseño de<br/>arquitectura"]
-    D --> E["Implementación"]
-    E --> F["Pruebas"]
-    F --> G["Evidencia"]
-    G --> H["Reporte de<br/>verificación"]
-```
 
 ---
 

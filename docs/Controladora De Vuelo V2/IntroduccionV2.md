@@ -4,7 +4,7 @@ La **Controladora de Vuelo V2** es el primer desarrollo de hardware y firmware d
 
 Esta tarjeta fue diseñada como una base de desarrollo abierta, documentada y extensible. A partir de ella, estudiantes, desarrolladores e investigadores pueden implementar funciones específicas para sus propios vehículos, integrar nuevos sensores, modificar el firmware, realizar pruebas en tierra y analizar datos de vuelo.
 
-![ControladoraDeVueloV2_IMG1](Controladora_v2_img1.jpg)
+![ControladoraDeVueloV2_IMG1](Diagrama%20visual%20de%20conexiones.png)
 
 ## Objetivo de la tarjeta
 
