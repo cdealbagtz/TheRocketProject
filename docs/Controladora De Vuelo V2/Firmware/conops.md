@@ -10,11 +10,9 @@
 
 ## 1. Propósito
 
-Este documento define el **Concepto de Operaciones**, o **CONOPS**, de la Controladora de Vuelo para Cohete Experimental.
+Este documento define el **Concepto de Operaciones**, o **CONOPS**, de la Controladora de Vuelo para Cohete Experimental. Su propósito es describir cómo se utilizará la controladora durante una misión completa, desde la preparación en tierra hasta la recuperación del vehículo y el análisis post-vuelo.
 
 ![Ilustración de estados operativos](Diagrama%20ilustrativo%20del%20perfil%20de%20misión.png)
-
-Su propósito es describir cómo se utilizará la controladora durante una misión completa, desde la preparación en tierra hasta la recuperación del vehículo y el análisis post-vuelo.
 
 El CONOPS sirve como base para derivar:
 
@@ -97,7 +95,7 @@ El sistema cubre las operaciones desde la preparación previa al lanzamiento has
 
 Para esta versión del CONOPS se asume lo siguiente:
 
-* El cohete es experimental y de uso académico.
+* El cohete es experimental y de uso académico o de investigación.
 * La controladora se energiza antes del lanzamiento.
 * El sistema cuenta con al menos una IMU y un sensor barométrico operativos.
 * Existen salidas dedicadas para eventos de recuperación.
@@ -133,7 +131,7 @@ La controladora se organiza mediante una máquina de estados. Cada estado limita
 
 En el diagrama se pueden apreciar los diferentes estados de la controladora. Los estados de pre-lanzamiento agrupan los procedimientos de inicio seguro, autodiagnóstico, espera, configuración y armado. En esta fase no se podrán activar las cargas pirotécnicas, y los actuadores deberán mantenerse en su estado seguro.
 
-Para armar el sistema será necesario enviar un comando válido de activación, ya sea por una interfaz de configuración o mediante SBUS en el canal configurado para armado, si esta función se encuentra habilitada.
+Para armar el sistema será necesario enviar un comando válido de activación, ya sea por una interfaz de configuración o mediante SBUS en el canal configurado para armado si esta función se encuentra habilitada.
 
 Las etapas de vuelo comienzan con la detección del empuje generado por el motor y terminan con la detección del apogeo. Finalmente, se continúa con el despliegue del sistema de recuperación, el cual habilita la activación controlada de las salidas de recuperación y cambia la configuración de actuadores a su estado de despliegue, si aplica.
 
@@ -197,6 +195,7 @@ flowchart TB
     end
 
     ARMED --> BOOST
+    ARMED --> STBY
     APOGEE --> RECOVERY_DEPLOYED
 
     SAFE -.-> FAULT["FAULT"]
@@ -235,10 +234,15 @@ Durante esta fase, la controladora puede estar fuera del cohete o integrada parc
 * Verificar estado físico de la tarjeta.
 * Revisar conexiones.
 * Confirmar que las salidas críticas estén inhibidas.
-* Preparar almacenamiento de datos.
-* Validar comunicación local con la estación de tierra, si aplica.
 
 !!! note "Resultado esperado: La controladora queda configurada y lista para integración o armado."
+
+!!! warning "Precaución"
+    Los interruptores físicos de armado de carga pirotecnica no deben ser activados hasta verificar que los encendedores electronicos estén bíen colocados. Los interruptores físicos de armado de cara pirotecnica se muestran a continuación. Son independientes para cada canal y solo deben ser activados si serán utilizados y si se comprobó el funcionamiento adecuado de la controladora. 
+
+    Es responsabilidad del usuario colocar estos interruptores en cualquier presentación. No se recomienda puentear directamente los pines ya que representa una violación a la seguridad operacional.
+  
+  ![Interruptores](Zoom_In_InterruptoresPirotecnia.png)
 
 ---
 
@@ -296,6 +300,7 @@ El operador puede cargar o revisar parámetros de misión.
 Ejemplos de parámetros:
 
 * Frecuencia de logging.
+* Eliminar logs de vuelo anteriores.
 * Umbral de detección de lanzamiento.
 * Criterios de detección de apogeo.
 * Temporizador de respaldo para recuperación.
@@ -325,9 +330,7 @@ Condiciones mínimas para armar:
 
 Estado resultante:
 
-```text
-ARMED
-```
+`ARMED`
 
 !!! danger "Condición de seguridad: El estado `ARMED` no debe activar salidas críticas. Únicamente habilita la lógica de detección de lanzamiento y posterior ejecución de misión."
 
@@ -337,7 +340,7 @@ ARMED
 
 El cohete se encuentra instalado en la rampa. La controladora monitorea sensores buscando la condición de lanzamiento.
 
-Acciones del sistema:
+**Acciones del sistema:**
 
 * Registrar datos.
 * Monitorear aceleración.
@@ -347,26 +350,33 @@ Acciones del sistema:
 * Esperar detección de lanzamiento.
 * Reservar el envío de estado por telemetría para versiones futuras.
 
-Criterios posibles de lanzamiento:
+**Criterios posibles de lanzamiento:**
 
-| Criterio    | Descripción                                               |
-| ----------- | --------------------------------------------------------- |
-| Aceleración | Aceleración longitudinal mayor a un umbral.               |
-| Altitud     | Cambio positivo de altitud durante una ventana de tiempo. |
-| Combinado   | Aceleración y cambio de altitud coherentes.               |
-| Externo     | Señal externa de lanzamiento, si existe.                  |
+| Criterio             | Descripción                                                                   |
+| ----------- -------- | ----------------------------------------------------------------------------- |
+| Aceleración          | Vector de aceleración mayor a un umbral configurado.                          |
+| Altitud              | Altitud actual es mayor a la de armado por un umbral configurado .            |
+| Velocidad vertical   | Velocidad vetical es mayor a el umbral configurado.                           |
 
+**Criterios para desarmar dispositivo:**
+
+| Criterio      | Descripción                                               |
+| -----------   | --------------------------------------------------------- |
+| Falla crítica | Sensores o perifericos presentan falla crítica.           |
+| Comando       | Se recibe comando para desarmar vehículo.                 |
+
+
+!!! info "Al menos 2 condiciones deben ser ciertas para cambiar de estado a **`BOOST`**."
 ---
 
 ### 7.7 Ascenso propulsado
 
 Durante el ascenso inicial, el cohete está bajo empuje del motor.
 
-Estado:
+Estado resultante:
 
-```text
-BOOST
-```
+**`BOOST`**
+
 
 Acciones del sistema:
 
@@ -374,10 +384,10 @@ Acciones del sistema:
 * Monitorear aceleraciones.
 * Estimar altitud.
 * Detectar fin de empuje o MECO, si aplica.
-* Ignorar falsas condiciones de apogeo.
+* Evitar despliegue del sistema de recuperación mientras sensores se encuentran sometidos a condiciones extremas.
 * Mantener bloqueadas acciones no permitidas.
 
-Criterios posibles para pasar a `COAST`:
+**Criterios para pasar a `COAST`:**
 
 * Aceleración cae por debajo de un umbral.
 * Tiempo desde lanzamiento supera la duración esperada de motor.
@@ -391,11 +401,9 @@ Después del fin de empuje, el cohete continúa ascendiendo hasta apogeo.
 
 Estado:
 
-```text
-COAST
-```
+**`COAST`**
 
-Acciones del sistema:
+**Acciones del sistema:**
 
 * Estimar altitud.
 * Estimar velocidad vertical.
@@ -404,15 +412,15 @@ Acciones del sistema:
 * Registrar eventos.
 * Preparar lógica de recuperación.
 
-Criterios posibles para detectar apogeo:
+**Criterios posibles para detectar apogeo:**
 
-| Criterio           | Descripción                                                                  |
-| ------------------ | ---------------------------------------------------------------------------- |
-| Velocidad vertical | La velocidad vertical estimada cambia de positiva a negativa.                |
-| Máximo local       | La altitud barométrica alcanza un máximo local.                              |
-| Tiempo mínimo      | La detección solo se habilita después de un tiempo mínimo desde lanzamiento. |
-| Persistencia       | La condición debe mantenerse durante varias muestras.                        |
-| Respaldo           | Se activa recuperación por temporizador si no se detecta apogeo.             |
+| **Criterio**           | **Descripción**                                                                   |
+| ---------------------- | ----------------------------------------------------------------------------      |
+| **Velocidad vertical** | La velocidad vertical estimada cambia de positiva a negativa.                     |
+| **Máximo local**       | La altitud barométrica alcanza un máximo local y desciende del umbral configurado.|
+| **Tiempo mínimo**      | La detección solo se habilita después de un tiempo mínimo desde lanzamiento.      |
+| **Persistencia**       | La condición debe mantenerse durante varias muestras.                             |
+| **Respaldo**           | Se activa recuperación por temporizador si no se detecta apogeo.                  |
 
 ---
 
@@ -420,13 +428,11 @@ Criterios posibles para detectar apogeo:
 
 El apogeo es el evento principal para iniciar recuperación.
 
-Estado:
+**Estado:**
 
-```text
-APOGEE_DETECTED
-```
+**`APOGEE_DETECTED`**
 
-Acciones esperadas:
+**Acciones esperadas:**
 
 * Registrar evento de apogeo.
 * Solicitar activación de recuperación.
@@ -442,19 +448,18 @@ Acciones esperadas:
 
 Una vez detectado el apogeo, el sistema ejecuta el evento de recuperación.
 
-Estado:
+**Estado:**
 
-```text
-RECOVERY_DEPLOYED
-```
+**`RECOVERY_DEPLOYED`**
 
-Acciones esperadas:
+**Acciones esperadas:**
 
 * Activar la salida configurada.
 * Mantener la salida activa durante el tiempo definido.
 * Desactivar la salida al finalizar el pulso.
 * Registrar inicio y fin de activación.
 * Cambiar al estado `DESCENT`.
+   
 
 ---
 
@@ -462,23 +467,20 @@ Acciones esperadas:
 
 Durante el descenso, la controladora continúa registrando datos.
 
-Estado:
+**Estado:**
 
-```text
-DESCENT
-```
+**`DESCENT`**
 
-Acciones esperadas:
+**Acciones esperadas:**
 
 * Registrar presión, altitud, aceleración y orientación.
 * Monitorear posible apertura de paracaídas.
 * Detectar aterrizaje.
-* Reservar el monitoreo remoto por telemetría para versiones futuras.
+* Reducir frecuencia de logs.
 
-Criterios posibles para detectar aterrizaje:
+**Criterios posibles para detectar aterrizaje:**
 
 * Altitud estable durante una ventana de tiempo.
-* Aceleración cercana a reposo.
 * Velocidad vertical aproximada a cero.
 * Tiempo máximo de vuelo alcanzado.
 
@@ -488,16 +490,14 @@ Criterios posibles para detectar aterrizaje:
 
 El sistema considera que el vuelo terminó.
 
-Estado:
+**Estado:**
 
-```text
-LANDED
-```
+**`LANDED`**
 
-Acciones esperadas:
+**Acciones esperadas:**
 
 * Registrar evento de aterrizaje.
-* Cerrar archivo de datos, si es posible.
+* Detener Log de vuelo.
 * Desactivar salidas críticas.
 * Esperar recuperación física del cohete.
 
@@ -506,18 +506,18 @@ Acciones esperadas:
 Si en cualquiera de los estados se presentó un evento considerado como catastrofico que impide volver a una operación normal o degradada de la operación, se considera que el sistema entro en un estado de `FAULT`:
 
 !!! danger "Acciones después de entrar al estado"
-    Si entra antes de que se haya armado:
+    **Si entra antes de que haya armado detectado lanzamiento (**`BOOST`**):**
     
     * Todos los actuadores y cargas pirotecnicas pasan a valor de `SAFE`.
 
-    * Desabilita la capacidad de armar el sistema.
+    * Desabilita la capacidad de armar el sistema o en caso estar armado, lo desarma.
 
     * Escribe en la memoria flash interna del microcontrolador, en la dirección de memoria asignada un valor de `0xAA`.
 
     * Bloquea todos los comandos USB excepto FAULT_REGISTER.
 
 
-    Si entra después de que el sistema se encuentre armado (Haya pasado por el estado de `Armed`):
+    **Si entra después de que el sistema haya detectado el lanzamiento (**`BOOST`**):**
     
     * Inicia un temporizador para ejecutar la tarea de despliegue del sistema de recuperación con el tiempo de falla configurado, si el valor es invalido o no puede ser leído, el temporizador por default es de 5 segundos.
 
@@ -542,12 +542,10 @@ Si en cualquiera de los estados se presentó un evento considerado como catastro
 | Reset antes del lanzamiento | Reiniciar en `SAFE`; salidas apagadas.                                      |
 | Reset durante vuelo         | Recuperar o inferir estado seguro; evitar activaciones accidentales.        |
 | Falla de memoria flash      | Continuar misión; registrar eventos mínimos si existe memoria alternativa.  |
-| Telemetría no disponible    | No afecta la misión nominal. La controladora debe operar de forma autónoma. |
-| Falla de IMU                | Usar barómetro o temporizador de respaldo, si está definido.                |
-| Falla de barómetro          | Usar IMU o temporizador de respaldo si en vuelo, no permite armado.         |
-| Sensor incoherente          | Rechazar muestra, filtrar o pasar a modo degradado.                         |
+| Falla de IMU                | Usar barómetro o temporizador de respaldo.                                  |
+| Falla de barómetro          | No permite armado. Usar temporizador de respaldo si en vuelo.               |
 | Comando inválido            | Rechazar comando y registrar evento.                                        |
-| Watchdog timeout            | Reiniciar sistema en condición segura.                                      |
+| Watchdog timeout            | Reiniciar sistema en condición segura si antes de lanzamiento, si después de vuelo Usar temporizador de respaldo y terminar todas las     tareas                                                                                                      |
 
 ---
 
@@ -585,7 +583,7 @@ flowchart TD
 
 ## 10. Reglas de seguridad
 
-Estas reglas deben convertirse en requisitos verificables.
+Estas reglas deben convertirse en requerimientos verificables.
 
 | ID preliminar   | Regla                                                                                                                                                                         |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -634,7 +632,6 @@ La controladora deberá producir, como mínimo:
 * Eventos críticos con timestamp.
 * Estado de misión.
 * Lecturas de sensores.
-* Estado de batería.
 * Estado de salidas.
 * Código de fallas.
 * Versión de firmware.
@@ -686,12 +683,12 @@ A partir de este CONOPS se derivarán los siguientes grupos de requerimientos:
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ------------------------------------------------------ |
 | `SYS-FSM-001`   | La controladora deberá implementar una máquina de estados de misión que controle las transiciones entre operación en tierra, vuelo, recuperación y post-vuelo. | CONOPS, Sección 6                 | Revisión de diseño y prueba de integración.            |
 | `SYS-SAFE-001`  | La controladora deberá mantener todas las salidas críticas desactivadas después de encendido, reset o entrada a estado seguro.                                 | CONOPS, Secciones 7.2 y 10        | Prueba HIL, revisión de código y prueba de reset.      |
-| `SYS-SAFE-002`  | La controladora deberá impedir el armado cuando exista una falla crítica activa.                                                                               | CONOPS, Secciones 7.3 y 10        | Prueba funcional.                                      |
+| `SYS-SAFE-002`  | La controladora deberá impedir el armado cuando exista una falla crítica activa.                                                                               | CONOPS, Secciones 7.3 y 10        | Simulación de estado de falla y reinicio de la controladora.                                      |
+| `SYS-SAFE-003`  | La controladora no podrá salir del **`FAULT`** automáticamente y requieire un operador para desactivarlo por comandos.                   | CONOPS, Secciones 7.3 y 7.13 | Prueba Funcional.        |
 | `SYS-REC-001`   | La controladora deberá activar el sistema de recuperación cuando se detecte apogeo o cuando se cumpla una condición de respaldo configurada.                   | CONOPS, Secciones 7.8, 7.9 y 7.10 | Simulación, prueba HIL y prueba de integración.        |
 | `SYS-LOG-001`   | La controladora deberá registrar eventos críticos con timestamp.                                                                                               | CONOPS, Sección 11                | Revisión de log y prueba funcional.                    |
 | `SYS-COM-001`   | La controladora deberá ejecutar la misión nominal sin depender de telemetría en tiempo real.                                                                   | CONOPS, Secciones 3, 5 y 10       | Prueba funcional sin módulo de comunicación conectado. |
 | `SYS-FAULT-001` | El sistema deberá entrar en un estado de falla controlada cuando se detecte una falla crítica.                                                                 | CONOPS, Sección 9                 | Inyección de fallas.                                   |
-| `SYS-PWR-001`   | La controladora deberá impedir el armado si el voltaje de batería se encuentra por debajo del umbral configurado.                                              | CONOPS, Sección 7.3               | Prueba con fuente variable.                            |
 
 ---
 

@@ -6,11 +6,11 @@ Esta sección documenta la arquitectura general del firmware, su estructura de m
 
 ## 1.1 Objetivos del firmware
 
-El objetivo de el firmware es cumplir de forma segura y eficiente con el [concepto de operaciones](conops.md), buscando definir todas las fases operativas, los agentes que conforman el sistema, las acciones esperadas y el como deben realizarlas para lograr que todas las directivas de diseño y requerimientos se cumplan satisfactoriamente garantizando una operación confiable y segura del sistema, así como sistemas de falla predecibles y que reduzcan los riesgos operativos. 
+El objetivo de el firmware es cumplir de forma segura y eficiente con el [concepto de operaciones](conops.md), buscando definir todas las fases operativas, los agentes que conforman el sistema, las acciones esperadas y el como deben realizarlas para lograr que todas las directivas de diseño y requerimientos se cumplan satisfactoriamente, garantizando una operación confiable y segura del sistema, así como sistemas de falla predecibles y que reduzcan los riesgos operativos. 
 
 ## 1.2 Estructura general
 
-El firmware se organiza en módulos independientes para facilitar su mantenimiento y expansión. Cada módulo cumple una función específica dentro del sistema, como adquisición de sensores, almacenamiento, comunicación, control de salidas o administración de estados.
+El firmware se organiza en módulos independientes para facilitar su mantenimiento y expansión. Cada módulo cumple una función específica dentro del sistema, como adquisición de sensores, almacenamiento, comunicación, control de salidas o administración de estados y debe de estar asociado a un requerimiento. En caso de expandir la funcionalidad de la tarjeta, deberá justificarse y documentarse en el [concepto de operaciones](conops.md), además de crear los requerimientos tecnicos asociados, esto para garantizar la seguridad operacional.
 
 ## 1.3 Páginas relacionadas
 
@@ -18,3 +18,4 @@ El firmware se organiza en módulos independientes para facilitar su mantenimien
 - [Mensajes en Blackbox](Blackbox.md)
 - [Telemetría y comandos](telemetria-comandos.md)
 - [Compilación y carga](compilacion-carga.md)
+- [Configurar entorno de desarrollo](entorno-desarrollo.md)
