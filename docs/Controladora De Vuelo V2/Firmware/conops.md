@@ -577,7 +577,7 @@ flowchart TD
 ```
 
 !!! danger "Prioridad del estado FAULT"
-En una falla crítica, el sistema debe priorizar la seguridad de la misión sobre logging, comunicación o funciones auxiliares.
+    En una falla crítica, el sistema debe priorizar la seguridad de la misión sobre logging, comunicación o funciones auxiliares.
 
 ---
 
