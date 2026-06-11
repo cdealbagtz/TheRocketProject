@@ -12,11 +12,17 @@ El objetivo de el firmware es cumplir de forma segura y eficiente con el [concep
 
 El firmware se organiza en módulos independientes para facilitar su mantenimiento y expansión. Cada módulo cumple una función específica dentro del sistema, como adquisición de sensores, almacenamiento, comunicación, control de salidas o administración de estados y debe de estar asociado a un requerimiento. En caso de expandir la funcionalidad de la tarjeta, deberá justificarse y documentarse en el [concepto de operaciones](conops.md), además de crear los requerimientos tecnicos asociados, esto para garantizar la seguridad operacional.
 
-## 3. Páginas relacionadas
+## 3. Primeros pasos
 
+Si es tu primera vez desarrollando firmware para TheRocketProject o en STM32CubeIDE te recomendamos seguir el siguiente documento donde se explica a detalle el procedimiento para cargar firmware en la tarjeta y crear una función para entender el como se desarrolla el firmware y como se gestiona dentro del microcontrolador:
+
+[Primeros pasos](primeros-pasos.md)
+
+## 4. Páginas relacionadas
+
+- [Primeros pasos](primeros-pasos.md)
 - [Configurar entorno de desarrollo](entorno-desarrollo.md)
 - [Arquitectura del firmware](arquitectura.md)
 - [Mensajes en Blackbox](Blackbox.md)
 - [Telemetría y comandos](telemetria-comandos.md)
-- [Compilación y carga](compilacion-carga.md)
 

@@ -303,12 +303,16 @@ Después de programar la tarjeta, se recomienda realizar una verificación inici
 | Error al generar código desde CubeMX | Versión incompatible o archivo `.ioc` dañado              | Verifica la versión de CubeMX y conserva una copia de seguridad.  |
 | La documentación no compila          | Enlaces rotos, imágenes faltantes o error en `mkdocs.yml` | Ejecuta `mkdocs build --strict` y corrige los errores reportados. |
 
+## Siguientes pasos:
+
+Una vez configurado el entorno de desarrollo te recomendamos hacer la guia de [primeros pasos](primeros-pasos.md) para crear tu primer función y entender como se desarrolla en el entorno de trabajo. También se recomienda revisar el apartado de [¿Cómo contribuir?](../../Contribuir.md) para ver los "guidelines" de desarrollo, generar "ISUES" e interactuar con la comunidad.
+
 ## Páginas relacionadas
 
 * [Arquitectura del firmware](arquitectura.md)
 * [Mensajes en Blackbox](Blackbox.md)
 * [Telemetría y comandos](telemetria-comandos.md)
-* [Compilación y carga](compilacion-carga.md)
+
 
 ```
 ```
