@@ -28,6 +28,8 @@ La tarjeta puede dividirse en los siguientes bloques funcionales:
 
 ## Páginas relacionadas
 
-- [Especificaciones técnicas](especificaciones.md)
-- [Conectores y pinout](conectores-pinout.md)
-- [Archivos de fabricación](archivos-fabricacion.md)
+* [Consideraciones de diseño](consideraciones-diseno.md)
+* [Especificaciones técnicas](especificaciones.md)
+* [Alimentación](alimentacion.md)
+* [Conectores y pinout](conectores-pinout.md)
+* [Archivos de fabricación](archivos-fabricacion.md)
