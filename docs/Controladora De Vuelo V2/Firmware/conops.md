@@ -506,7 +506,7 @@ El sistema considera que el vuelo terminó.
 Si en cualquiera de los estados se presentó un evento considerado como catastrofico que impide volver a una operación normal o degradada de la operación, se considera que el sistema entro en un estado de `FAULT`:
 
 !!! danger "Acciones después de entrar al estado"
-    **Si entra antes de que haya armado detectado lanzamiento (**`BOOST`**):**
+    **Si entra antes de que haya detectado lanzamiento (**`BOOST`**):**
     
     * Todos los actuadores y cargas pirotecnicas pasan a valor de `SAFE`.
 

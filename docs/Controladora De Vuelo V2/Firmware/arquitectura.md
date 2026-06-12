@@ -250,17 +250,6 @@ flowchart TB
 | Post-despliegue | `RECOVERY_DEPLOYED`, `DESCENT`, `LANDED`                 | Ejecutar recuperación, evitar reactivación, registrar descenso y detectar aterrizaje. |
 | Falla           | `FAULT`                                                  | Llevar el sistema a una condición segura y bloquear operación normal.                 |
 
-!!! danger "Tareas críticas"
-Durante vuelo no deberán suspenderse:
-
-```
-* `MissionManagerTask`
-* `FaultTask`
-* `ActuatorsTask`
-* `SensorTask`
-* `FlightEventTask`
-* `WatchdogTask`
-```
 
 ```mermaid
 %%{init: {
@@ -330,6 +319,14 @@ flowchart TB
 
     linkStyle default stroke:#37474f,stroke-width:1.8px;
 ```
+!!! danger "Tareas críticas"
+    Durante vuelo no deberán suspenderse:
+
+    * `MissionManagerTask`
+    * `FaultTask`
+    * `ActuatorsTask`
+    * `MemoryTask`
+    * `INSTask`
 
 ---
 
