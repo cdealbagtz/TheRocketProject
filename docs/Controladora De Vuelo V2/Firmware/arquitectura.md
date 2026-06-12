@@ -2,8 +2,11 @@
 # Arquitectura de Software
 
 **Sistema:** Controladora de Vuelo V2
+
 **Versión:** v0.1
+
 **Fecha:** 12/06/26
+
 **Estado:** Propuesta inicial
 
 ---
