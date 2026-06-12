@@ -1,15 +1,10 @@
----
-
-title: Arquitectura de Software
-description: Arquitectura de software basada en FreeRTOS para la Controladora de Vuelo V2
------------------------------------------------------------------------------------------
 
 # Arquitectura de Software
 
 **Sistema:** Controladora de Vuelo V2
 **Versión:** v0.1
-**Fecha:** Pendiente
-**Estado:** Borrador técnico
+**Fecha:** 12/06/26
+**Estado:** Propuesta inicial
 
 ---
 
