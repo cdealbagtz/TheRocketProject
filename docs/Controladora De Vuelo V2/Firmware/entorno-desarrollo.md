@@ -286,10 +286,9 @@ o utiliza el botón de depuración del IDE.
 Después de programar la tarjeta, se recomienda realizar una verificación inicial:
 
 * Confirmar que la tarjeta enciende correctamente.
-* Verificar que no existan errores de alimentación.
 * Revisar la salida de depuración, si está disponible.
 * Confirmar la inicialización de sensores.
-* Verificar la comunicación USB, UART, CAN o LoRa según corresponda.
+* Verificar la comunicación USB, UART, CAN según corresponda.
 * Revisar que el sistema permanezca en un estado seguro.
 * Confirmar que las salidas críticas estén deshabilitadas por defecto.
 
