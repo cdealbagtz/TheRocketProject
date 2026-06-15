@@ -1,0 +1,4 @@
+../Core/Src/freertos.c:152:6:StartMissionManager	1
+../Core/Src/freertos.c:170:6:StartActuatorsTask	1
+../Core/Src/freertos.c:188:6:StartMemoryTask	1
+../Core/Src/freertos.c:104:6:MX_FREERTOS_Init	1

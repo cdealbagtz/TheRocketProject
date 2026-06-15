@@ -1,0 +1,9 @@
+../Core/Inc/Drivers/Memory_Drivers/S25FL064L.c:24:6:write_enable	1
+../Core/Inc/Drivers/Memory_Drivers/S25FL064L.c:32:6:write_disable	1
+../Core/Inc/Drivers/Memory_Drivers/S25FL064L.c:39:10:S25FL064_ID	1
+../Core/Inc/Drivers/Memory_Drivers/S25FL064L.c:49:6:S25FL064_Read	1
+../Core/Inc/Drivers/Memory_Drivers/S25FL064L.c:63:6:S25FL064_Write	2
+../Core/Inc/Drivers/Memory_Drivers/S25FL064L.c:82:6:S25FL064_Erase	1
+../Core/Inc/Drivers/Memory_Drivers/S25FL064L.c:98:6:S25FL064_chipErase	1
+../Core/Inc/Drivers/Memory_Drivers/S25FL064L.c:107:6:resetFlash	1
+../Core/Inc/Drivers/Memory_Drivers/S25FL064L.c:116:19:S25FL064_init	2

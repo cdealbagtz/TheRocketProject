@@ -1,0 +1,2 @@
+../Core/Inc/System/System.c:15:6:System_SetSystemLed	16	static
+../Core/Inc/System/System.c:40:6:System_StartParachuteDeployment	16	static

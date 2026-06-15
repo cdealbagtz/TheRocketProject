@@ -1,0 +1,4 @@
+../Core/Src/freertos.c:152:6:StartMissionManager	8	static
+../Core/Src/freertos.c:170:6:StartActuatorsTask	8	static
+../Core/Src/freertos.c:188:6:StartMemoryTask	8	static
+../Core/Src/freertos.c:104:6:MX_FREERTOS_Init	8	static

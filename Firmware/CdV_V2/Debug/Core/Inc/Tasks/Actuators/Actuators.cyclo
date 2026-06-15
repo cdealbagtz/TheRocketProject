@@ -1,0 +1,8 @@
+../Core/Inc/Tasks/Actuators/Actuators.c:12:6:Actuators_setSafeValues	1
+../Core/Inc/Tasks/Actuators/Actuators.c:19:19:Actuators_InitChannels	5
+../Core/Inc/Tasks/Actuators/Actuators.c:39:6:Actuators_ChangeChannelValue	12
+../Core/Inc/Tasks/Actuators/Actuators.c:87:19:Actuators_SetFrequency	2
+../Core/Inc/Tasks/Actuators/Actuators.c:96:19:Actuators_Init	2
+../Core/Inc/Tasks/Actuators/Actuators.c:106:19:Actuators_ChangeConfig	5
+../Core/Inc/Tasks/Actuators/Actuators.c:127:6:Actuators_buzzerNotifications	19
+../Core/Inc/Tasks/Actuators/Actuators.c:211:6:Actuators_Task	11
