@@ -113,7 +113,7 @@ const osThreadAttr_t CommandInterfac_attributes = {
 };
 /* Definitions for ConfigTask */
 osThreadId_t ConfigTaskHandle;
-uint32_t ConfigTaskBuffer[ 256 ];
+uint32_t ConfigTaskBuffer[ 512 ];
 osStaticThreadDef_t ConfigTaskControlBlock;
 const osThreadAttr_t ConfigTask_attributes = {
   .name = "ConfigTask",
