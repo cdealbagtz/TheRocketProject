@@ -30,7 +30,9 @@ Core/Inc/Tasks/Initializer/Initializer.o: \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h \
  ../Core/Inc/System/System.h ../Core/Inc/gpio.h ../Core/Inc/main.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
+ ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
+ ../Core/Inc/Tasks/Actuators/Actuators.h ../Core/Inc/tim.h \
+ ../Core/Inc/Tasks/Config/Config.h
 ../Core/Inc/Tasks/Initializer/Initializer.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
@@ -65,3 +67,6 @@ Core/Inc/Tasks/Initializer/Initializer.o: \
 ../Core/Inc/gpio.h:
 ../Core/Inc/main.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
+../Core/Inc/Tasks/Actuators/Actuators.h:
+../Core/Inc/tim.h:
+../Core/Inc/Tasks/Config/Config.h:

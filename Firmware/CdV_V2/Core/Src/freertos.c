@@ -28,7 +28,7 @@
 #include "System/System.h"
 #include "Tasks/MissionManager/MissionManager.h"
 #include "Tasks/Actuators/Actuators.h"
-
+#include "Tasks/Memory/Memory.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -169,6 +169,21 @@ osMessageQueueId_t Actuator_QueueHandle;
 const osMessageQueueAttr_t Actuator_Queue_attributes = {
   .name = "Actuator_Queue"
 };
+/* Definitions for Memory_writeQueue */
+osMessageQueueId_t Memory_writeQueueHandle;
+const osMessageQueueAttr_t Memory_writeQueue_attributes = {
+  .name = "Memory_writeQueue"
+};
+/* Definitions for Memory_readQueue */
+osMessageQueueId_t Memory_readQueueHandle;
+const osMessageQueueAttr_t Memory_readQueue_attributes = {
+  .name = "Memory_readQueue"
+};
+/* Definitions for Memory_requestQueue */
+osMessageQueueId_t Memory_requestQueueHandle;
+const osMessageQueueAttr_t Memory_requestQueue_attributes = {
+  .name = "Memory_requestQueue"
+};
 /* Definitions for DeployParachuteTimer */
 osTimerId_t DeployParachuteTimerHandle;
 const osTimerAttr_t DeployParachuteTimer_attributes = {
@@ -178,6 +193,11 @@ const osTimerAttr_t DeployParachuteTimer_attributes = {
 osTimerId_t ParachuteDeploymentPulseHandle;
 const osTimerAttr_t ParachuteDeploymentPulse_attributes = {
   .name = "ParachuteDeploymentPulse"
+};
+/* Definitions for MemoryMutex */
+osMutexId_t MemoryMutexHandle;
+const osMutexAttr_t MemoryMutex_attributes = {
+  .name = "MemoryMutex"
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -225,6 +245,9 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
+  /* Create the mutex(es) */
+  /* creation of MemoryMutex */
+  MemoryMutexHandle = osMutexNew(&MemoryMutex_attributes);
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
@@ -251,6 +274,15 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of Actuator_Queue */
   Actuator_QueueHandle = osMessageQueueNew (8, sizeof(Actuator_Request_t), &Actuator_Queue_attributes);
+
+  /* creation of Memory_writeQueue */
+  Memory_writeQueueHandle = osMessageQueueNew (6, sizeof(Memory_Write_t), &Memory_writeQueue_attributes);
+
+  /* creation of Memory_readQueue */
+  Memory_readQueueHandle = osMessageQueueNew (6, sizeof(Memory_Read_t), &Memory_readQueue_attributes);
+
+  /* creation of Memory_requestQueue */
+  Memory_requestQueueHandle = osMessageQueueNew (6, sizeof(Memory_ReadRequest_t), &Memory_requestQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -346,7 +378,8 @@ void StartMemoryTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(20);
+	Memory_Task();
+    osDelay(5);
   }
   /* USER CODE END StartMemoryTask */
 }

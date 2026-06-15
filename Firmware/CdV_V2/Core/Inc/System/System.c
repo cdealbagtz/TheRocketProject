@@ -8,7 +8,6 @@
 
 #include "System.h"
 
-
 /*Global system variables*/
 System_MissionState_e MissionState = STATE_SAFE;
 

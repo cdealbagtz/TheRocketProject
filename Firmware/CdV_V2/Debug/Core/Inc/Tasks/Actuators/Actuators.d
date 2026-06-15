@@ -32,6 +32,7 @@ Core/Inc/Tasks/Actuators/Actuators.o: \
  ../Core/Inc/tim.h ../Core/Inc/main.h ../Core/Inc/System/System.h \
  ../Core/Inc/gpio.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
+ ../Core/Inc/Tasks/Actuators/Actuators.h \
  ../Core/Inc/Tasks/Config/Config.h
 ../Core/Inc/Tasks/Actuators/Actuators.h:
 ../Core/Inc/main.h:
@@ -68,4 +69,5 @@ Core/Inc/Tasks/Actuators/Actuators.o: \
 ../Core/Inc/System/System.h:
 ../Core/Inc/gpio.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
+../Core/Inc/Tasks/Actuators/Actuators.h:
 ../Core/Inc/Tasks/Config/Config.h:

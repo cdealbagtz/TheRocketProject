@@ -31,6 +31,23 @@ typedef enum{
 	Actuators_Buzzer
 }Actuators_Type;
 
+typedef enum{
+	Actuators_SetValueID,
+	Actuators_BufferSetID,
+	Actuators_SetFreqID,
+	Actuators_SafeValuesID,
+	Actuators_ChangeConfigID,
+	Actuators_InitID
+}Actuators_RequestID;
+
+typedef struct{
+	uint8_t  RequestID;
+	uint8_t  Channel;
+	uint16_t Data;
+}Actuator_Request_t;
+
+extern osMessageQueueId_t Actuator_QueueHandle;
+
 void Actuators_Task(void);
 
 #endif /* INC_TASKS_ACTUATORS_ACTUATORS_H_ */

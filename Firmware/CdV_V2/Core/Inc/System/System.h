@@ -12,6 +12,8 @@
 #include "gpio.h"
 #include "cmsis_os2.h"
 
+#include "Tasks/Actuators/Actuators.h"
+
 #define System_ledHeartbeat 1000
 #define System_ledWarning   100
 
@@ -73,31 +75,26 @@ typedef enum{
 }Actuators_Notifications;
 
 typedef enum{
-	Actuators_SetValueID,
-	Actuators_BufferSetID,
-	Actuators_SetFreqID,
-	Actuators_SafeValuesID,
-	Actuators_ChangeConfigID,
-	Actuators_InitID
-}Actuators_RequestID;
+	Memory_InitComplete,
+	Memory_InitFailed,
+	Memory_ChipEraseStarted,
+	Memory_ChipEraseCompleted,
+	Memory_ConfigEraseStarted,
+	Memory_ConfigEraseCompleted
+}Memory_Notifications;
 
 typedef struct{
 	System_TaskID 	NotificationID;
 	uint8_t 		NotificationInfo;
 }System_Notification_t;
 
-typedef struct{
-	uint8_t  RequestID;
-	uint8_t  Channel;
-	uint16_t Data;
-}Actuator_Request_t;
+
 
 /*Global system variables*/
 extern System_MissionState_e MissionState;
 
 /*Queues ID*/
 extern osMessageQueueId_t System_QueueHandle;
-extern osMessageQueueId_t Actuator_QueueHandle;
 
 extern osTimerId_t DeployParachuteTimerHandle;
 extern osTimerId_t ParachuteDeploymentPulseHandle;

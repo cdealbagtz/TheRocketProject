@@ -1,2 +1,2 @@
-../Core/Inc/System/System.c:15:6:System_SetSystemLed	7
-../Core/Inc/System/System.c:40:6:System_StartParachuteDeployment	1
+../Core/Inc/System/System.c:14:6:System_SetSystemLed	7
+../Core/Inc/System/System.c:39:6:System_StartParachuteDeployment	1

@@ -12,11 +12,9 @@
 #include "GPIO.h"
 #include "SPI.h"
 
+
+
 #define Flash_MaxWaitTime 20
-
-#define Configuration_Page 	0
-#define Blackbox_Page		16
-
 #define hflash hspi1
 
 uint32_t S25FL064_ID(void);

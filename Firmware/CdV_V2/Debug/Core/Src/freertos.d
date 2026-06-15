@@ -40,9 +40,12 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../Core/Inc/System/System.h ../Core/Inc/gpio.h ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
- ../Core/Inc/Tasks/MissionManager/MissionManager.h \
  ../Core/Inc/Tasks/Actuators/Actuators.h ../Core/Inc/tim.h \
- ../Core/Inc/Tasks/Config/Config.h
+ ../Core/Inc/Tasks/Config/Config.h \
+ ../Core/Inc/Tasks/MissionManager/MissionManager.h \
+ ../Core/Inc/Tasks/Memory/Memory.h \
+ ../Core/Inc/Drivers/Memory_Drivers/S25FL064L.h ../Core/Inc/GPIO.h \
+ ../Core/Inc/SPI.h
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -87,7 +90,11 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
 ../Core/Inc/gpio.h:
 ../Core/Inc/main.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
-../Core/Inc/Tasks/MissionManager/MissionManager.h:
 ../Core/Inc/Tasks/Actuators/Actuators.h:
 ../Core/Inc/tim.h:
 ../Core/Inc/Tasks/Config/Config.h:
+../Core/Inc/Tasks/MissionManager/MissionManager.h:
+../Core/Inc/Tasks/Memory/Memory.h:
+../Core/Inc/Drivers/Memory_Drivers/S25FL064L.h:
+../Core/Inc/GPIO.h:
+../Core/Inc/SPI.h:

@@ -10,10 +10,10 @@
 Actuator_ConfigPackage_t TestActuatorConfig;
 
 void Actuators_setSafeValues(Actuator_Config_t *ConfigData){
-	htim2.Instance->CCR1 = (uint16_t)ConfigData->Channel[0].InitialValue+1000;
-	htim2.Instance->CCR2 = (uint16_t)ConfigData->Channel[1].InitialValue+1000;
-	htim2.Instance->CCR3 = (uint16_t)ConfigData->Channel[2].InitialValue+1000;
-	htim2.Instance->CCR4 = (uint16_t)ConfigData->Channel[3].InitialValue+1000;
+	htim2.Instance->CCR1 = (uint16_t)ConfigData->Channel[0].InitialValue+500;
+	htim2.Instance->CCR2 = (uint16_t)ConfigData->Channel[1].InitialValue+500;
+	htim2.Instance->CCR3 = (uint16_t)ConfigData->Channel[2].InitialValue+500;
+	htim2.Instance->CCR4 = (uint16_t)ConfigData->Channel[3].InitialValue+500;
 }
 
 HAL_StatusTypeDef Actuators_InitChannels(Actuator_Config_t *ConfigData){
