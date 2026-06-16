@@ -11,8 +11,24 @@ void MissionManager_ActuatorsNotifications(void){
 
 }
 
-void MissionManager_InitializerNotifications(void){
-
+void MissionManager_InitializerNotifications(Initializer_Notifications_e Initializer_Notifications){
+	switch (Initializer_Notifications) {
+		case Initializer_SafeDone:
+			MissionState = STATE_SELFTEST;
+			break;
+		case Initializer_SelfTestDone:
+			MissionState = STATE_STANDBY;
+			break;
+		case Initializer_TimeExceeded:
+			MissionState = STATE_FAULT;
+			break;
+		case Initializer_FaultRegister:
+			MissionState = STATE_FAULT;
+			break;
+		default:
+			MissionState = STATE_FAULT;
+			break;
+	}
 }
 
 uint8_t ConfigRequestTest = 0;
@@ -24,6 +40,7 @@ uint8_t PutMessageTest = 0;
 
 void MissionManager_Task(void){
 	System_Notification_t System_Notification;
+	static System_LedStatus_e System_LedStatus = System_ledOK;
 
 	while(osMessageQueueGetCount(System_QueueHandle)>0){
 		osMessageQueueGet(System_QueueHandle, &System_Notification, 0, 0);
@@ -36,6 +53,7 @@ void MissionManager_Task(void){
 
 				break;
 			case TaskID_Initializer:
+				MissionManager_InitializerNotifications(System_Notification.NotificationInfo);
 
 				break;
 			case TaskID_CommandInterface:
@@ -58,16 +76,6 @@ void MissionManager_Task(void){
 
 			}
 	}
-
-	if(PutMessageTest == 1){
-
-		osMessageQueuePut(Actuator_QueueHandle, &Actuator_RequestTest, 0, 0);
-		PutMessageTest = 0;
-	}
-	else if(PutMessageTest == 2){
-		osMessageQueuePut(Config_RequestHandle, &ConfigRequestTest, 0, 0);
-		PutMessageTest = 0;
-	}
-	System_SetSystemLed(0);
+	System_SetSystemLed(System_LedStatus);
 }
 

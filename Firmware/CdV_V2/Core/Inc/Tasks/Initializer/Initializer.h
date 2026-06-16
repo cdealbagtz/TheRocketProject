@@ -10,12 +10,14 @@
 
 #include "main.h"
 #include "System/System.h"
+#include "Tasks/Actuators/Actuators.h"
+#include "Tasks/Config/Config.h"
 
 /*  Max init time in ms
  */
 
-#define Initializer_MaxTime 5000
+#define Initializer_MaxTime 15000
 
-void InitializerTasks(void);
+void Initializer_Task(void);
 
 #endif /* INC_TASKS_INITIALIZER_INITIALIZER_H_ */

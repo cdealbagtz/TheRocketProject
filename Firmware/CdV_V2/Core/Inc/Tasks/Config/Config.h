@@ -21,7 +21,8 @@ typedef enum{
 
 typedef enum{
 	Config_ReadRequest,
-	Config_WriteRequest
+	Config_WriteRequest,
+	Config_SetDefaultRequest
 }Config_Request_e;
 
 typedef struct{

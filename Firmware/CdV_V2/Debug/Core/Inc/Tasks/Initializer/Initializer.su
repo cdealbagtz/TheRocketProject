@@ -1,2 +1,1 @@
-../Core/Inc/Tasks/Initializer/Initializer.c:11:6:SafeTask	4	static
-../Core/Inc/Tasks/Initializer/Initializer.c:15:6:InitializerTasks	16	static
+../Core/Inc/Tasks/Initializer/Initializer.c:15:6:Initializer_Task	24	static

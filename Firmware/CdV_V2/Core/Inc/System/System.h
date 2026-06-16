@@ -66,13 +66,13 @@ typedef enum{
 	Initializer_SelfTestDone,
 	Initializer_FaultRegister,
 	Initializer_TimeExceeded
-}Initializer_Notifications;
+}Initializer_Notifications_e;
 
 typedef enum{
 	Actuators_InitComplete,
 	Actuators_InitFailed,
 	Actuators_Fault
-}Actuators_Notifications;
+}Actuators_Notifications_e;
 
 typedef enum{
 	Memory_InitComplete,
@@ -81,7 +81,7 @@ typedef enum{
 	Memory_ChipEraseCompleted,
 	Memory_ConfigEraseStarted,
 	Memory_ConfigEraseCompleted
-}Memory_Notifications;
+}Memory_Notifications_e;
 
 typedef struct{
 	System_TaskID 	NotificationID;

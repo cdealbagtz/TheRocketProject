@@ -30,6 +30,7 @@
 #include "Tasks/Actuators/Actuators.h"
 #include "Tasks/Memory/Memory.h"
 #include "Tasks/Config/Config.h"
+#include "Tasks/Initializer/Initializer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -406,6 +407,7 @@ void StartInitializerTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
+	Initializer_Task();
     osDelay(100);
   }
   /* USER CODE END StartInitializerTask */
