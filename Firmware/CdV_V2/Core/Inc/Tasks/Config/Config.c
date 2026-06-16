@@ -23,7 +23,7 @@ void Config_Task(void){
 		if(Request == Config_ReadRequest){
 			if(osMutexAcquire(MemoryMutexHandle, 5000)==0){
 				Memory_ReadRequest.Adress = 0x00;
-				Memory_ReadRequest.Size = 255;
+				Memory_ReadRequest.Size = 256;
 				osMessageQueuePut(Memory_requestQueueHandle, &Memory_ReadRequest, 0, 0);
 				while(osMessageQueueGetCount(Memory_readQueueHandle)==0){
 					osDelay(5);

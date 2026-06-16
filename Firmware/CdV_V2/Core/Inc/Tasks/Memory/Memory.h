@@ -27,7 +27,7 @@ typedef struct{
 
 typedef struct{
 	uint32_t Adress;
-	uint8_t Size;
+	uint32_t Size;
 }Memory_ReadRequest_t;
 
 typedef enum{
