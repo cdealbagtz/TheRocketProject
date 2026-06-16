@@ -29,6 +29,7 @@
 #include "Tasks/MissionManager/MissionManager.h"
 #include "Tasks/Actuators/Actuators.h"
 #include "Tasks/Memory/Memory.h"
+#include "Tasks/Config/Config.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -184,6 +185,11 @@ osMessageQueueId_t Memory_requestQueueHandle;
 const osMessageQueueAttr_t Memory_requestQueue_attributes = {
   .name = "Memory_requestQueue"
 };
+/* Definitions for Config_Request */
+osMessageQueueId_t Config_RequestHandle;
+const osMessageQueueAttr_t Config_Request_attributes = {
+  .name = "Config_Request"
+};
 /* Definitions for DeployParachuteTimer */
 osTimerId_t DeployParachuteTimerHandle;
 const osTimerAttr_t DeployParachuteTimer_attributes = {
@@ -283,6 +289,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of Memory_requestQueue */
   Memory_requestQueueHandle = osMessageQueueNew (6, sizeof(Memory_ReadRequest_t), &Memory_requestQueue_attributes);
+
+  /* creation of Config_Request */
+  Config_RequestHandle = osMessageQueueNew (4, sizeof(uint8_t), &Config_Request_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -433,6 +442,7 @@ void StartConfigTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
+	Config_Task();
     osDelay(200);
   }
   /* USER CODE END StartConfigTask */

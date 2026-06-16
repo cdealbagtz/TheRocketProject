@@ -1,3 +1,3 @@
 ../Core/Inc/Tasks/MissionManager/MissionManager.c:10:6:MissionManager_ActuatorsNotifications	1
 ../Core/Inc/Tasks/MissionManager/MissionManager.c:14:6:MissionManager_InitializerNotifications	1
-../Core/Inc/Tasks/MissionManager/MissionManager.c:24:6:MissionManager_Task	3
+../Core/Inc/Tasks/MissionManager/MissionManager.c:25:6:MissionManager_Task	4

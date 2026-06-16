@@ -7,7 +7,7 @@
 
 #include "Actuators.h"
 
-Actuator_ConfigPackage_t TestActuatorConfig;
+
 
 void Actuators_setSafeValues(Actuator_Config_t *ConfigData){
 	htim2.Instance->CCR1 = (uint16_t)ConfigData->Channel[0].InitialValue+500;
@@ -208,8 +208,11 @@ void Actuators_buzzerNotifications(System_BuzzerNotifications_e ConfigState, Act
 }
 
 
+
 void Actuators_Task(void){
+
 	Actuator_Request_t Actuator_Request;
+	Actuator_Config_t Actuator_Config = Config_Configuration.Actuator_ConfigPackage.Actuator_Config;
 	static System_Notification_t System_Notification;
 	System_BuzzerNotifications_e BuzzerConfig = System_buzzerNoChange;
 
@@ -217,7 +220,7 @@ void Actuators_Task(void){
 		osMessageQueueGet(Actuator_QueueHandle, &Actuator_Request, 0, 0);
 		switch (Actuator_Request.RequestID) {
 			case Actuators_SetValueID:
-				Actuators_ChangeChannelValue(&TestActuatorConfig.Actuator_Config, Actuator_Request.Channel, Actuator_Request.Data);
+				Actuators_ChangeChannelValue(&Actuator_Config, Actuator_Request.Channel, Actuator_Request.Data);
 				break;
 			case Actuators_BufferSetID:
 				BuzzerConfig = Actuator_Request.Data;
@@ -230,19 +233,19 @@ void Actuators_Task(void){
 				}
 				break;
 			case Actuators_SafeValuesID:
-				Actuators_setSafeValues(&TestActuatorConfig.Actuator_Config);
+				Actuators_setSafeValues(&Actuator_Config);
 				break;
 			case Actuators_ChangeConfigID:
 
 
-				if(Actuators_ChangeConfig(&TestActuatorConfig.Actuator_Config) != HAL_OK){
+				if(Actuators_ChangeConfig(&Actuator_Config) != HAL_OK){
 					System_Notification.NotificationID = TaskID_Actuators;
 					System_Notification.NotificationInfo = Actuators_InitFailed;
 					osMessageQueuePut(System_QueueHandle, &System_Notification, 0, 0);
 				}
 				break;
 			case Actuators_InitID:
-				if(Actuators_Init(&TestActuatorConfig.Actuator_Config) != HAL_OK){
+				if(Actuators_Init(&Actuator_Config) != HAL_OK){
 					System_Notification.NotificationID = TaskID_Actuators;
 					System_Notification.NotificationInfo = Actuators_InitFailed;
 				}
@@ -256,7 +259,7 @@ void Actuators_Task(void){
 				break;
 		}
 	}
-	Actuators_buzzerNotifications(BuzzerConfig, &TestActuatorConfig.Actuator_Config);
+	Actuators_buzzerNotifications(BuzzerConfig, &Actuator_Config);
 }
 
 

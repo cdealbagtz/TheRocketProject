@@ -5,4 +5,4 @@
 ../Core/Inc/Tasks/Actuators/Actuators.c:96:19:Actuators_Init	2
 ../Core/Inc/Tasks/Actuators/Actuators.c:106:19:Actuators_ChangeConfig	5
 ../Core/Inc/Tasks/Actuators/Actuators.c:127:6:Actuators_buzzerNotifications	19
-../Core/Inc/Tasks/Actuators/Actuators.c:211:6:Actuators_Task	11
+../Core/Inc/Tasks/Actuators/Actuators.c:212:6:Actuators_Task	11

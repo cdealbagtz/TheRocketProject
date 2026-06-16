@@ -33,7 +33,9 @@ Core/Inc/Tasks/Actuators/Actuators.o: \
  ../Core/Inc/gpio.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../Core/Inc/Tasks/Actuators/Actuators.h \
- ../Core/Inc/Tasks/Config/Config.h
+ ../Core/Inc/Tasks/Config/Config.h ../Core/Inc/Tasks/Memory/Memory.h \
+ ../Core/Inc/Drivers/Memory_Drivers/S25FL064L.h ../Core/Inc/GPIO.h \
+ ../Core/Inc/SPI.h
 ../Core/Inc/Tasks/Actuators/Actuators.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
@@ -71,3 +73,7 @@ Core/Inc/Tasks/Actuators/Actuators.o: \
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
 ../Core/Inc/Tasks/Actuators/Actuators.h:
 ../Core/Inc/Tasks/Config/Config.h:
+../Core/Inc/Tasks/Memory/Memory.h:
+../Core/Inc/Drivers/Memory_Drivers/S25FL064L.h:
+../Core/Inc/GPIO.h:
+../Core/Inc/SPI.h:

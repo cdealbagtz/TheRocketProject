@@ -33,7 +33,7 @@ Core/Inc/Tasks/Memory/Memory.o: ../Core/Inc/Tasks/Memory/Memory.c \
  ../Core/Inc/gpio.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../Core/Inc/Tasks/Actuators/Actuators.h ../Core/Inc/tim.h \
- ../Core/Inc/Tasks/Config/Config.h
+ ../Core/Inc/Tasks/Config/Config.h ../Core/Inc/Tasks/Memory/Memory.h
 ../Core/Inc/Tasks/Memory/Memory.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
@@ -74,3 +74,4 @@ Core/Inc/Tasks/Memory/Memory.o: ../Core/Inc/Tasks/Memory/Memory.c \
 ../Core/Inc/Tasks/Actuators/Actuators.h:
 ../Core/Inc/tim.h:
 ../Core/Inc/Tasks/Config/Config.h:
+../Core/Inc/Tasks/Memory/Memory.h:

@@ -40,6 +40,8 @@ extern osMessageQueueId_t Memory_requestQueueHandle;
 extern osMessageQueueId_t Memory_readQueueHandle;
 extern osMessageQueueId_t Memory_writeQueueHandle;
 
+extern osMutexId_t MemoryMutexHandle;
+
 void Memory_Task(void);
 
 #endif /* INC_TASKS_MEMORY_MEMORY_H_ */

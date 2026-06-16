@@ -15,6 +15,7 @@ void MissionManager_InitializerNotifications(void){
 
 }
 
+uint8_t ConfigRequestTest = 0;
 
 Actuator_Request_t Actuator_RequestTest = {
 	.RequestID = TaskID_Actuators
@@ -58,8 +59,13 @@ void MissionManager_Task(void){
 			}
 	}
 
-	if(PutMessageTest){
+	if(PutMessageTest == 1){
+
 		osMessageQueuePut(Actuator_QueueHandle, &Actuator_RequestTest, 0, 0);
+		PutMessageTest = 0;
+	}
+	else if(PutMessageTest == 2){
+		osMessageQueuePut(Config_RequestHandle, &ConfigRequestTest, 0, 0);
 		PutMessageTest = 0;
 	}
 	System_SetSystemLed(0);
