@@ -18,6 +18,8 @@
 
 #define Initializer_MaxTime 15000
 
+extern osThreadId_t InitializerTaskHandle;
+
 void Initializer_Task(void);
 
 #endif /* INC_TASKS_INITIALIZER_INITIALIZER_H_ */

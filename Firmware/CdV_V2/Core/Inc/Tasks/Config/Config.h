@@ -25,6 +25,8 @@ typedef enum{
 	Config_SetDefaultRequest
 }Config_Request_e;
 
+/********************************SYSTEM*******************************/
+
 typedef struct{
 	uint8_t FaultStatus;
 	uint8_t Reserved[7];
@@ -34,6 +36,8 @@ typedef union{
 	System_Config_t System_Config;
 	uint8_t Package[8];
 }System_ConfigPackage_t;
+
+/*********************************Pyro*******************************/
 
 typedef struct{
 	uint8_t Pyro1_Enable:1;
@@ -46,6 +50,8 @@ typedef union{
 	Pyro_Config_t Pyro_Config;
 	uint8_t Data[4];
 }Pyro_ConfigPackage_t;
+
+/********************************Actuator*******************************/
 
 typedef struct{
 	uint8_t  Type:2;
@@ -64,13 +70,33 @@ typedef union{
 	uint8_t Package[16];
 }Actuator_ConfigPackage_t;
 
+/********************************INS*******************************/
 
+typedef struct{
+	uint16_t ACC[3];
+	uint16_t Gy [3];
+}IMU_BiasData_t;
+
+typedef struct{
+	IMU_BiasData_t MPU6050_Bias;
+	IMU_BiasData_t ICM42670_Bias;
+	uint16_t BMP280_Time;
+	uint16_t MPU6050_Time;
+	uint16_t ICM42670_Time;
+	uint8_t Reserved[34];
+}INS_Config_t;
+
+typedef union{
+	INS_Config_t INS_Config;
+	uint8_t Package[64];
+}INS_ConfigPackage_t;
 
 typedef struct{
 	System_ConfigPackage_t   System_ConfigPackage;
 	Actuator_ConfigPackage_t Actuator_ConfigPackage;
 	Pyro_ConfigPackage_t Pyro_ConfigPackage;
-	uint8_t Reserved[228];
+	INS_ConfigPackage_t INS_ConfigPackage;
+	uint8_t Reserved[164];
 }Config_ConfigurationPage_t;
 
 typedef union{

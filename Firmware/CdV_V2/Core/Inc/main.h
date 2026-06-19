@@ -79,6 +79,14 @@ void Error_Handler(void);
 #define Memory_WP_GPIO_Port GPIOC
 #define Memory_RST_Pin GPIO_PIN_0
 #define Memory_RST_GPIO_Port GPIOB
+#define BME280_CS_Pin GPIO_PIN_12
+#define BME280_CS_GPIO_Port GPIOB
+#define ICM_CS_Pin GPIO_PIN_6
+#define ICM_CS_GPIO_Port GPIOC
+#define ICM_INT2_Pin GPIO_PIN_7
+#define ICM_INT2_GPIO_Port GPIOC
+#define ICM_INT_Pin GPIO_PIN_8
+#define ICM_INT_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
 

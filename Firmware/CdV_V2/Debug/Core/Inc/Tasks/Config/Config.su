@@ -1,5 +1,6 @@
 ../Core/Inc/Tasks/Config/Config.c:12:6:Config_PyroDefault	4	static
 ../Core/Inc/Tasks/Config/Config.c:19:6:Config_SystemDefault	4	static
 ../Core/Inc/Tasks/Config/Config.c:23:6:Config_ActuatorsDefault	4	static
-../Core/Inc/Tasks/Config/Config.c:27:6:Config_Default	8	static
-../Core/Inc/Tasks/Config/Config.c:33:6:Config_Task	816	static
+../Core/Inc/Tasks/Config/Config.c:31:6:Config_INSDefault	4	static
+../Core/Inc/Tasks/Config/Config.c:37:6:Config_Default	8	static
+../Core/Inc/Tasks/Config/Config.c:44:6:Config_Task	816	static

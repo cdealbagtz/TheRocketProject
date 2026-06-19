@@ -57,7 +57,7 @@ void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(Memory_CS_GPIO_Port, Memory_CS_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(Memory_RST_GPIO_Port, Memory_RST_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, Memory_RST_Pin|BME280_CS_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : System_LED_Pin Armed_LED_Pin Memory_WP_Pin */
   GPIO_InitStruct.Pin = System_LED_Pin|Armed_LED_Pin|Memory_WP_Pin;
@@ -73,12 +73,24 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(Memory_CS_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : Memory_RST_Pin */
-  GPIO_InitStruct.Pin = Memory_RST_Pin;
+  /*Configure GPIO pins : Memory_RST_Pin BME280_CS_Pin */
+  GPIO_InitStruct.Pin = Memory_RST_Pin|BME280_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(Memory_RST_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : ICM_CS_Pin */
+  GPIO_InitStruct.Pin = ICM_CS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(ICM_CS_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : ICM_INT2_Pin ICM_INT_Pin */
+  GPIO_InitStruct.Pin = ICM_INT2_Pin|ICM_INT_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 }
 

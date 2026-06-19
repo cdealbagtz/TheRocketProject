@@ -22,8 +22,9 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Core/Inc/Drivers/INS_Drivers/BMP280 \
+Core/Inc/Drivers/INS_Drivers/IMU \
 Core/Inc/Drivers/Memory_Drivers \
-Core/Inc/Drivers/PWM_Drivers \
 Core/Inc/System \
 Core/Inc/Tasks/Actuators \
 Core/Inc/Tasks/Blackbox \

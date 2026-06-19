@@ -31,6 +31,7 @@
 #include "Tasks/Memory/Memory.h"
 #include "Tasks/Config/Config.h"
 #include "Tasks/Initializer/Initializer.h"
+#include "Tasks/INS/INS.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -463,7 +464,8 @@ void StartINSTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(10);
+	INS_Task();
+    osDelay(1);
   }
   /* USER CODE END StartINSTask */
 }

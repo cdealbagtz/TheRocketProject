@@ -1,0 +1,13 @@
+../Core/Inc/Drivers/INS_Drivers/IMU/ICM42670.c:38:6:ICM42670_init	8	static
+../Core/Inc/Drivers/INS_Drivers/IMU/ICM42670.c:46:6:ICM44670_getData	8	static
+../Core/Inc/Drivers/INS_Drivers/IMU/ICM42670.c:68:24:ICM42670_ID_Verify	24	static
+../Core/Inc/Drivers/INS_Drivers/IMU/ICM42670.c:88:24:ICM42670_Set_Accelerometer	24	static
+../Core/Inc/Drivers/INS_Drivers/IMU/ICM42670.c:123:24:ICM42670_Set_Gyrometer	24	static
+../Core/Inc/Drivers/INS_Drivers/IMU/ICM42670.c:154:24:ICM42670_Set_Interrupt_Measurement	24	static
+../Core/Inc/Drivers/INS_Drivers/IMU/ICM42670.c:188:24:ICM42670_A_Data_Read	24	static
+../Core/Inc/Drivers/INS_Drivers/IMU/ICM42670.c:223:24:ICM42670_G_Data_Read	24	static
+../Core/Inc/Drivers/INS_Drivers/IMU/ICM42670.c:256:24:ICM42670_T_Data_Read	24	static
+../Core/Inc/Drivers/INS_Drivers/IMU/ICM42670.c:289:24:ICM42670_SingleRegister_Write	24	static
+../Core/Inc/Drivers/INS_Drivers/IMU/ICM42670.c:318:24:ICM42670_SingleRegister_Read	32	static
+../Core/Inc/Drivers/INS_Drivers/IMU/ICM42670.c:345:6:enableCS_ICM42670	16	static
+../Core/Inc/Drivers/INS_Drivers/IMU/ICM42670.c:355:6:disableCS_ICM42670	16	static

@@ -28,10 +28,17 @@ void Config_ActuatorsDefault(void){
 	Config_Configuration.Actuator_ConfigPackage.Actuator_Config.Channel[3].Type = 3;
 }
 
+void Config_INSDefault(void){
+	Config_Configuration.INS_ConfigPackage.INS_Config.BMP280_Time = 300;
+	Config_Configuration.INS_ConfigPackage.INS_Config.MPU6050_Time = 20;
+	Config_Configuration.INS_ConfigPackage.INS_Config.ICM42670_Time = 20;
+}
+
 void Config_Default(void){
 	Config_PyroDefault();
 	Config_SystemDefault();
 	Config_ActuatorsDefault();
+	Config_INSDefault();
 }
 
 void Config_Task(void){

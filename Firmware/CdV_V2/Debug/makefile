@@ -26,8 +26,9 @@ RM := rm -rf
 -include Core/Inc/Tasks/Blackbox/subdir.mk
 -include Core/Inc/Tasks/Actuators/subdir.mk
 -include Core/Inc/System/subdir.mk
--include Core/Inc/Drivers/PWM_Drivers/subdir.mk
 -include Core/Inc/Drivers/Memory_Drivers/subdir.mk
+-include Core/Inc/Drivers/INS_Drivers/IMU/subdir.mk
+-include Core/Inc/Drivers/INS_Drivers/BMP280/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

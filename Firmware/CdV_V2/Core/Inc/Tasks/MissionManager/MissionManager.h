@@ -13,6 +13,7 @@
 
 #include "Tasks/Actuators/Actuators.h"
 #include "Tasks/Config/Config.h"
+#include "Tasks/Initializer/Initializer.h"
 
 void MissionManager_Task(void);
 

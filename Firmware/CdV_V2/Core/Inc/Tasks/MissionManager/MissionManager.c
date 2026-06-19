@@ -7,8 +7,21 @@
 
 #include "MissionManager.h"
 
-void MissionManager_ActuatorsNotifications(void){
 
+void MissionManager_ActuatorsNotifications(Actuators_Notifications_e Actuators_Notifications){
+	switch (Actuators_Notifications) {
+		case Actuators_InitComplete:
+
+			break;
+		case Actuators_InitFailed:
+			MissionState = STATE_FAULT;
+			break;
+		case Actuators_Fault:
+			MissionState = STATE_FAULT;
+			break;
+		default:
+			break;
+	}
 }
 
 void MissionManager_InitializerNotifications(Initializer_Notifications_e Initializer_Notifications){
@@ -18,6 +31,7 @@ void MissionManager_InitializerNotifications(Initializer_Notifications_e Initial
 			break;
 		case Initializer_SelfTestDone:
 			MissionState = STATE_STANDBY;
+			osThreadTerminate(InitializerTaskHandle);
 			break;
 		case Initializer_TimeExceeded:
 			MissionState = STATE_FAULT;
@@ -47,7 +61,7 @@ void MissionManager_Task(void){
 
 		switch (System_Notification.NotificationID) {
 			case TaskID_Actuators:
-
+				MissionManager_ActuatorsNotifications(System_Notification.NotificationInfo);
 				break;
 			case TaskID_Memory:
 

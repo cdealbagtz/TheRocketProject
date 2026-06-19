@@ -1,0 +1,4 @@
+../Core/Inc/Tasks/INS/INS.c:12:6:INS_BMP280Task	8	static
+../Core/Inc/Tasks/INS/INS.c:31:6:INS_MPU6050Task	8	static
+../Core/Inc/Tasks/INS/INS.c:50:6:INS_ICM42670Task	8	static
+../Core/Inc/Tasks/INS/INS.c:69:6:INS_Task	8	static

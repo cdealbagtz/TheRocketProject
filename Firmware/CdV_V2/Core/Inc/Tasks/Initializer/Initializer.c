@@ -39,6 +39,7 @@ void Initializer_Task(void){
 				case 0xFF:
 					uint8_t ConfigRequest = Config_SetDefaultRequest;
 					osMessageQueuePut(Config_RequestHandle, &ConfigRequest, 0, 0);
+					osDelay(300);
 					break;
 				case 0x0F:
 					Actuator_Request_t Actuator_Request = {
