@@ -238,10 +238,10 @@ Durante esta fase, la controladora puede estar fuera del cohete o integrada parc
 !!! note "Resultado esperado: La controladora queda configurada y lista para integración o armado."
 
 !!! warning "Precaución"
-    Los interruptores físicos de armado de carga pirotecnica no deben ser activados hasta verificar que los encendedores electronicos estén bíen colocados. Los interruptores físicos de armado de cara pirotecnica se muestran a continuación. Son independientes para cada canal y solo deben ser activados si serán utilizados y si se comprobó el funcionamiento adecuado de la controladora. 
+    Los interruptores físicos de armado de carga pirotécnica no deben ser activados hasta verificar que los encendedores electrónicos estén bien colocados. Los interruptores físicos de armado de carga pirotécnica se muestran a continuación. Son independientes para cada canal y solo deben ser activados si serán utilizados y si se comprobó el funcionamiento adecuado de la controladora.
 
     Es responsabilidad del usuario colocar estos interruptores en cualquier presentación. No se recomienda puentear directamente los pines ya que representa una violación a la seguridad operacional.
-  
+
   ![Interruptores](Zoom_In_InterruptoresPirotecnia.png)
 
 ---
@@ -356,13 +356,13 @@ El cohete se encuentra instalado en la rampa. La controladora monitorea sensores
 | ----------- -------- | ----------------------------------------------------------------------------- |
 | Aceleración          | Vector de aceleración mayor a un umbral configurado.                          |
 | Altitud              | Altitud actual es mayor a la de armado por un umbral configurado .            |
-| Velocidad vertical   | Velocidad vetical es mayor a el umbral configurado.                           |
+| Velocidad vertical   | Velocidad vertical es mayor al umbral configurado.                           |
 
 **Criterios para desarmar dispositivo:**
 
 | Criterio      | Descripción                                               |
 | -----------   | --------------------------------------------------------- |
-| Falla crítica | Sensores o perifericos presentan falla crítica.           |
+| Falla crítica | Sensores o periféricos presentan falla crítica.           |
 | Comando       | Se recibe comando para desarmar vehículo.                 |
 
 
@@ -459,7 +459,7 @@ Una vez detectado el apogeo, el sistema ejecuta el evento de recuperación.
 * Desactivar la salida al finalizar el pulso.
 * Registrar inicio y fin de activación.
 * Cambiar al estado `DESCENT`.
-   
+
 
 ---
 
@@ -503,14 +503,14 @@ El sistema considera que el vuelo terminó.
 
 ### 7.13 FAULT
 
-Si en cualquiera de los estados se presentó un evento considerado como catastrofico que impide volver a una operación normal o degradada de la operación, se considera que el sistema entro en un estado de `FAULT`:
+Si en cualquiera de los estados se presentó un evento considerado como catastrófico que impide volver a una operación normal o degradada de la operación, se considera que el sistema entró en un estado de `FAULT`:
 
 !!! danger "Acciones después de entrar al estado"
     **Si entra antes de que haya detectado lanzamiento (**`BOOST`**):**
-    
-    * Todos los actuadores y cargas pirotecnicas pasan a valor de `SAFE`.
 
-    * Desabilita la capacidad de armar el sistema o en caso estar armado, lo desarma.
+    * Todos los actuadores y cargas pirotécnicas pasan a valor de `SAFE`.
+
+    * Deshabilita la capacidad de armar el sistema o en caso estar armado, lo desarma.
 
     * Escribe en la memoria flash interna del microcontrolador, en la dirección de memoria asignada un valor de `0xAA`.
 
@@ -518,10 +518,10 @@ Si en cualquiera de los estados se presentó un evento considerado como catastro
 
 
     **Si entra después de que el sistema haya detectado el lanzamiento (**`BOOST`**):**
-    
+
     * Inicia un temporizador para ejecutar la tarea de despliegue del sistema de recuperación con el tiempo de falla configurado, si el valor es invalido o no puede ser leído, el temporizador por default es de 5 segundos.
 
-    * Una vez completada la secuencia, todos los actuadores y cargas pirotecnicas pasan a valor de `SAFE`.
+    * Una vez completada la secuencia, todos los actuadores y cargas pirotécnicas pasan a valor de `SAFE`.
 
     * Escribe en la memoria flash interna del microcontrolador, en la dirección de memoria asignada un valor de `0xAA`.
 
@@ -684,7 +684,7 @@ A partir de este CONOPS se derivarán los siguientes grupos de requerimientos:
 | `SYS-FSM-001`   | La controladora deberá implementar una máquina de estados de misión que controle las transiciones entre operación en tierra, vuelo, recuperación y post-vuelo. | CONOPS, Sección 6                 | Revisión de diseño y prueba de integración.            |
 | `SYS-SAFE-001`  | La controladora deberá mantener todas las salidas críticas desactivadas después de encendido, reset o entrada a estado seguro.                                 | CONOPS, Secciones 7.2 y 10        | Prueba HIL, revisión de código y prueba de reset.      |
 | `SYS-SAFE-002`  | La controladora deberá impedir el armado cuando exista una falla crítica activa.                                                                               | CONOPS, Secciones 7.3 y 10        | Simulación de estado de falla y reinicio de la controladora.                                      |
-| `SYS-SAFE-003`  | La controladora no podrá salir del **`FAULT`** automáticamente y requieire un operador para desactivarlo por comandos.                   | CONOPS, Secciones 7.3 y 7.13 | Prueba Funcional.        |
+| `SYS-SAFE-003`  | La controladora no podrá salir del **`FAULT`** automáticamente y requiere un operador para desactivarlo por comandos.                   | CONOPS, Secciones 7.3 y 7.13 | Prueba Funcional.        |
 | `SYS-REC-001`   | La controladora deberá activar el sistema de recuperación cuando se detecte apogeo o cuando se cumpla una condición de respaldo configurada.                   | CONOPS, Secciones 7.8, 7.9 y 7.10 | Simulación, prueba HIL y prueba de integración.        |
 | `SYS-LOG-001`   | La controladora deberá registrar eventos críticos con timestamp.                                                                                               | CONOPS, Sección 11                | Revisión de log y prueba funcional.                    |
 | `SYS-COM-001`   | La controladora deberá ejecutar la misión nominal sin depender de telemetría en tiempo real.                                                                   | CONOPS, Secciones 3, 5 y 10       | Prueba funcional sin módulo de comunicación conectado. |
@@ -692,7 +692,7 @@ A partir de este CONOPS se derivarán los siguientes grupos de requerimientos:
 
 ---
 
-## 17. Próximos documentos
+## 16. Próximos documentos
 
 A partir de este CONOPS se recomienda desarrollar:
 
@@ -710,7 +710,7 @@ A partir de este CONOPS se recomienda desarrollar:
 
 ---
 
-## 18. Historial de cambios
+## 17. Historial de cambios
 
 | Versión | Fecha      | Descripción                                  | Autor               |
 | ------- | ---------- | -------------------------------------------- | ------------------- |

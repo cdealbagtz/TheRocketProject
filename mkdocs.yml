@@ -18,7 +18,7 @@ theme:
       primary: grey
       accent: blue grey
       media: "(prefers-color-scheme: dark)"
-      
+
     # Light Mode
     - scheme: default
       toggle:
@@ -28,10 +28,31 @@ theme:
       accent: blue grey
       media: "(prefers-color-scheme: light)"
 
+nav:
+  - Inicio: index.md
+  - Controladora de Vuelo V2:
+      - Introducción: Controladora De Vuelo V2/IntroduccionV2.md
+      - Firmware:
+          - Introducción: Controladora De Vuelo V2/Firmware/Firmware.md
+          - Entorno de desarrollo: Controladora De Vuelo V2/Firmware/entorno-desarrollo.md
+          - Concepto de operaciones: Controladora De Vuelo V2/Firmware/conops.md
+          - Arquitectura: Controladora De Vuelo V2/Firmware/arquitectura.md
+          - Configuraciones: Controladora De Vuelo V2/Firmware/configuraciones.md
+          - Blackbox: Controladora De Vuelo V2/Firmware/Blackbox.md
+          - Telemetría y comandos: Controladora De Vuelo V2/Firmware/telemetria-comandos.md
+          - Primeros pasos: Controladora De Vuelo V2/Firmware/primeros-pasos.md
+      - Hardware:
+          - Introducción: Controladora De Vuelo V2/Hardware/Hardware.md
+          - Especificaciones técnicas: Controladora De Vuelo V2/Hardware/especificaciones.md
+          - Alimentación: Controladora De Vuelo V2/Hardware/alimentacion.md
+          - Conectores y pinout: Controladora De Vuelo V2/Hardware/conectores-pinout.md
+          - Consideraciones de diseño: Controladora De Vuelo V2/Hardware/consideraciones-diseno.md
+          - Archivos de fabricación: Controladora De Vuelo V2/Hardware/archivos-fabricacion.md
+  - Contribuir: Contribuir.md
+
 markdown_extensions:
   - admonition
   - pymdownx.details
-
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

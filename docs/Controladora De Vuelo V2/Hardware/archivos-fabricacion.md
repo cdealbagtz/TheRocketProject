@@ -8,7 +8,7 @@ La Controladora de Vuelo V2 fue diseñada como parte de TheRocketProject bajo un
 
 El diseño de hardware será publicado en **OSHWLab**, donde se podrán consultar los esquemáticos, PCB, componentes y archivos relacionados con la fabricación de la tarjeta.
 
-[Enlace al proyecto y archivos de fabircación](https://oshwlab.com/cdealba/rocket-stack-project_2)
+[Enlace al proyecto y archivos de fabricación](https://oshwlab.com/cdealba/rocket-stack-project_2)
 
 ## Recomendaciones antes de fabricar
 

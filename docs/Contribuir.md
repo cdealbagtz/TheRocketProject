@@ -53,11 +53,11 @@ Las contribuciones técnicas deben mantenerse dentro de un enfoque educativo, ex
 **El flujo recomendado para contribuir es el siguiente:**
 
 1. Revisa la documentación existente.
-2. Busca si ya existe un `issue` relacionado con tu propuesta. Puedes revizar en el siguiente enlace: [Issues](https://github.com/cdealbagtz/TheRocketProject/issues). 
+2. Busca si ya existe un `issue` relacionado con tu propuesta. Puedes revisar en el siguiente enlace: [Issues](https://github.com/cdealbagtz/TheRocketProject/issues).
 3. Crea un nuevo `issue` si quieres reportar un error, proponer una mejora o discutir una idea.
 4. Haz un fork del repositorio.
 5. Crea una rama nueva para tu contribución.
-6. Si es un cambio mayor, agregalo al [concepto de operaciones](Controladora%20De%20Vuelo%20V2/Firmware/conops.md) y genera los requerimientos que satisface.
+6. Si es un cambio mayor, agrégalo al [concepto de operaciones](Controladora%20De%20Vuelo%20V2/Firmware/conops.md) y genera los requerimientos que satisface.
 7. Actualiza la arquitectura del proyecto según corresponda.
 7. Realiza los cambios.
 8. Prueba los cambios en local.
@@ -103,7 +103,7 @@ Para construir el sitio localmente:
 mkdocs build --strict
 ```
 
-Consulta la página de documentación de [mkdocs-metetrials](https://squidfunk.github.io/mkdocs-material/) para más información.
+Consulta la página de documentación de [mkdocs-material](https://squidfunk.github.io/mkdocs-material/) para más información.
 
 El modo estricto ayuda a detectar enlaces rotos, imágenes faltantes o errores de navegación antes de publicar los cambios.
 
@@ -207,7 +207,7 @@ Cualquier cambio relacionado con eventos de misión, recuperación, ignición, a
 * Qué condiciones impiden una activación no deseada.
 
 !!! warning "Importante"
-    Todos los cambios realizados al firmware deben de estar justificados y documentados correctamente. Recuerda actualizar la información tecnica según corresponda. En caso de agregar nueva funcionalidad, es necesario actualizar la [arquitectura](Controladora%20De%20Vuelo%20V2/Firmware/arquitectura.md) y el [concepto de operaciones](Controladora%20De%20Vuelo%20V2/Firmware/conops.md). Toda función debe estar asociado a un requerimiento, por lo que también será necesario declarar a que requerimiento pertenecen las funciones y tareas agregadas.
+    Todos los cambios realizados al firmware deben de estar justificados y documentados correctamente. Recuerda actualizar la información técnica según corresponda. En caso de agregar nueva funcionalidad, es necesario actualizar la [arquitectura](Controladora%20De%20Vuelo%20V2/Firmware/arquitectura.md) y el [concepto de operaciones](Controladora%20De%20Vuelo%20V2/Firmware/conops.md). Toda función debe estar asociada a un requerimiento, por lo que también será necesario declarar a qué requerimiento pertenecen las funciones y tareas agregadas.
 
 ## Contribuir al hardware
 
@@ -239,7 +239,7 @@ Para documentación de hardware se recomienda incluir:
 
 ### Creación de nuevo hardware y arquitectura.
 
-En caso de que crear hardware nuevo que no sea compatible con versiones actuales de firmware, será necesario crear toda la documentación relacionada al proyecto, así como su concepto de operaciones, descripción de funcionalidad y toda la información ya existente para el proyecto de [Controladora de vuelo V2](Controladora%20De%20Vuelo%20V2/IntroduccionV2.md).
+En caso de crear hardware nuevo que no sea compatible con versiones actuales de firmware, será necesario crear toda la documentación relacionada al proyecto, así como su concepto de operaciones, descripción de funcionalidad y toda la información ya existente para el proyecto de [Controladora de vuelo V2](Controladora%20De%20Vuelo%20V2/IntroduccionV2.md).
 
 
 ## Contribuir con pruebas
@@ -264,7 +264,7 @@ Ejemplo de estructura:
 ```md
 # Prueba de almacenamiento en Blackbox
 
-##Versión a probar.
+## Versión a probar.
 
 ## Objetivo
 
@@ -357,21 +357,21 @@ Describe brevemente los cambios realizados.
 
 ## Cambios realizados
 
-- 
-- 
-- 
+-
+-
+-
 
 ## Pruebas realizadas
 
-- 
-- 
-- 
+-
+-
+-
 
 ## Riesgos o consideraciones
 
-- 
-- 
-- 
+-
+-
+-
 
 ## Evidencia
 

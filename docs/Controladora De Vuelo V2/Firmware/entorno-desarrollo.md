@@ -304,7 +304,7 @@ Después de programar la tarjeta, se recomienda realizar una verificación inici
 
 ## Siguientes pasos:
 
-Una vez configurado el entorno de desarrollo te recomendamos hacer la guia de [primeros pasos](primeros-pasos.md) para crear tu primer función y entender como se desarrolla en el entorno de trabajo. También se recomienda revisar el apartado de [¿Cómo contribuir?](../../Contribuir.md) para ver los "guidelines" de desarrollo, generar "ISUES" e interactuar con la comunidad.
+Una vez configurado el entorno de desarrollo, te recomendamos seguir la guía de [primeros pasos](primeros-pasos.md) para crear tu primera función y entender cómo se desarrolla en el entorno de trabajo. También se recomienda revisar el apartado de [¿Cómo contribuir?](../../Contribuir.md) para ver los lineamientos de desarrollo, generar issues e interactuar con la comunidad.
 
 ## Páginas relacionadas
 

@@ -100,18 +100,18 @@ Ejemplo recomendado:
 | Idle              | Sistema operativo                        |                           0 |
 
 !!! warning "Recomendación"
-    Es importante analizar según el concepto de misión y la tabla anterior la prioridad que se le asignará a cada tarea. También es necesario considerar el consumo de recursos de la tarea para evitar que entorpezca tareas críticas que deben ser ejecutadas a tiempos especificos.
+    Es importante analizar según el concepto de misión y la tabla anterior la prioridad que se le asignará a cada tarea. También es necesario considerar el consumo de recursos de la tarea para evitar que entorpezca tareas críticas que deben ser ejecutadas a tiempos específicos.
 
 
 ---
 
 ## **5. Vista general de arquitectura**
 
-Tal como se muestra en la siguiente imagen, la arquitectura esta organizada por fases operativas y tareas del sistema.
+Tal como se muestra en la siguiente imagen, la arquitectura está organizada por fases operativas y tareas del sistema.
 
- Las tareas del sistema se encargan de monitorear y tomar las decisiones criticas, además de gestionar actuadores y activaciones de cargas pirotecnicas. Gracias a estas funciones es posible monitorear el estado actual del sistema y tener acceso a las configuraciones en todo momento. Como parte de las tareas del sistema también se considera `FaultTask` la cual tiene la mayor prioridad de ejecución, pero a diferencia del resto de tareas del sistema, solo se ejecuta en caso de falla.
+ Las tareas del sistema se encargan de monitorear y tomar las decisiones críticas, además de gestionar actuadores y activaciones de cargas pirotécnicas. Gracias a estas funciones es posible monitorear el estado actual del sistema y tener acceso a las configuraciones en todo momento. Como parte de las tareas del sistema también se considera `FaultTask` la cual tiene la mayor prioridad de ejecución, pero a diferencia del resto de tareas del sistema, solo se ejecuta en caso de falla.
 
- Las fases operativas corresponden a las planteadas en el [concepto de operaciones](conops.md). Solamente se deben ejecutar las tareas necesarias para cada fase y bajo ningún concepto se debe agregar o eliminar tareas de cada fase sin justificar previamente el motivo. 
+ Las fases operativas corresponden a las planteadas en el [concepto de operaciones](conops.md). Solamente se deben ejecutar las tareas necesarias para cada fase y bajo ningún concepto se debe agregar o eliminar tareas de cada fase sin justificar previamente el motivo.
 
 ### **5.1 Tareas y prioridades**
 
@@ -121,9 +121,9 @@ Tal como se muestra en la siguiente imagen, la arquitectura esta organizada por 
 | [ActuatorsTask](#73-actuatorstask)        | Tareas del sistema                       |                           5 | Siempre activa             |
 | [MemoryTask](#74-memorytask)           | Tareas del sistema                       |                           2 | Siempre activa             |
 | [InitializerTask](#75-initializertask)      | Prevuelo                                 |                           5 | `STANDBY` y `SELF_TEST`    |
-| [CommandInterfaceTask](#76-commandinterfacetask) | Prevuelo y Vuelo                         |                           3 | Desde `STANDBY` hasta "APOGEE_DETECTED|
+| [CommandInterfaceTask](#76-commandinterfacetask) | Prevuelo y Vuelo                         |                           3 | Desde `STANDBY` hasta `DESCENT` |
 | [ConfigTask](#77-configtask)           | Prevuelo                                 |                           2 | `STANDBY`                  |
-| [INSTask](#78-instask)              | Prevuelo, Vuelo y recuperación           |                           4 | Desde `SELF_TEST` hasta `DESCENT`|
+| [INSTask](#78-instask)              | Prevuelo, Vuelo y recuperación           |                           4 | Desde `SELF_TEST` hasta `DESCENT` |
 | [BlackboxTask](#79-blackboxtask)         | Vuelo y recuperación                     |                           1 | Prioridad                  |
 | [FaultTask](#72-faulttask)            | Tareas del sistema                       |                           6 | Prioridad                  |
 
@@ -442,7 +442,7 @@ Consideraciones:
 
 ### **7.6 `CommandInterfaceTask`**
 
-`CommandInterfaceTask` se ejecuta desde `STANDBY` hasta `SELF_TEST`.
+`CommandInterfaceTask` se ejecuta desde `STANDBY` hasta `DESCENT`, con permisos restringidos durante vuelo y recuperación.
 
 Responsabilidades:
 
@@ -485,7 +485,7 @@ Parámetros críticos:
 * Criterios de MECO.
 * Criterios de apogeo.
 * Tiempo de respaldo para recuperación.
-* Tiempo para activar carga pirotecnica.
+* Tiempo para activar carga pirotécnica.
 * Duración de pulso de recuperación.
 * Canales de salida habilitados.
 * Modo de recuperación (Mecánica o pirotecnia).
@@ -726,7 +726,7 @@ flowchart TB
 
 
     D -- "Sí" --> I["Iniciar temporizador de recuperación"]
-    
+
     I --> F
     E --> F["Escribir registro FAULT = 0xAA"]
     F --> G["Suspender tareas no críticas"]
@@ -775,7 +775,7 @@ La arquitectura separa la generación de paquetes de log de la escritura física
 * `MemoryTask` es la única tarea con acceso al driver de memoria externa.
 * El acceso a memoria se protege mediante `MemoryMutex`.
 * La escritura de logs no debe bloquear ninguna tarea.
-* Debe haber espacio designado para logs de eventos y blackbox, para permitir la escritura de logs incluso con memoria llena. 
+* Debe haber espacio designado para logs de eventos y blackbox, para permitir la escritura de logs incluso con memoria llena.
 
 
 ---
@@ -859,7 +859,7 @@ Los comandos externos deben ser tratados como solicitudes, no como acciones dire
 | Limpiar registro FAULT | Autorizado | No         | No    | No              | No              | No              | Autorizado |
 
 !!! danger "Comandos externos"
-    El comando para activación de salida crítica solo es admisible si se envío previamente el comando de armado y si está habilitado en la configuración. 
+    El comando para activación de salida crítica solo es admisible si se envío previamente el comando de armado y si está habilitado en la configuración.
 
 
 ---
@@ -891,7 +891,7 @@ Secuencia mínima:
 | ------------------------- | ------------------------------------------------------ | -------------------------- |
 | `LaunchDetectWindowTimer` | Validar persistencia de lanzamiento.                   | `ARMED`                    |
 | `ApogeeBackupTimer`       | Activar recuperación si no se detecta apogeo.          | `COAST`                    |
-| `DeployParachute`         | Inicia la secuencia de despliegue de paracaidas.       | `APOGEE_DETECTED` y `FAULT`|
+| `DeployParachute`         | Inicia la secuencia de despliegue de paracaídas.       | `APOGEE_DETECTED` y `FAULT`|
 
 ---
 
@@ -899,4 +899,4 @@ Secuencia mínima:
 
 | Versión | Fecha     | Descripción                                                            | Autor             |
 | ------- | --------- | ---------------------------------------------------------------------- | ----------------- |
-| v0.1    | 12/06/26  | Propusta inicial de arquitectura                                     . | Christian de Alba |
+| v0.1    | 12/06/26  | Propuesta inicial de arquitectura                                     . | Christian de Alba |
