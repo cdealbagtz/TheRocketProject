@@ -1,0 +1,2748 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cdealbagtz.github.io/TheRocketProject/Controladora%20De%20Vuelo%20V2/Firmware/conops/">
+      
+      
+        <link rel="prev" href="../entorno-desarrollo/">
+      
+      
+        <link rel="next" href="../arquitectura/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../Logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Concepto de operaciones - TheRocketProject</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue-grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#concepto-de-operaciones" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="TheRocketProject" class="md-header__button md-logo" aria-label="TheRocketProject" data-md-component="logo">
+      
+  <img src="../../../Logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TheRocketProject
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Concepto de operaciones
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Dark Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="TheRocketProject" class="md-nav__button md-logo" aria-label="TheRocketProject" data-md-component="logo">
+      
+  <img src="../../../Logo.svg" alt="logo">
+
+    </a>
+    TheRocketProject
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controladora de Vuelo V2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Controladora de Vuelo V2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IntroduccionV2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firmware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Firmware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entorno-desarrollo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno de desarrollo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepto de operaciones
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepto de operaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-proposito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Propósito
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-descripcion-general-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Descripción general del sistema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-alcance-operativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Alcance operativo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Alcance operativo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#incluido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incluido:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-incluido-en-esta-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No incluido en esta versión:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-actores-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Actores del sistema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-suposiciones-iniciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Suposiciones iniciales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-estados-operativos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Estados operativos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-fases-de-operacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Fases de operación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Fases de operación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-preparacion-en-tierra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Preparación en tierra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-encendido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Encendido
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-autodiagnostico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Autodiagnóstico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Configuración
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-armado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 Armado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76-espera-en-plataforma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 Espera en plataforma
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#77-ascenso-propulsado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7 Ascenso propulsado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#78-vuelo-balistico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8 Vuelo balístico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#79-apogeo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.9 Apogeo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#710-recuperacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.10 Recuperación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#711-descenso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.11 Descenso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#712-aterrizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.12 Aterrizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#713-fault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.13 FAULT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-condiciones-anormales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Condiciones anormales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-estado-de-falla-controlada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Estado de falla controlada
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-reglas-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Reglas de seguridad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-eventos-registrados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Eventos registrados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-informacion-generada-durante-la-mision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Información generada durante la misión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-criterios-de-exito-de-mision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Criterios de éxito de misión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-relacion-con-requerimientos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Relación con requerimientos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-requisitos-preliminares-derivados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Requisitos preliminares derivados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-proximos-documentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Próximos documentos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-historial-de-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Historial de cambios
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arquitectura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuraciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuraciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blackbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blackbox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telemetria-comandos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telemetría y comandos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../primeros-pasos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Primeros pasos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardware/Hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardware/especificaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificaciones técnicas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardware/alimentacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alimentación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardware/conectores-pinout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conectores y pinout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardware/consideraciones-diseno/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consideraciones de diseño
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardware/archivos-fabricacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archivos de fabricación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contribuir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribuir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-proposito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Propósito
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-descripcion-general-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Descripción general del sistema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-alcance-operativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Alcance operativo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Alcance operativo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#incluido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incluido:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-incluido-en-esta-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No incluido en esta versión:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-actores-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Actores del sistema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-suposiciones-iniciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Suposiciones iniciales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-estados-operativos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Estados operativos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-fases-de-operacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Fases de operación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Fases de operación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-preparacion-en-tierra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Preparación en tierra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-encendido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Encendido
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-autodiagnostico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Autodiagnóstico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Configuración
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-armado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 Armado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76-espera-en-plataforma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 Espera en plataforma
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#77-ascenso-propulsado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7 Ascenso propulsado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#78-vuelo-balistico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8 Vuelo balístico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#79-apogeo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.9 Apogeo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#710-recuperacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.10 Recuperación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#711-descenso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.11 Descenso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#712-aterrizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.12 Aterrizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#713-fault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.13 FAULT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-condiciones-anormales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Condiciones anormales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-estado-de-falla-controlada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Estado de falla controlada
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-reglas-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Reglas de seguridad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-eventos-registrados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Eventos registrados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-informacion-generada-durante-la-mision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Información generada durante la misión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-criterios-de-exito-de-mision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Criterios de éxito de misión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-relacion-con-requerimientos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Relación con requerimientos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-requisitos-preliminares-derivados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Requisitos preliminares derivados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-proximos-documentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Próximos documentos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-historial-de-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Historial de cambios
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="concepto-de-operaciones">Concepto de Operaciones</h1>
+<p><strong>Sistema:</strong> Controladora de Vuelo V2</p>
+<p><strong>Versión:</strong> v0.1</p>
+<p><strong>Fecha:</strong> 09/06/2026</p>
+<hr />
+<h2 id="1-proposito">1. Propósito</h2>
+<p>Este documento define el <strong>Concepto de Operaciones</strong>, o <strong>CONOPS</strong>, de la Controladora de Vuelo para Cohete Experimental. Su propósito es describir cómo se utilizará la controladora durante una misión completa, desde la preparación en tierra hasta la recuperación del vehículo y el análisis post-vuelo.</p>
+<p><img alt="Ilustración de estados operativos" src="../Diagrama%20ilustrativo%20del%20perfil%20de%20misi%C3%B3n.png" /></p>
+<p>El CONOPS sirve como base para derivar:</p>
+<ul>
+<li>Requisitos de sistema.</li>
+<li>Requisitos de software.</li>
+<li>Arquitectura del firmware.</li>
+<li>Máquina de estados.</li>
+<li>Análisis de seguridad.</li>
+<li>Casos de prueba.</li>
+<li>Matriz de trazabilidad.</li>
+</ul>
+<p>La controladora deberá ser capaz de ejecutar la misión de forma autónoma usando sensores embarcados, lógica interna de misión y registro local de datos.</p>
+<div class="admonition info">
+<p class="admonition-title">Estado de la telemetría: La telemetría se considera una función en desarrollo (<strong>W.I.P.</strong>) y no forma parte del alcance funcional mínimo de esta versión del sistema.</p>
+</div>
+<hr />
+<h2 id="2-descripcion-general-del-sistema">2. Descripción general del sistema</h2>
+<p>La Controladora de Vuelo es un sistema electrónico embarcado diseñado para operar en cohetes experimentales.</p>
+<p>Su función principal es:</p>
+<ul>
+<li>Adquirir datos de sensores.</li>
+<li>Detectar eventos relevantes de la misión.</li>
+<li>Registrar información de vuelo.</li>
+<li>Ejecutar eventos de recuperación.</li>
+<li>Mantener el sistema en una condición segura ante fallas.</li>
+<li>Permitir análisis post-vuelo.</li>
+</ul>
+<p>La controladora puede integrar sensores inerciales, sensores ambientales, almacenamiento externo, interfaces de comunicación y salidas de actuación.</p>
+<div class="admonition warning">
+<p class="admonition-title">Principio de seguridad: Las funciones críticas de seguridad, como recuperación y salidas pirotécnicas, deben operar de forma independiente de funciones no críticas como telemetría, USB o logging extendido.</p>
+</div>
+<hr />
+<h2 id="3-alcance-operativo">3. Alcance operativo</h2>
+<p>El sistema cubre las operaciones desde la preparación previa al lanzamiento hasta la descarga y análisis de datos.</p>
+<h3 id="incluido">Incluido:</h3>
+<ul>
+<li>Encendido del sistema.</li>
+<li>Autodiagnóstico.</li>
+<li>Configuración de misión.</li>
+<li>Armado de la controladora.</li>
+<li>Detección de lanzamiento.</li>
+<li>Detección de MECO.</li>
+<li>Detección de apogeo.</li>
+<li>Activación de recuperación.</li>
+<li>Registro de datos.</li>
+<li>Manejo de fallas.</li>
+<li>Descarga de datos por interfaz local, si aplica.</li>
+</ul>
+<h3 id="no-incluido-en-esta-version">No incluido en esta versión:</h3>
+<ul>
+<li>Sistemas de control de rate, actitud, trayectoria, etc.</li>
+<li>Sistema de transmisión de telemetría. Actualmente se considera una función <strong>W.I.P.</strong></li>
+<li>Obtención de posición GNSS.</li>
+<li>Estimación de actitud.</li>
+<li>Control activo del vehículo.</li>
+</ul>
+<hr />
+<h2 id="4-actores-del-sistema">4. Actores del sistema</h2>
+<table>
+<thead>
+<tr>
+<th>Actor</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operador de tierra</td>
+<td>Persona encargada de configurar, armar, monitorear localmente y recuperar los datos del sistema.</td>
+</tr>
+<tr>
+<td>Equipo de integración</td>
+<td>Responsable de instalar la controladora en el cohete y verificar conexiones.</td>
+</tr>
+<tr>
+<td>Cohete</td>
+<td>Vehículo portador de la controladora.</td>
+</tr>
+<tr>
+<td>Sistema de recuperación</td>
+<td>Paracaídas, mecanismos de despliegue o cargas controladas por la tarjeta.</td>
+</tr>
+<tr>
+<td>Estación de tierra</td>
+<td>Radiocontrol o interfaz USB utilizada para configuración, descarga de datos y revisión post-vuelo. La telemetría en tiempo real se considera una función futura.</td>
+</tr>
+<tr>
+<td>Firmware</td>
+<td>Software embebido encargado de ejecutar la lógica de misión.</td>
+</tr>
+<tr>
+<td>Hardware de seguridad</td>
+<td>Elementos físicos de protección, inhibición, potencia y aislamiento.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-suposiciones-iniciales">5. Suposiciones iniciales</h2>
+<p>Para esta versión del CONOPS se asume lo siguiente:</p>
+<ul>
+<li>El cohete es experimental y de uso académico o de investigación.</li>
+<li>La controladora se energiza antes del lanzamiento.</li>
+<li>El sistema cuenta con al menos una IMU y un sensor barométrico operativos.</li>
+<li>Existen salidas dedicadas para eventos de recuperación.</li>
+<li>Las salidas críticas permanecen desactivadas después de encendido o reset.</li>
+<li>El armado del sistema requiere una acción explícita.</li>
+<li>El firmware registra datos durante la misión.</li>
+<li>La seguridad tiene prioridad sobre toda función.</li>
+</ul>
+<hr />
+<h2 id="6-estados-operativos">6. Estados operativos</h2>
+<p>La controladora se organiza mediante una máquina de estados. Cada estado limita qué acciones son válidas y qué transiciones están permitidas.</p>
+<table>
+<thead>
+<tr>
+<th>Estado</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SAFE</code></td>
+<td>Estado inicial o de protección. Todas las salidas críticas permanecen apagadas.</td>
+</tr>
+<tr>
+<td><code>SELF_TEST</code></td>
+<td>Verificación de sensores, memoria, alimentación, configuración y salidas.</td>
+</tr>
+<tr>
+<td><code>STANDBY</code></td>
+<td>Sistema listo, pero no armado.</td>
+</tr>
+<tr>
+<td><code>CONFIGURATION</code></td>
+<td>Estado donde se permite modificar o revisar parámetros de misión.</td>
+</tr>
+<tr>
+<td><code>ARMED</code></td>
+<td>Sistema listo para vuelo. Monitorea la condición de lanzamiento.</td>
+</tr>
+<tr>
+<td><code>BOOST</code></td>
+<td>Lanzamiento detectado. El cohete se encuentra en ascenso propulsado.</td>
+</tr>
+<tr>
+<td><code>COAST</code></td>
+<td>Vuelo balístico posterior al fin de empuje o MECO.</td>
+</tr>
+<tr>
+<td><code>APOGEE_DETECTED</code></td>
+<td>Se detectó la condición de apogeo.</td>
+</tr>
+<tr>
+<td><code>RECOVERY_DEPLOYED</code></td>
+<td>Se ejecutó el evento de recuperación.</td>
+</tr>
+<tr>
+<td><code>DESCENT</code></td>
+<td>El cohete se encuentra descendiendo.</td>
+</tr>
+<tr>
+<td><code>LANDED</code></td>
+<td>El sistema detectó fin de vuelo.</td>
+</tr>
+<tr>
+<td><code>FAULT</code></td>
+<td>Estado de falla controlada.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>En el diagrama se pueden apreciar los diferentes estados de la controladora. Los estados de pre-lanzamiento agrupan los procedimientos de inicio seguro, autodiagnóstico, espera, configuración y armado. En esta fase no se podrán activar las cargas pirotécnicas, y los actuadores deberán mantenerse en su estado seguro.</p>
+<p>Para armar el sistema será necesario enviar un comando válido de activación, ya sea por una interfaz de configuración o mediante SBUS en el canal configurado para armado si esta función se encuentra habilitada.</p>
+<p>Las etapas de vuelo comienzan con la detección del empuje generado por el motor y terminan con la detección del apogeo. Finalmente, se continúa con el despliegue del sistema de recuperación, el cual habilita la activación controlada de las salidas de recuperación y cambia la configuración de actuadores a su estado de despliegue, si aplica.</p>
+<p>La descripción de cada estado, sus tareas principales y condiciones de transición se desarrolla en la sección 7, <strong>Fases de operación</strong>.</p>
+<pre class="mermaid"><code>%%{init: {
+  "theme": "base",
+  "flowchart": {
+    "htmlLabels": true,
+    "curve": "basis",
+    "nodeSpacing": 45,
+    "rankSpacing": 55
+  },
+  "themeVariables": {
+    "background": "#ffffff",
+    "mainBkg": "#ffffff",
+    "fontFamily": "Roboto, Arial, sans-serif",
+    "fontSize": "16px",
+
+    "primaryColor": "#e3f2fd",
+    "primaryTextColor": "#0d1b2a",
+    "primaryBorderColor": "#1565c0",
+
+    "secondaryColor": "#fff3e0",
+    "secondaryTextColor": "#0d1b2a",
+    "secondaryBorderColor": "#ef6c00",
+
+    "tertiaryColor": "#e8f5e9",
+    "tertiaryTextColor": "#0d1b2a",
+    "tertiaryBorderColor": "#2e7d32",
+
+    "lineColor": "#37474f",
+    "textColor": "#0d1b2a",
+    "titleColor": "#0d1b2a",
+    "edgeLabelBackground": "#ffffff",
+
+    "clusterBkg": "#f8fafc",
+    "clusterBorder": "#90a4ae"
+  }
+}}%%
+
+flowchart TB
+
+    subgraph PRE["Pre-lanzamiento"]
+        SAFE["SAFE"] --&gt; SELF["SELF&lt;br/&gt;TEST"]
+        SELF --&gt; STBY["STANDBY"]
+        STBY --&gt; CONF["CONFIG"]
+        CONF --&gt; STBY
+        STBY --&gt; ARMED["ARMED"]
+    end
+
+    subgraph FLIGHT["Vuelo"]
+        BOOST["BOOST"] --&gt; COAST["COAST"]
+        COAST --&gt; APOGEE["APOGEE&lt;br/&gt;DETECTED"]
+    end
+
+    subgraph RECOVERY["Recuperación"]
+        RECOVERY_DEPLOYED["RECOVERY&lt;br/&gt;DEPLOYED"] --&gt; DESCENT["DESCENT"]
+        DESCENT --&gt; LANDED["LANDED"]
+    end
+
+    ARMED --&gt; BOOST
+    ARMED --&gt; STBY
+    APOGEE --&gt; RECOVERY_DEPLOYED
+
+    SAFE -.-&gt; FAULT["FAULT"]
+    SELF -.-&gt; FAULT
+    ARMED -.-&gt; FAULT
+    BOOST -.-&gt; FAULT
+    COAST -.-&gt; FAULT
+    DESCENT -.-&gt; FAULT
+    RECOVERY_DEPLOYED -.-&gt; FAULT
+
+    classDef normal fill:#e3f2fd,stroke:#1565c0,stroke-width:1px,color:#0d1b2a;
+    classDef flight fill:#fff3e0,stroke:#ef6c00,stroke-width:1px,color:#0d1b2a;
+    classDef recovery fill:#e8f5e9,stroke:#2e7d32,stroke-width:1px,color:#0d1b2a;
+    classDef fault fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c;
+
+    class SAFE,SELF,STBY,CONF,ARMED normal;
+    class BOOST,COAST,APOGEE flight;
+    class RECOVERY_DEPLOYED,DESCENT,LANDED,POST recovery;
+    class FAULT fault;</code></pre>
+<hr />
+<h2 id="7-fases-de-operacion">7. Fases de operación</h2>
+<p>Las fases de operación determinan el estado actual de la misión, las consideraciones que se deben de tener y las limitaciones operativas y de decisión que se tienen en cada etapa. Es importante definirlas para mantener la seguridad operativa en todo momento una vez inicializa la misión hasta que termina. Las fases de misión consideradas se encuentran detalladas en este capítulo.</p>
+<h3 id="71-preparacion-en-tierra">7.1 Preparación en tierra</h3>
+<p>Durante esta fase, la controladora puede estar fuera del cohete o integrada parcialmente.</p>
+<p><strong>Actividades principales:</strong></p>
+<ul>
+<li>Verificar versión de firmware.</li>
+<li>Cargar parámetros de misión.</li>
+<li>Verificar estado físico de la tarjeta.</li>
+<li>Revisar conexiones.</li>
+<li>Confirmar que las salidas críticas estén inhibidas.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Resultado esperado: La controladora queda configurada y lista para integración o armado.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Precaución</p>
+<p>Los interruptores físicos de armado de carga pirotécnica no deben ser activados hasta verificar que los encendedores electrónicos estén bien colocados. Los interruptores físicos de armado de carga pirotécnica se muestran a continuación. Son independientes para cada canal y solo deben ser activados si serán utilizados y si se comprobó el funcionamiento adecuado de la controladora.</p>
+<p>Es responsabilidad del usuario colocar estos interruptores en cualquier presentación. No se recomienda puentear directamente los pines ya que representa una violación a la seguridad operacional.</p>
+</div>
+<p><img alt="Interruptores" src="../Zoom_In_InterruptoresPirotecnia.png" /></p>
+<hr />
+<h3 id="72-encendido">7.2 Encendido</h3>
+<p>Al recibir alimentación, el sistema debe entrar en una condición segura. El sistema inicializa en <code>SAFE</code> y <strong>realiza las siguientes acciones</strong>:</p>
+<ul>
+<li>Inicializar microcontrolador.</li>
+<li>Inicializar periféricos.</li>
+<li>Mantener salidas críticas apagadas.</li>
+<li>Inicializar sensores.</li>
+<li>Inicializar almacenamiento.</li>
+<li>Inicializar comunicaciones locales, si aplica.</li>
+<li>Cargar configuración.</li>
+<li>Validar integridad de parámetros.</li>
+</ul>
+<p>Al completar la lista de tareas, pasa al estado de <code>SELF_TEST</code></p>
+<div class="admonition danger">
+<p class="admonition-title">Regla crítica: Después de cualquier encendido o reset, ninguna salida pirotécnica deberá ser capaz de activarse automáticamente.</p>
+</div>
+<hr />
+<h3 id="73-autodiagnostico">7.3 Autodiagnóstico</h3>
+<p>El sistema verifica que los módulos mínimos estén disponibles.</p>
+<table>
+<thead>
+<tr>
+<th>Módulo</th>
+<th>Verificación esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IMU</td>
+<td>Comunicación y lectura válida.</td>
+</tr>
+<tr>
+<td>Barómetro</td>
+<td>Comunicación y presión inicial válida.</td>
+</tr>
+<tr>
+<td>Memoria</td>
+<td>Escritura o disponibilidad.</td>
+</tr>
+<tr>
+<td>Configuración</td>
+<td>CRC, versión y parámetros válidos.</td>
+</tr>
+<tr>
+<td>Salidas críticas</td>
+<td>Estado apagado confirmado.</td>
+</tr>
+<tr>
+<td>Watchdog</td>
+<td>Inicializado y activo.</td>
+</tr>
+<tr>
+<td>Tiempo del sistema</td>
+<td>Sistema operativo en tiempo real funcional.</td>
+</tr>
+</tbody>
+</table>
+<p>Resultados posibles:</p>
+<table>
+<thead>
+<tr>
+<th>Resultado</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Diagnóstico aprobado</td>
+<td>Pasar a <code>STANDBY</code>.</td>
+</tr>
+<tr>
+<td>Falla no crítica</td>
+<td>Permitir operación degradada con advertencia.</td>
+</tr>
+<tr>
+<td>Falla crítica</td>
+<td>Pasar a <code>FAULT</code>.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Si la dirección de memoria asignada a el registro de <code>FAULT</code> se encuentra en <code>0xAA</code>, cambia el estado automáticamente a <code>FAULT</code>.</p>
+</div>
+<hr />
+<h3 id="74-configuracion">7.4 Configuración</h3>
+<p>El operador puede cargar o revisar parámetros de misión.</p>
+<p>Ejemplos de parámetros:</p>
+<ul>
+<li>Frecuencia de logging.</li>
+<li>Eliminar logs de vuelo anteriores.</li>
+<li>Umbral de detección de lanzamiento.</li>
+<li>Criterios de detección de apogeo.</li>
+<li>Temporizador de respaldo para recuperación.</li>
+<li>Duración de activación de salidas.</li>
+<li>Identificador de misión.</li>
+<li>Canales habilitados.</li>
+<li>Parámetros de comunicación local, si aplica.</li>
+<li>Parámetros de telemetría reservados para versiones futuras.</li>
+</ul>
+<p>Para información detallada de las configuraciones actuales, consulta el apartado de <a href="../configuraciones/">Configuraciones</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Restricción: No deberán ser modificables parámetros críticos cuando el sistema esté en <code>ARMED</code>, <code>BOOST</code>, <code>COAST</code>, <code>APOGEE_DETECTED</code>, <code>RECOVERY_DEPLOYED</code> o <code>DESCENT</code>.</p>
+</div>
+<hr />
+<h3 id="75-armado">7.5 Armado</h3>
+<p>El armado permite que la controladora pase de una condición segura a una condición lista para vuelo.</p>
+<p>Condiciones mínimas para armar:</p>
+<ul>
+<li>Autodiagnóstico aprobado.</li>
+<li>Configuración válida.</li>
+<li>Sensores mínimos disponibles.</li>
+<li>Salidas críticas en estado apagado.</li>
+<li>Comando explícito de armado.</li>
+</ul>
+<p>Estado resultante:</p>
+<p><code>ARMED</code></p>
+<div class="admonition danger">
+<p class="admonition-title">Condición de seguridad: El estado <code>ARMED</code> no debe activar salidas críticas. Únicamente habilita la lógica de detección de lanzamiento y posterior ejecución de misión.</p>
+</div>
+<hr />
+<h3 id="76-espera-en-plataforma">7.6 Espera en plataforma</h3>
+<p>El cohete se encuentra instalado en la rampa. La controladora monitorea sensores buscando la condición de lanzamiento.</p>
+<p><strong>Acciones del sistema:</strong></p>
+<ul>
+<li>Registrar datos.</li>
+<li>Monitorear aceleración.</li>
+<li>Monitorear presión y altitud relativa.</li>
+<li>Monitorear batería.</li>
+<li>Rechazar comandos no permitidos.</li>
+<li>Esperar detección de lanzamiento.</li>
+<li>Reservar el envío de estado por telemetría para versiones futuras.</li>
+</ul>
+<p><strong>Criterios posibles de lanzamiento:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aceleración</td>
+<td>Vector de aceleración mayor a un umbral configurado.</td>
+</tr>
+<tr>
+<td>Altitud</td>
+<td>Altitud actual es mayor a la de armado por un umbral configurado .</td>
+</tr>
+<tr>
+<td>Velocidad vertical</td>
+<td>Velocidad vertical es mayor al umbral configurado.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Criterios para desarmar dispositivo:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Falla crítica</td>
+<td>Sensores o periféricos presentan falla crítica.</td>
+</tr>
+<tr>
+<td>Comando</td>
+<td>Se recibe comando para desarmar vehículo.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Al menos 2 condiciones deben ser ciertas para cambiar de estado a <strong><code>BOOST</code></strong>.</p>
+</div>
+<hr />
+<h3 id="77-ascenso-propulsado">7.7 Ascenso propulsado</h3>
+<p>Durante el ascenso inicial, el cohete está bajo empuje del motor.</p>
+<p>Estado resultante:</p>
+<p><strong><code>BOOST</code></strong></p>
+<p>Acciones del sistema:</p>
+<ul>
+<li>Registrar datos a frecuencia alta.</li>
+<li>Monitorear aceleraciones.</li>
+<li>Estimar altitud.</li>
+<li>Detectar fin de empuje o MECO, si aplica.</li>
+<li>Evitar despliegue del sistema de recuperación mientras sensores se encuentran sometidos a condiciones extremas.</li>
+<li>Mantener bloqueadas acciones no permitidas.</li>
+</ul>
+<p><strong>Criterios para pasar a <code>COAST</code>:</strong></p>
+<ul>
+<li>Aceleración cae por debajo de un umbral.</li>
+<li>Tiempo desde lanzamiento supera la duración esperada de motor.</li>
+<li>La derivada de la velocidad vertical es negativa y menor a un umbral.</li>
+</ul>
+<hr />
+<h3 id="78-vuelo-balistico">7.8 Vuelo balístico</h3>
+<p>Después del fin de empuje, el cohete continúa ascendiendo hasta apogeo.</p>
+<p>Estado:</p>
+<p><strong><code>COAST</code></strong></p>
+<p><strong>Acciones del sistema:</strong></p>
+<ul>
+<li>Estimar altitud.</li>
+<li>Estimar velocidad vertical.</li>
+<li>Filtrar datos de barómetro e IMU.</li>
+<li>Monitorear condiciones de apogeo.</li>
+<li>Registrar eventos.</li>
+<li>Preparar lógica de recuperación.</li>
+</ul>
+<p><strong>Criterios posibles para detectar apogeo:</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Criterio</strong></th>
+<th><strong>Descripción</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Velocidad vertical</strong></td>
+<td>La velocidad vertical estimada cambia de positiva a negativa.</td>
+</tr>
+<tr>
+<td><strong>Máximo local</strong></td>
+<td>La altitud barométrica alcanza un máximo local y desciende del umbral configurado.</td>
+</tr>
+<tr>
+<td><strong>Tiempo mínimo</strong></td>
+<td>La detección solo se habilita después de un tiempo mínimo desde lanzamiento.</td>
+</tr>
+<tr>
+<td><strong>Persistencia</strong></td>
+<td>La condición debe mantenerse durante varias muestras.</td>
+</tr>
+<tr>
+<td><strong>Respaldo</strong></td>
+<td>Se activa recuperación por temporizador si no se detecta apogeo.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="79-apogeo">7.9 Apogeo</h3>
+<p>El apogeo es el evento principal para iniciar recuperación.</p>
+<p><strong>Estado:</strong></p>
+<p><strong><code>APOGEE_DETECTED</code></strong></p>
+<p><strong>Acciones esperadas:</strong></p>
+<ul>
+<li>Registrar evento de apogeo.</li>
+<li>Solicitar activación de recuperación.</li>
+<li>Confirmar duración de pulso.</li>
+<li>Bloquear reactivaciones no deseadas.</li>
+<li>Pasar a <code>RECOVERY_DEPLOYED</code>.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Restricción: La activación de recuperación deberá ocurrir una sola vez por evento, salvo que se defina explícitamente una lógica redundante.</p>
+</div>
+<hr />
+<h3 id="710-recuperacion">7.10 Recuperación</h3>
+<p>Una vez detectado el apogeo, el sistema ejecuta el evento de recuperación.</p>
+<p><strong>Estado:</strong></p>
+<p><strong><code>RECOVERY_DEPLOYED</code></strong></p>
+<p><strong>Acciones esperadas:</strong></p>
+<ul>
+<li>Activar la salida configurada.</li>
+<li>Mantener la salida activa durante el tiempo definido.</li>
+<li>Desactivar la salida al finalizar el pulso.</li>
+<li>Registrar inicio y fin de activación.</li>
+<li>Cambiar al estado <code>DESCENT</code>.</li>
+</ul>
+<hr />
+<h3 id="711-descenso">7.11 Descenso</h3>
+<p>Durante el descenso, la controladora continúa registrando datos.</p>
+<p><strong>Estado:</strong></p>
+<p><strong><code>DESCENT</code></strong></p>
+<p><strong>Acciones esperadas:</strong></p>
+<ul>
+<li>Registrar presión, altitud, aceleración y orientación.</li>
+<li>Monitorear posible apertura de paracaídas.</li>
+<li>Detectar aterrizaje.</li>
+<li>Reducir frecuencia de logs.</li>
+</ul>
+<p><strong>Criterios posibles para detectar aterrizaje:</strong></p>
+<ul>
+<li>Altitud estable durante una ventana de tiempo.</li>
+<li>Velocidad vertical aproximada a cero.</li>
+<li>Tiempo máximo de vuelo alcanzado.</li>
+</ul>
+<hr />
+<h3 id="712-aterrizaje">7.12 Aterrizaje</h3>
+<p>El sistema considera que el vuelo terminó.</p>
+<p><strong>Estado:</strong></p>
+<p><strong><code>LANDED</code></strong></p>
+<p><strong>Acciones esperadas:</strong></p>
+<ul>
+<li>Registrar evento de aterrizaje.</li>
+<li>Detener Log de vuelo.</li>
+<li>Desactivar salidas críticas.</li>
+<li>Esperar recuperación física del cohete.</li>
+</ul>
+<h3 id="713-fault">7.13 FAULT</h3>
+<p>Si en cualquiera de los estados se presentó un evento considerado como catastrófico que impide volver a una operación normal o degradada de la operación, se considera que el sistema entró en un estado de <code>FAULT</code>:</p>
+<div class="admonition danger">
+<p class="admonition-title">Acciones después de entrar al estado</p>
+<p><strong>Si entra antes de que haya detectado lanzamiento (</strong><code>BOOST</code><strong>):</strong></p>
+<ul>
+<li>
+<p>Todos los actuadores y cargas pirotécnicas pasan a valor de <code>SAFE</code>.</p>
+</li>
+<li>
+<p>Deshabilita la capacidad de armar el sistema o en caso estar armado, lo desarma.</p>
+</li>
+<li>
+<p>Escribe en la memoria flash interna del microcontrolador, en la dirección de memoria asignada un valor de <code>0xAA</code>.</p>
+</li>
+<li>
+<p>Bloquea todos los comandos USB excepto FAULT_REGISTER.</p>
+</li>
+</ul>
+<p><strong>Si entra después de que el sistema haya detectado el lanzamiento (</strong><code>BOOST</code><strong>):</strong></p>
+<ul>
+<li>
+<p>Inicia un temporizador para ejecutar la tarea de despliegue del sistema de recuperación con el tiempo de falla configurado, si el valor es invalido o no puede ser leído, el temporizador por default es de 5 segundos.</p>
+</li>
+<li>
+<p>Una vez completada la secuencia, todos los actuadores y cargas pirotécnicas pasan a valor de <code>SAFE</code>.</p>
+</li>
+<li>
+<p>Escribe en la memoria flash interna del microcontrolador, en la dirección de memoria asignada un valor de <code>0xAA</code>.</p>
+</li>
+<li>
+<p>Bloquea todos los comandos USB excepto FAULT_REGISTER.</p>
+</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Bajo ningún concepto el sistema debe volver a operar una vez presentada la falla. La única forma de regresar el registro a su estado seguro es enviando un comando para sobreescribir la dirección de memoria con un valor de <code>0x00</code>, lo que inicializará el sistema en estado <code>SAFE</code></p>
+</div>
+<hr />
+<h2 id="8-condiciones-anormales">8. Condiciones anormales</h2>
+<table>
+<thead>
+<tr>
+<th>Condición</th>
+<th>Respuesta esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reset antes del lanzamiento</td>
+<td>Reiniciar en <code>SAFE</code>; salidas apagadas.</td>
+</tr>
+<tr>
+<td>Reset durante vuelo</td>
+<td>Recuperar o inferir estado seguro; evitar activaciones accidentales.</td>
+</tr>
+<tr>
+<td>Falla de memoria flash</td>
+<td>Continuar misión; registrar eventos mínimos si existe memoria alternativa.</td>
+</tr>
+<tr>
+<td>Falla de IMU</td>
+<td>Usar barómetro o temporizador de respaldo.</td>
+</tr>
+<tr>
+<td>Falla de barómetro</td>
+<td>No permite armado. Usar temporizador de respaldo si en vuelo.</td>
+</tr>
+<tr>
+<td>Comando inválido</td>
+<td>Rechazar comando y registrar evento.</td>
+</tr>
+<tr>
+<td>Watchdog timeout</td>
+<td>Reiniciar sistema en condición segura si antes de lanzamiento, si después de vuelo Usar temporizador de respaldo y terminar todas las     tareas</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-estado-de-falla-controlada">9. Estado de falla controlada</h2>
+<p>El estado <code>FAULT</code> representa una condición anormal detectada por el firmware.</p>
+<pre class="mermaid"><code>%%{init: {
+  "flowchart": {
+    "htmlLabels": true,
+    "curve": "linear"
+  },
+  "themeVariables": {
+    "fontSize": "16px"
+  }
+}}%%
+
+flowchart TD
+    A["Detección de falla"] --&gt; B{"¿Falla crítica?"}
+    B -- "No" --&gt; C["Registrar advertencia"]
+    C --&gt; D["Continuar operación&lt;br/&gt;degradada"]
+    B -- "Sí" --&gt; E["Registrar falla crítica"]
+    E --&gt; F["Desactivar salidas&lt;br/&gt;no permitidas"]
+    F --&gt; G["Entrar a FAULT"]
+    G --&gt; H{"¿Sistema en vuelo?"}
+    H -- "Sí" --&gt; I["Priorizar recuperación"]
+    H -- "No" --&gt; J["Impedir armado"]</code></pre>
+<div class="admonition danger">
+<p class="admonition-title">Prioridad del estado FAULT</p>
+<p>En una falla crítica, el sistema debe priorizar la seguridad de la misión sobre logging, comunicación o funciones auxiliares.</p>
+</div>
+<hr />
+<h2 id="10-reglas-de-seguridad">10. Reglas de seguridad</h2>
+<p>Estas reglas deben convertirse en requerimientos verificables.</p>
+<table>
+<thead>
+<tr>
+<th>ID preliminar</th>
+<th>Regla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SAFE-RULE-001</code></td>
+<td>Las salidas críticas deberán permanecer apagadas después de encendido, reset o entrada a estado seguro.</td>
+</tr>
+<tr>
+<td><code>SAFE-RULE-002</code></td>
+<td>El sistema no deberá permitir armado si existe una falla crítica.</td>
+</tr>
+<tr>
+<td><code>SAFE-RULE-003</code></td>
+<td>La activación de recuperación deberá depender de condiciones verificables.</td>
+</tr>
+<tr>
+<td><code>SAFE-RULE-004</code></td>
+<td>La detección de apogeo no deberá estar habilitada inmediatamente después del lanzamiento.</td>
+</tr>
+<tr>
+<td><code>SAFE-RULE-005</code></td>
+<td>La misión no deberá depender de telemetría para ejecutar detección de lanzamiento, detección de MECO, detección de apogeo, recuperación o registro local de eventos críticos.</td>
+</tr>
+<tr>
+<td><code>SAFE-RULE-006</code></td>
+<td>La falla del sistema de logging no deberá impedir la recuperación.</td>
+</tr>
+<tr>
+<td><code>SAFE-RULE-007</code></td>
+<td>Todo evento crítico deberá registrarse con timestamp.</td>
+</tr>
+<tr>
+<td><code>SAFE-RULE-008</code></td>
+<td>Los comandos de configuración deberán bloquearse durante vuelo.</td>
+</tr>
+<tr>
+<td><code>SAFE-RULE-009</code></td>
+<td>El firmware deberá tener una respuesta definida para fallas de sensores.</td>
+</tr>
+<tr>
+<td><code>SAFE-RULE-010</code></td>
+<td>El sistema deberá distinguir entre estado seguro, armado y vuelo.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-eventos-registrados">11. Eventos registrados</h2>
+<p>La controladora deberá registrar eventos relevantes para reconstruir la misión.</p>
+<table>
+<thead>
+<tr>
+<th>Evento</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SYSTEM_BOOT</code></td>
+<td>El sistema inició.</td>
+</tr>
+<tr>
+<td><code>SELF_TEST_PASS</code></td>
+<td>El autodiagnóstico fue aprobado.</td>
+</tr>
+<tr>
+<td><code>SELF_TEST_FAIL</code></td>
+<td>El autodiagnóstico falló.</td>
+</tr>
+<tr>
+<td><code>CONFIG_LOADED</code></td>
+<td>La configuración fue cargada correctamente.</td>
+</tr>
+<tr>
+<td><code>CONFIG_ERROR</code></td>
+<td>La configuración no es válida.</td>
+</tr>
+<tr>
+<td><code>ARMED</code></td>
+<td>El sistema fue armado.</td>
+</tr>
+<tr>
+<td><code>DISARMED</code></td>
+<td>El sistema fue desarmado.</td>
+</tr>
+<tr>
+<td><code>LAUNCH_DETECTED</code></td>
+<td>Se detectó lanzamiento.</td>
+</tr>
+<tr>
+<td><code>BOOST_END</code></td>
+<td>Se detectó fin de empuje o MECO.</td>
+</tr>
+<tr>
+<td><code>APOGEE_DETECTED</code></td>
+<td>Se detectó apogeo.</td>
+</tr>
+<tr>
+<td><code>RECOVERY_OUTPUT_ACTIVATED</code></td>
+<td>Se activó salida de recuperación.</td>
+</tr>
+<tr>
+<td><code>RECOVERY_OUTPUT_FINISHED</code></td>
+<td>Finalizó la activación de recuperación.</td>
+</tr>
+<tr>
+<td><code>LANDING_DETECTED</code></td>
+<td>Se detectó aterrizaje.</td>
+</tr>
+<tr>
+<td><code>FAULT_DETECTED</code></td>
+<td>Se detectó una falla.</td>
+</tr>
+<tr>
+<td><code>SYSTEM_RESET</code></td>
+<td>El sistema se reinició.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="12-informacion-generada-durante-la-mision">12. Información generada durante la misión</h2>
+<p>La controladora deberá producir, como mínimo:</p>
+<ul>
+<li>Archivo de log de vuelo.</li>
+<li>Eventos críticos con timestamp.</li>
+<li>Estado de misión.</li>
+<li>Lecturas de sensores.</li>
+<li>Estado de salidas.</li>
+<li>Código de fallas.</li>
+<li>Versión de firmware.</li>
+<li>Configuración usada en el vuelo.</li>
+</ul>
+<hr />
+<h2 id="13-criterios-de-exito-de-mision">13. Criterios de éxito de misión</h2>
+<p>La misión de la controladora se considera exitosa si:</p>
+<ul>
+<li>El sistema inicia correctamente.</li>
+<li>Las salidas críticas permanecen seguras antes del armado.</li>
+<li>El sistema permite armado únicamente bajo condiciones válidas.</li>
+<li>Se detecta lanzamiento.</li>
+<li>Se registra información de vuelo.</li>
+<li>Se detecta MECO o se cumple una condición equivalente de transición.</li>
+<li>Se detecta apogeo o se ejecuta una condición de respaldo.</li>
+<li>Se activa recuperación dentro de la ventana definida.</li>
+<li>El sistema conserva datos suficientes para análisis post-vuelo.</li>
+<li>No existen activaciones no comandadas.</li>
+<li>Las fallas se registran y no comprometen funciones críticas.</li>
+<li>La misión se ejecuta sin depender de telemetría.</li>
+</ul>
+<hr />
+<h2 id="14-relacion-con-requerimientos">14. Relación con requerimientos</h2>
+<p>A partir de este CONOPS se derivarán los siguientes grupos de requerimientos:</p>
+<table>
+<thead>
+<tr>
+<th>Grupo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SYS-OPR</code></td>
+<td>requerimientos operacionales.</td>
+</tr>
+<tr>
+<td><code>SYS-SAFE</code></td>
+<td>requerimientos de seguridad.</td>
+</tr>
+<tr>
+<td><code>SYS-FSM</code></td>
+<td>requerimientos de máquina de estados.</td>
+</tr>
+<tr>
+<td><code>SYS-SENS</code></td>
+<td>requerimientos de sensores.</td>
+</tr>
+<tr>
+<td><code>SYS-REC</code></td>
+<td>requerimientos de recuperación.</td>
+</tr>
+<tr>
+<td><code>SYS-LOG</code></td>
+<td>requerimientos de logging.</td>
+</tr>
+<tr>
+<td><code>SYS-COM</code></td>
+<td>requerimientos de comunicación local y futuras interfaces de telemetría.</td>
+</tr>
+<tr>
+<td><code>SYS-PWR</code></td>
+<td>requerimientos de alimentación.</td>
+</tr>
+<tr>
+<td><code>SYS-FAULT</code></td>
+<td>requerimientos de manejo de fallas.</td>
+</tr>
+<tr>
+<td><code>SYS-TEST</code></td>
+<td>requerimientos de verificación.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="15-requisitos-preliminares-derivados">15. Requisitos preliminares derivados</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th>Fuente</th>
+<th>Verificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SYS-FSM-001</code></td>
+<td>La controladora deberá implementar una máquina de estados de misión que controle las transiciones entre operación en tierra, vuelo, recuperación y post-vuelo.</td>
+<td>CONOPS, Sección 6</td>
+<td>Revisión de diseño y prueba de integración.</td>
+</tr>
+<tr>
+<td><code>SYS-SAFE-001</code></td>
+<td>La controladora deberá mantener todas las salidas críticas desactivadas después de encendido, reset o entrada a estado seguro.</td>
+<td>CONOPS, Secciones 7.2 y 10</td>
+<td>Prueba HIL, revisión de código y prueba de reset.</td>
+</tr>
+<tr>
+<td><code>SYS-SAFE-002</code></td>
+<td>La controladora deberá impedir el armado cuando exista una falla crítica activa.</td>
+<td>CONOPS, Secciones 7.3 y 10</td>
+<td>Simulación de estado de falla y reinicio de la controladora.</td>
+</tr>
+<tr>
+<td><code>SYS-SAFE-003</code></td>
+<td>La controladora no podrá salir del <strong><code>FAULT</code></strong> automáticamente y requiere un operador para desactivarlo por comandos.</td>
+<td>CONOPS, Secciones 7.3 y 7.13</td>
+<td>Prueba Funcional.</td>
+</tr>
+<tr>
+<td><code>SYS-REC-001</code></td>
+<td>La controladora deberá activar el sistema de recuperación cuando se detecte apogeo o cuando se cumpla una condición de respaldo configurada.</td>
+<td>CONOPS, Secciones 7.8, 7.9 y 7.10</td>
+<td>Simulación, prueba HIL y prueba de integración.</td>
+</tr>
+<tr>
+<td><code>SYS-LOG-001</code></td>
+<td>La controladora deberá registrar eventos críticos con timestamp.</td>
+<td>CONOPS, Sección 11</td>
+<td>Revisión de log y prueba funcional.</td>
+</tr>
+<tr>
+<td><code>SYS-COM-001</code></td>
+<td>La controladora deberá ejecutar la misión nominal sin depender de telemetría en tiempo real.</td>
+<td>CONOPS, Secciones 3, 5 y 10</td>
+<td>Prueba funcional sin módulo de comunicación conectado.</td>
+</tr>
+<tr>
+<td><code>SYS-FAULT-001</code></td>
+<td>El sistema deberá entrar en un estado de falla controlada cuando se detecte una falla crítica.</td>
+<td>CONOPS, Sección 9</td>
+<td>Inyección de fallas.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="16-proximos-documentos">16. Próximos documentos</h2>
+<p>A partir de este CONOPS se recomienda desarrollar:</p>
+<ul>
+<li>Lista de funciones del sistema.</li>
+<li>Requisitos de sistema.</li>
+<li>Requisitos de software de alto nivel.</li>
+<li>Arquitectura de software.</li>
+<li>Arquitectura de hardware-software.</li>
+<li>Plan de verificación.</li>
+<li>Matriz de trazabilidad.</li>
+<li>Análisis preliminar de peligros.</li>
+<li>FMEA inicial.</li>
+<li>Plan de pruebas HIL.</li>
+<li>Reporte de pruebas de vuelo.</li>
+</ul>
+<hr />
+<h2 id="17-historial-de-cambios">17. Historial de cambios</h2>
+<table>
+<thead>
+<tr>
+<th>Versión</th>
+<th>Fecha</th>
+<th>Descripción</th>
+<th>Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v0.1</td>
+<td>09/06/2026</td>
+<td>Versión inicial del Concepto de Operaciones.</td>
+<td>Christian de Alba</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

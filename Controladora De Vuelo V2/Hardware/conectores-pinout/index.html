@@ -1,0 +1,1704 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cdealbagtz.github.io/TheRocketProject/Controladora%20De%20Vuelo%20V2/Hardware/conectores-pinout/">
+      
+      
+        <link rel="prev" href="../alimentacion/">
+      
+      
+        <link rel="next" href="../consideraciones-diseno/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../Logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Conectores y pinout - TheRocketProject</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue-grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#conectores-y-pinout" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="TheRocketProject" class="md-header__button md-logo" aria-label="TheRocketProject" data-md-component="logo">
+      
+  <img src="../../../Logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TheRocketProject
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Conectores y pinout
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Dark Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="TheRocketProject" class="md-nav__button md-logo" aria-label="TheRocketProject" data-md-component="logo">
+      
+  <img src="../../../Logo.svg" alt="logo">
+
+    </a>
+    TheRocketProject
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controladora de Vuelo V2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Controladora de Vuelo V2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IntroduccionV2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firmware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Firmware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/Firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/entorno-desarrollo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno de desarrollo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/conops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepto de operaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/arquitectura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/configuraciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuraciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/Blackbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blackbox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/telemetria-comandos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telemetría y comandos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/primeros-pasos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Primeros pasos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../especificaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificaciones técnicas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alimentacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alimentación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conectores y pinout
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conectores y pinout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resumen-de-conectores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen de conectores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alimentacion-principal-y-eventos-de-mision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alimentación principal y eventos de misión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interruptores-fisicos-de-armado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interruptores físicos de armado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conector-de-servos-y-sbus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conector de servos y SBUS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conector-can" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conector CAN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conector-micro-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conector Micro USB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conector-gps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conector GPS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaz-de-programacion-swd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interfaz de programación SWD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#senales-de-sensores-internos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Señales de sensores internos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recomendaciones-de-conexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recomendaciones de conexión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errores-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Errores comunes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paginas-relacionadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Páginas relacionadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../consideraciones-diseno/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consideraciones de diseño
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archivos-fabricacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archivos de fabricación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contribuir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribuir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resumen-de-conectores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen de conectores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alimentacion-principal-y-eventos-de-mision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alimentación principal y eventos de misión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interruptores-fisicos-de-armado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interruptores físicos de armado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conector-de-servos-y-sbus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conector de servos y SBUS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conector-can" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conector CAN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conector-micro-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conector Micro USB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conector-gps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conector GPS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaz-de-programacion-swd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interfaz de programación SWD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#senales-de-sensores-internos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Señales de sensores internos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recomendaciones-de-conexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recomendaciones de conexión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errores-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Errores comunes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paginas-relacionadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Páginas relacionadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="conectores-y-pinout">Conectores y pinout</h1>
+<p>Esta sección describe los conectores principales de la <strong>Controladora de Vuelo V2</strong>, sus señales asociadas y su uso previsto durante la integración con el vehículo, banco de pruebas o periféricos externos.</p>
+<p>La siguiente imagen muestra un resumen visual de las conexiones principales de la tarjeta:</p>
+<p><img alt="Diagrama visual de conexiones" src="../../Diagrama%20visual%20de%20conexiones.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Referencia visual</p>
+<p>El diagrama anterior muestra una vista simplificada de conexión. Para integración final, fabricación o revisión eléctrica, consulta también el esquemático completo y los archivos de fabricación de la tarjeta.</p>
+</div>
+<h2 id="resumen-de-conectores">Resumen de conectores</h2>
+<table>
+<thead>
+<tr>
+<th>Conector</th>
+<th>Uso principal</th>
+<th>Señales principales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alimentación y eventos de misión</td>
+<td>Entrada de energía y conexión de canales críticos</td>
+<td><code>VCC</code>, <code>GND</code>, <code>PYRO1</code>, <code>PYRO2</code></td>
+</tr>
+<tr>
+<td>Servos / SBUS</td>
+<td>Entrada RC y salidas PWM</td>
+<td><code>SBUS</code>, <code>SERVO1</code>, <code>SERVO2</code>, <code>SERVO3</code>, <code>SERVO4</code>, <code>5V</code>, <code>GND</code></td>
+</tr>
+<tr>
+<td>CAN</td>
+<td>Comunicación con periféricos externos</td>
+<td><code>+5V</code>, <code>GND</code>, <code>CAN_H</code>, <code>CAN_L</code></td>
+</tr>
+<tr>
+<td>Micro USB</td>
+<td>Comunicación local y depuración</td>
+<td><code>USB_D+</code>, <code>USB_D-</code>, <code>VBUS</code>, <code>GND</code></td>
+</tr>
+<tr>
+<td>GPS</td>
+<td>Conexión de módulo GPS externo</td>
+<td><code>GPS_TX</code>, <code>GPS_RX</code>, <code>GPS_SCL</code>, <code>GPS_SDA</code>, <code>5V</code>, <code>GND</code></td>
+</tr>
+<tr>
+<td>SWD</td>
+<td>Programación y depuración</td>
+<td><code>SWDIO</code>, <code>SWCLK</code></td>
+</tr>
+<tr>
+<td>Interruptores de armado</td>
+<td>Habilitación física de eventos críticos</td>
+<td>Armado de canales <code>PYRO1</code> y <code>PYRO2</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="alimentacion-principal-y-eventos-de-mision">Alimentación principal y eventos de misión</h2>
+<p>La tarjeta cuenta con un conector principal para alimentación y salidas asociadas a eventos de misión. En el diagrama visual este conector se muestra como una bornera verde.</p>
+<p>Este bloque permite conectar:</p>
+<ul>
+<li>Entrada principal de alimentación.</li>
+<li>Tierra del sistema.</li>
+<li>Canal de evento de misión 1.</li>
+<li>Canal de evento de misión 2.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Señal</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>VCC</code></td>
+<td>Entrada principal de alimentación de la tarjeta.</td>
+</tr>
+<tr>
+<td><code>GND</code></td>
+<td>Referencia de tierra del sistema.</td>
+</tr>
+<tr>
+<td><code>PYRO1</code></td>
+<td>Canal independiente para evento de misión 1.</td>
+</tr>
+<tr>
+<td><code>PYRO2</code></td>
+<td>Canal independiente para evento de misión 2.</td>
+</tr>
+</tbody>
+</table>
+<p>La tarjeta está diseñada para aceptar alimentación en un rango aproximado de <strong>5 V a 28 V</strong>, equivalente a baterías de <strong>2S a 6S</strong>, según el diagrama de conexión.</p>
+<div class="admonition warning">
+<p class="admonition-title">Polaridad de alimentación</p>
+<p>Antes de energizar la tarjeta, verifica la polaridad de entrada, continuidad, ausencia de cortocircuitos y rango de voltaje. Una conexión incorrecta puede dañar la tarjeta o los periféricos conectados.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Canales de eventos de misión</p>
+<p>Los canales <code>PYRO1</code> y <code>PYRO2</code> pueden estar asociados a sistemas críticos de recuperación, separación o activación de eventos. Durante pruebas de firmware, depuración o integración inicial, estos canales deben permanecer desconectados de cualquier carga crítica.</p>
+</div>
+<h2 id="interruptores-fisicos-de-armado">Interruptores físicos de armado</h2>
+<p>La Controladora de Vuelo V2 incluye interruptores físicos de armado para los canales de eventos de misión. Estos interruptores funcionan como una barrera adicional de seguridad entre el firmware y las salidas críticas.</p>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interruptor <code>PYRO1</code></td>
+<td>Habilita físicamente el canal de evento de misión 1.</td>
+</tr>
+<tr>
+<td>Interruptor <code>PYRO2</code></td>
+<td>Habilita físicamente el canal de evento de misión 2.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">El armado físico no sustituye al procedimiento de seguridad</p>
+<p>Los interruptores físicos reducen el riesgo de activación no deseada, pero no sustituyen un procedimiento formal de seguridad. Antes de armar cualquier canal crítico, se debe verificar el estado del firmware, alimentación, continuidad, conexión de cargas y condiciones de prueba.</p>
+</div>
+<h2 id="conector-de-servos-y-sbus">Conector de servos y SBUS</h2>
+<p>El conector de servos agrupa la entrada <code>SBUS</code>, las salidas PWM y las líneas de alimentación para periféricos o actuadores compatibles.</p>
+<table>
+<thead>
+<tr>
+<th>Señal</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SBUS</code></td>
+<td>Entrada de señal desde receptor RC compatible con protocolo SBUS.</td>
+</tr>
+<tr>
+<td><code>SERVO1</code></td>
+<td>Salida PWM 1.</td>
+</tr>
+<tr>
+<td><code>SERVO2</code></td>
+<td>Salida PWM 2.</td>
+</tr>
+<tr>
+<td><code>SERVO3</code></td>
+<td>Salida PWM 3.</td>
+</tr>
+<tr>
+<td><code>SERVO4</code></td>
+<td>Salida PWM 4.</td>
+</tr>
+<tr>
+<td><code>5V</code></td>
+<td>Alimentación para receptor, servos o periféricos compatibles.</td>
+</tr>
+<tr>
+<td><code>GND</code></td>
+<td>Tierra común para señales y alimentación.</td>
+</tr>
+</tbody>
+</table>
+<p>Las salidas <code>SERVO1</code> a <code>SERVO4</code> pueden utilizarse para servos, actuadores auxiliares o mecanismos que acepten señales PWM.</p>
+<div class="admonition warning">
+<p class="admonition-title">Corriente en servos</p>
+<p>Los servos pueden demandar corrientes elevadas, especialmente durante arranque, carga mecánica o bloqueo. Antes de alimentar servos desde la tarjeta, verifica que el sistema de alimentación pueda suministrar la corriente necesaria sin provocar caídas de voltaje o reinicios del microcontrolador.</p>
+</div>
+<h2 id="conector-can">Conector CAN</h2>
+<p>El conector CAN permite comunicación diferencial con periféricos externos, módulos de expansión u otros sistemas compatibles.</p>
+<table>
+<thead>
+<tr>
+<th>Orden visual</th>
+<th>Señal</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>+5V</code></td>
+<td>Alimentación para periféricos externos.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>GND</code></td>
+<td>Tierra común.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>CAN_H</code></td>
+<td>Línea alta del bus CAN.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>CAN_L</code></td>
+<td>Línea baja del bus CAN.</td>
+</tr>
+</tbody>
+</table>
+<p>El bloque CAN incluye un transceptor externo y terminación del bus, de acuerdo con el esquemático de la tarjeta.</p>
+<div class="admonition note">
+<p class="admonition-title">Integración CAN</p>
+<p>Para una comunicación confiable, verifica que todos los dispositivos del bus compartan tierra común, que las líneas <code>CAN_H</code> y <code>CAN_L</code> no estén invertidas y que la terminación del bus sea adecuada para la topología utilizada.</p>
+</div>
+<h2 id="conector-micro-usb">Conector Micro USB</h2>
+<p>El conector Micro USB permite comunicación local con la tarjeta. Dependiendo del firmware cargado, puede utilizarse para configuración, depuración, descarga de datos o comunicación con herramientas externas.</p>
+<table>
+<thead>
+<tr>
+<th>Señal</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>USB_D+</code></td>
+<td>Línea diferencial positiva USB.</td>
+</tr>
+<tr>
+<td><code>USB_D-</code></td>
+<td>Línea diferencial negativa USB.</td>
+</tr>
+<tr>
+<td><code>VBUS</code></td>
+<td>Alimentación detectada desde USB.</td>
+</tr>
+<tr>
+<td><code>GND</code></td>
+<td>Tierra de USB.</td>
+</tr>
+</tbody>
+</table>
+<p>El diseño incluye protección ESD en las líneas USB mediante un arreglo de protección dedicado.</p>
+<div class="admonition note">
+<p class="admonition-title">Uso del puerto USB</p>
+<p>El puerto USB puede estar disponible para comunicación dependiendo del estado actual del firmware. Consulta la documentación del firmware para conocer los comandos, mensajes o funciones disponibles.</p>
+</div>
+<h2 id="conector-gps">Conector GPS</h2>
+<p>La tarjeta cuenta con un conector dedicado para integrar un módulo GPS externo. Este conector expone señales UART, señales I2C y alimentación.</p>
+<table>
+<thead>
+<tr>
+<th>Pin / señal</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GPS_TX</code></td>
+<td>Línea de transmisión del GPS hacia la tarjeta.</td>
+</tr>
+<tr>
+<td><code>GPS_RX</code></td>
+<td>Línea de recepción del GPS desde la tarjeta.</td>
+</tr>
+<tr>
+<td><code>GPS_SCL</code></td>
+<td>Línea de reloj I2C.</td>
+</tr>
+<tr>
+<td><code>GPS_SDA</code></td>
+<td>Línea de datos I2C.</td>
+</tr>
+<tr>
+<td><code>5V</code></td>
+<td>Alimentación para el módulo GPS.</td>
+</tr>
+<tr>
+<td><code>GND</code></td>
+<td>Tierra común.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Niveles lógicos</p>
+<p>Antes de conectar un módulo GPS externo, verifica sus niveles lógicos. Las señales del microcontrolador operan a <strong>3.3 V</strong>, por lo que no deben conectarse señales de datos de 5 V directamente si el módulo no es compatible.</p>
+</div>
+<h2 id="interfaz-de-programacion-swd">Interfaz de programación SWD</h2>
+<p>La programación y depuración del microcontrolador se realiza mediante interfaz <strong>SWD</strong> utilizando un programador compatible, como <strong>ST-Link</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Señal</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SWDIO</code></td>
+<td>Línea de datos de depuración.</td>
+</tr>
+<tr>
+<td><code>SWCLK</code></td>
+<td>Línea de reloj de depuración.</td>
+</tr>
+<tr>
+<td><code>GND</code></td>
+<td>Tierra común entre programador y tarjeta.</td>
+</tr>
+<tr>
+<td><code>3V3</code> / <code>VTref</code></td>
+<td>Referencia de voltaje para el programador, si aplica.</td>
+</tr>
+<tr>
+<td><code>NRST</code></td>
+<td>Reset del microcontrolador, si está disponible en la conexión de depuración.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Conexión mínima</p>
+<p>Para depuración básica mediante ST-Link normalmente se requiere <code>SWDIO</code>, <code>SWCLK</code>, <code>GND</code> y referencia de voltaje. Verifica el conector físico de tu revisión de hardware antes de conectar el programador.</p>
+</div>
+<h2 id="senales-de-sensores-internos">Señales de sensores internos</h2>
+<p>Los sensores principales se encuentran integrados directamente en la tarjeta, por lo que normalmente no requieren conexión externa. Sin embargo, sus señales se documentan como referencia.</p>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Interfaz</th>
+<th>Señales principales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MPU-6050</td>
+<td>I2C</td>
+<td><code>I2C2_SDA</code>, <code>I2C2_SCL</code>, <code>MPU_INT</code></td>
+</tr>
+<tr>
+<td>ICM-42670-P</td>
+<td>SPI</td>
+<td><code>SPI2_MISO</code>, <code>SPI2_MOSI</code>, <code>SPI2_SCLK</code>, <code>ICM_CS</code>, <code>ICM_INT</code>, <code>ICM_INT2</code></td>
+</tr>
+<tr>
+<td>BME280</td>
+<td>SPI</td>
+<td><code>SPI2_MISO</code>, <code>SPI2_MOSI</code>, <code>SPI2_SCLK</code>, <code>BME280_CS</code></td>
+</tr>
+<tr>
+<td>Flash externa</td>
+<td>SPI</td>
+<td><code>FLASH_CS</code>, <code>FLASH_SCK</code>, <code>FLASH_MISO</code>, <code>FLASH_MOSI</code>, <code>FLASH_WP</code>, <code>FLASH_RESET</code></td>
+</tr>
+<tr>
+<td>LoRa RA-01SH-P</td>
+<td>SPI / GPIO</td>
+<td><code>RF_MISO</code>, <code>RF_MOSI</code>, <code>RF_SCK</code>, <code>RF_CS</code>, <code>RF_RESET</code>, <code>RF_BUSY</code>, <code>RF_DIO1</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="recomendaciones-de-conexion">Recomendaciones de conexión</h2>
+<p>Antes de conectar periféricos externos, se recomienda revisar lo siguiente:</p>
+<ul>
+<li>Confirmar el pinout del conector físico.</li>
+<li>Verificar polaridad y nivel de voltaje.</li>
+<li>Confirmar que todos los módulos compartan <code>GND</code>.</li>
+<li>Evitar conectar o desconectar periféricos con la tarjeta energizada.</li>
+<li>Mantener cables de señales sensibles alejados de líneas de potencia.</li>
+<li>Verificar continuidad antes de conectar cargas.</li>
+<li>Realizar pruebas iniciales sin cargas críticas.</li>
+<li>Documentar cualquier modificación realizada al cableado.</li>
+</ul>
+<h2 id="errores-comunes">Errores comunes</h2>
+<table>
+<thead>
+<tr>
+<th>Problema</th>
+<th>Posible causa</th>
+<th>Revisión recomendada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>La tarjeta no enciende</td>
+<td>Polaridad incorrecta, voltaje insuficiente o corto en alimentación</td>
+<td>Verificar <code>VCC</code>, <code>GND</code> y consumo de entrada.</td>
+</tr>
+<tr>
+<td>El GPS no comunica</td>
+<td>TX/RX invertidos o niveles lógicos incompatibles</td>
+<td>Revisar <code>GPS_TX</code>, <code>GPS_RX</code> y configuración UART.</td>
+</tr>
+<tr>
+<td>El bus CAN no responde</td>
+<td><code>CAN_H</code> y <code>CAN_L</code> invertidos, falta de tierra común o terminación incorrecta</td>
+<td>Revisar cableado y terminación del bus.</td>
+</tr>
+<tr>
+<td>El receptor SBUS no funciona</td>
+<td>Señal incorrecta, falta de alimentación o configuración de firmware</td>
+<td>Revisar <code>SBUS</code>, <code>5V</code>, <code>GND</code> y protocolo.</td>
+</tr>
+<tr>
+<td>Los servos se reinician o tiemblan</td>
+<td>Caída de voltaje o corriente insuficiente</td>
+<td>Verificar alimentación de 5 V y consumo total.</td>
+</tr>
+<tr>
+<td>No se puede programar la tarjeta</td>
+<td>Conexión SWD incorrecta o falta de referencia de voltaje</td>
+<td>Revisar <code>SWDIO</code>, <code>SWCLK</code>, <code>GND</code> y <code>VTref</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paginas-relacionadas">Páginas relacionadas</h2>
+<ul>
+<li><a href="../Hardware/">Introducción al hardware</a></li>
+<li><a href="../especificaciones/">Especificaciones técnicas</a></li>
+<li><a href="../alimentacion/">Alimentación</a></li>
+<li><a href="../archivos-fabricacion/">Archivos de fabricación</a></li>
+<li><a href="../consideraciones-diseno/">Consideraciones de diseño</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

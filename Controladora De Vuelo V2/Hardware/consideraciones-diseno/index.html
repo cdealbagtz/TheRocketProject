@@ -1,0 +1,1799 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cdealbagtz.github.io/TheRocketProject/Controladora%20De%20Vuelo%20V2/Hardware/consideraciones-diseno/">
+      
+      
+        <link rel="prev" href="../conectores-pinout/">
+      
+      
+        <link rel="next" href="../archivos-fabricacion/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../Logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Consideraciones de diseño - TheRocketProject</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue-grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#consideraciones-de-diseno" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="TheRocketProject" class="md-header__button md-logo" aria-label="TheRocketProject" data-md-component="logo">
+      
+  <img src="../../../Logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TheRocketProject
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Consideraciones de diseño
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Dark Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="TheRocketProject" class="md-nav__button md-logo" aria-label="TheRocketProject" data-md-component="logo">
+      
+  <img src="../../../Logo.svg" alt="logo">
+
+    </a>
+    TheRocketProject
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controladora de Vuelo V2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Controladora de Vuelo V2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IntroduccionV2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firmware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Firmware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/Firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/entorno-desarrollo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno de desarrollo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/conops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepto de operaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/arquitectura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/configuraciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuraciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/Blackbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blackbox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/telemetria-comandos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telemetría y comandos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/primeros-pasos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Primeros pasos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../especificaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificaciones técnicas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alimentacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alimentación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conectores-pinout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conectores y pinout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consideraciones de diseño
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consideraciones de diseño
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivos de diseño
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-general-de-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura general de hardware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consideraciones-de-alimentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consideraciones de alimentación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desacoplo-y-estabilidad-electrica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desacoplo y estabilidad eléctrica
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consideraciones-de-sensores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consideraciones de sensores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memoria-externa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memoria externa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comunicacion-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comunicación USB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comunicacion-can" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comunicación CAN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comunicacion-lora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comunicación LoRa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entrada-sbus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entrada SBUS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salidas-pwm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Salidas PWM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canales-de-eventos-de-mision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canales de eventos de misión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-y-depuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación y depuración
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diseno-mecanico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diseño mecánico
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vibracion-y-ambiente-de-operacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vibración y ambiente de operación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#separacion-entre-potencia-logica-y-senales-criticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Separación entre potencia, lógica y señales críticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manufactura-y-ensamble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manufactura y ensamble
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacion-recomendada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validación recomendada
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitaciones-conocidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitaciones conocidas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recomendaciones-para-futuras-revisiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recomendaciones para futuras revisiones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paginas-relacionadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Páginas relacionadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archivos-fabricacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archivos de fabricación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contribuir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribuir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivos de diseño
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-general-de-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura general de hardware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consideraciones-de-alimentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consideraciones de alimentación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desacoplo-y-estabilidad-electrica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desacoplo y estabilidad eléctrica
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consideraciones-de-sensores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consideraciones de sensores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memoria-externa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memoria externa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comunicacion-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comunicación USB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comunicacion-can" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comunicación CAN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comunicacion-lora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comunicación LoRa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entrada-sbus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entrada SBUS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salidas-pwm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Salidas PWM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canales-de-eventos-de-mision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canales de eventos de misión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-y-depuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación y depuración
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diseno-mecanico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diseño mecánico
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vibracion-y-ambiente-de-operacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vibración y ambiente de operación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#separacion-entre-potencia-logica-y-senales-criticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Separación entre potencia, lógica y señales críticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manufactura-y-ensamble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manufactura y ensamble
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacion-recomendada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validación recomendada
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitaciones-conocidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitaciones conocidas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recomendaciones-para-futuras-revisiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recomendaciones para futuras revisiones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paginas-relacionadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Páginas relacionadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="consideraciones-de-diseno">Consideraciones de diseño</h1>
+<p>Esta sección reúne las principales consideraciones técnicas tomadas en cuenta durante el diseño de hardware de la <strong>Controladora de Vuelo V2</strong>. Su objetivo es documentar criterios de diseño, decisiones importantes, limitaciones conocidas y recomendaciones para futuras revisiones de la tarjeta.</p>
+<p>La Controladora de Vuelo V2 fue diseñada como una plataforma modular para cohetería experimental, por lo que debe operar en un entorno con vibración, cambios de aceleración, ruido eléctrico, restricciones de espacio y posibles cargas críticas asociadas a eventos de misión.</p>
+<div class="admonition note">
+<p class="admonition-title">Alcance</p>
+<p>Esta página no reemplaza el esquemático ni los archivos de fabricación. Su propósito es explicar criterios generales de diseño y servir como referencia para futuras modificaciones de hardware.</p>
+</div>
+<h2 id="objetivos-de-diseno">Objetivos de diseño</h2>
+<p>Los objetivos principales considerados durante el diseño de la tarjeta fueron:</p>
+<ul>
+<li>Integrar sensores, almacenamiento, comunicación y salidas de misión en una sola PCB.</li>
+<li>Mantener una arquitectura compacta y adecuada para bahías de aviónica en cohetes experimentales.</li>
+<li>Permitir alimentación desde baterías comunes en proyectos de cohetería y aeromodelismo.</li>
+<li>Facilitar la conexión de periféricos externos mediante interfaces estándar.</li>
+<li>Separar funciones críticas, como eventos de misión, de funciones de comunicación o depuración.</li>
+<li>Permitir programación y depuración mediante herramientas accesibles como ST-Link.</li>
+<li>Mantener una base abierta y modificable para futuras revisiones.</li>
+</ul>
+<h2 id="arquitectura-general-de-hardware">Arquitectura general de hardware</h2>
+<p>La tarjeta está organizada alrededor del microcontrolador <strong>STM32F722RET6</strong>, que actúa como unidad central de procesamiento. A partir de este dispositivo se conectan los principales bloques funcionales:</p>
+<ul>
+<li>Sistema de alimentación.</li>
+<li>Sensores inerciales y ambientales.</li>
+<li>Memoria flash externa.</li>
+<li>Comunicación USB.</li>
+<li>Comunicación CAN.</li>
+<li>Módulo LoRa.</li>
+<li>Entrada SBUS.</li>
+<li>Salidas PWM.</li>
+<li>Canales de eventos de misión.</li>
+<li>Interfaz de programación SWD.</li>
+</ul>
+<p>Esta organización permite que cada bloque pueda documentarse, probarse y modificarse de forma relativamente independiente.</p>
+<h2 id="consideraciones-de-alimentacion">Consideraciones de alimentación</h2>
+<p>El sistema de alimentación fue diseñado para aceptar una entrada principal <code>VCC</code> y generar los rieles internos necesarios para la tarjeta.</p>
+<table>
+<thead>
+<tr>
+<th>Riel</th>
+<th>Uso principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>VCC</code></td>
+<td>Entrada principal de alimentación.</td>
+</tr>
+<tr>
+<td><code>5V</code></td>
+<td>Alimentación intermedia y conectores externos.</td>
+</tr>
+<tr>
+<td><code>3V3</code></td>
+<td>Microcontrolador, sensores, memoria y lógica digital.</td>
+</tr>
+<tr>
+<td><code>3V3_RF</code></td>
+<td>Alimentación dedicada para el módulo LoRa.</td>
+</tr>
+</tbody>
+</table>
+<p>Separar el riel de radiofrecuencia <code>3V3_RF</code> del riel lógico principal ayuda a reducir la interacción directa entre el consumo variable del módulo LoRa y el resto de la lógica digital.</p>
+<div class="admonition warning">
+<p class="admonition-title">Capacidad de corriente</p>
+<p>La corriente disponible en los rieles de alimentación debe validarse mediante pruebas. No se debe asumir que el riel de <code>5V</code> puede alimentar servos, radios o periféricos de alta corriente sin revisar el diseño térmico y la capacidad del regulador.</p>
+</div>
+<h2 id="desacoplo-y-estabilidad-electrica">Desacoplo y estabilidad eléctrica</h2>
+<p>Los circuitos integrados principales incluyen capacitores de desacoplo cercanos a sus pines de alimentación. Esto ayuda a reducir ruido local, transitorios y caídas momentáneas de voltaje.</p>
+<p>Se recomienda mantener esta práctica en futuras revisiones:</p>
+<ul>
+<li>Colocar capacitores de desacoplo cerca de cada circuito integrado.</li>
+<li>Usar capacitores de mayor valor en entradas y salidas de reguladores.</li>
+<li>Separar, cuando sea posible, rieles de alta demanda de rieles sensibles.</li>
+<li>Mantener trayectorias de alimentación cortas y con suficiente ancho de pista.</li>
+<li>Evitar que corrientes de actuadores o cargas externas circulen por zonas sensibles de sensores.</li>
+</ul>
+<h2 id="consideraciones-de-sensores">Consideraciones de sensores</h2>
+<p>La tarjeta integra sensores inerciales y ambientales para adquisición de datos y estimación del estado del vehículo.</p>
+<p>Sensores principales:</p>
+<ul>
+<li><strong>MPU-6050</strong> como IMU de 6 ejes.</li>
+<li><strong>ICM-42670-P</strong> como IMU de 6 ejes.</li>
+<li><strong>BME280</strong> como sensor ambiental de presión, temperatura y humedad.</li>
+</ul>
+<p>Para mejorar la calidad de medición en futuras revisiones, se recomienda:</p>
+<ul>
+<li>Colocar los sensores inerciales cerca del centro geométrico de la tarjeta cuando sea posible.</li>
+<li>Evitar colocar sensores cerca de reguladores, inductores o fuentes de ruido.</li>
+<li>Reducir vibraciones mecánicas mediante una integración adecuada en la bahía de aviónica.</li>
+<li>Mantener referencias claras de orientación de ejes en la PCB y en la documentación.</li>
+<li>Documentar la orientación física de cada sensor respecto al sistema de coordenadas del vehículo.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Orientación de sensores</p>
+<p>La orientación física de los sensores debe documentarse explícitamente para evitar errores en algoritmos de estimación, reconstrucción de vuelo o control.</p>
+</div>
+<h2 id="memoria-externa">Memoria externa</h2>
+<p>La memoria flash externa permite registrar datos de vuelo, eventos y mensajes del sistema. Este bloque es importante para análisis post-vuelo y validación experimental.</p>
+<p>Consideraciones relevantes:</p>
+<ul>
+<li>Mantener las líneas SPI cortas y ordenadas.</li>
+<li>Evitar interferencia con señales de alta corriente.</li>
+<li>Usar resistencias o configuraciones adecuadas para señales de control como <code>CS</code>, <code>WP</code> y <code>RESET</code>.</li>
+<li>Documentar la capacidad de memoria y el formato de almacenamiento.</li>
+<li>Validar ciclos de escritura, borrado y lectura durante pruebas de banco.</li>
+</ul>
+<h2 id="comunicacion-usb">Comunicación USB</h2>
+<p>El puerto Micro USB permite comunicación local, configuración, descarga de datos o depuración, dependiendo del firmware.</p>
+<p>El diseño incluye protección ESD para las líneas USB, lo cual es recomendable debido a la manipulación frecuente del conector.</p>
+<p>Consideraciones:</p>
+<ul>
+<li>Mantener las líneas <code>USB_D+</code> y <code>USB_D-</code> como par diferencial.</li>
+<li>Evitar rutas largas o cercanas a fuentes de ruido.</li>
+<li>Mantener protección ESD cerca del conector.</li>
+<li>Revisar la interacción entre alimentación USB y alimentación principal externa.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Alimentación simultánea</p>
+<p>Antes de conectar alimentación externa y USB al mismo tiempo, se debe revisar el esquemático de la revisión correspondiente para confirmar que no exista conflicto entre fuentes de alimentación.</p>
+</div>
+<h2 id="comunicacion-can">Comunicación CAN</h2>
+<p>La interfaz CAN está pensada para comunicación robusta con periféricos externos o módulos de expansión.</p>
+<p>Consideraciones de diseño:</p>
+<ul>
+<li>Usar par trenzado para <code>CAN_H</code> y <code>CAN_L</code> en cableado externo.</li>
+<li>Mantener una tierra común entre dispositivos.</li>
+<li>Verificar la terminación del bus.</li>
+<li>Evitar topologías con derivaciones largas.</li>
+<li>Documentar velocidad de bus y protocolo utilizado por firmware.</li>
+</ul>
+<p>La presencia de CAN permite que futuras versiones del proyecto puedan integrar módulos externos sin depender únicamente de UART, USB o conexiones punto a punto.</p>
+<h2 id="comunicacion-lora">Comunicación LoRa</h2>
+<p>El módulo LoRa permite telemetría y recepción de comandos, según el estado actual del firmware.</p>
+<p>Consideraciones relevantes:</p>
+<ul>
+<li>Utilizar un riel dedicado <code>3V3_RF</code>.</li>
+<li>Mantener desacoplo adecuado cerca del módulo.</li>
+<li>Evitar colocar la antena cerca de planos, cables o estructuras que afecten la radiación.</li>
+<li>Considerar la ubicación física de la antena dentro del vehículo.</li>
+<li>Validar alcance, pérdida de paquetes y comportamiento durante vibración.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Telemetría</p>
+<p>La funcionalidad de telemetría depende del firmware y puede encontrarse en desarrollo. El hardware proporciona la base para implementar esta función, pero su comportamiento final debe validarse mediante pruebas.</p>
+</div>
+<h2 id="entrada-sbus">Entrada SBUS</h2>
+<p>La entrada SBUS utiliza una etapa de inversión de señal para adaptarse al microcontrolador. Esta interfaz permite recibir comandos desde receptores compatibles.</p>
+<p>Consideraciones:</p>
+<ul>
+<li>Verificar niveles lógicos del receptor.</li>
+<li>Mantener tierra común entre receptor y tarjeta.</li>
+<li>Validar que la señal SBUS llegue invertida o no invertida según el circuito usado.</li>
+<li>Documentar el mapeo de canales en firmware.</li>
+<li>No depender de SBUS como único mecanismo de seguridad para salidas críticas.</li>
+</ul>
+<h2 id="salidas-pwm">Salidas PWM</h2>
+<p>Las salidas PWM están destinadas a servos o actuadores compatibles.</p>
+<p>Consideraciones:</p>
+<ul>
+<li>Verificar corriente requerida por cada servo.</li>
+<li>Evitar alimentar servos de alta corriente desde la tarjeta sin validación.</li>
+<li>Usar alimentación externa si el consumo supera la capacidad del riel de <code>5V</code>.</li>
+<li>Mantener cables de servos cortos o adecuadamente asegurados.</li>
+<li>Revisar posibles caídas de voltaje durante movimiento o bloqueo mecánico.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Servos y reinicios</p>
+<p>Los servos pueden generar picos de corriente capaces de provocar caídas de voltaje. Si el microcontrolador se reinicia al mover servos, se debe revisar la alimentación, el cableado y la separación entre potencia y lógica.</p>
+</div>
+<h2 id="canales-de-eventos-de-mision">Canales de eventos de misión</h2>
+<p>La tarjeta incluye dos canales independientes para eventos de misión. Estos canales están implementados mediante relevadores de estado sólido y se complementan con interruptores físicos de armado.</p>
+<p>Consideraciones de diseño:</p>
+<ul>
+<li>Mantener los canales críticos separados de señales de baja potencia.</li>
+<li>Incluir indicadores visuales de estado cuando sea posible.</li>
+<li>Usar interruptores físicos como barrera adicional de seguridad.</li>
+<li>Documentar claramente el estado seguro de cada canal.</li>
+<li>Garantizar que el firmware inicie con salidas críticas deshabilitadas.</li>
+<li>Validar cada canal con cargas no críticas antes de usarlo en una prueba real.</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Funciones críticas</p>
+<p>Los canales de eventos de misión pueden activar sistemas de recuperación, separación u otros mecanismos críticos. Cualquier modificación de hardware o firmware relacionada con estos canales debe revisarse y probarse bajo condiciones controladas.</p>
+</div>
+<h2 id="programacion-y-depuracion">Programación y depuración</h2>
+<p>La tarjeta utiliza interfaz <strong>SWD</strong> para programación y depuración mediante ST-Link.</p>
+<p>Consideraciones:</p>
+<ul>
+<li>Mantener accesibles las señales <code>SWDIO</code>, <code>SWCLK</code>, <code>GND</code> y referencia de voltaje.</li>
+<li>Evitar que el conector de depuración quede bloqueado durante integración.</li>
+<li>Mantener disponible la señal <code>NRST</code> si la revisión de hardware lo permite.</li>
+<li>Proteger mecánicamente el conector durante pruebas de vibración o transporte.</li>
+</ul>
+<h2 id="diseno-mecanico">Diseño mecánico</h2>
+<p>La geometría circular de la tarjeta facilita su integración en bahías de aviónica cilíndricas, comunes en cohetes experimentales.</p>
+<p>Consideraciones mecánicas:</p>
+<ul>
+<li>Verificar diámetro disponible dentro del fuselaje.</li>
+<li>Considerar separación entre PCB, estructura y tornillería.</li>
+<li>Evitar contacto eléctrico con partes metálicas.</li>
+<li>Usar separadores adecuados.</li>
+<li>Asegurar conectores y cables contra vibración.</li>
+<li>Evitar que cables o conectores interfieran con sistemas de recuperación.</li>
+<li>Considerar acceso físico a interruptores de armado y puerto USB.</li>
+</ul>
+<h2 id="vibracion-y-ambiente-de-operacion">Vibración y ambiente de operación</h2>
+<p>Los cohetes experimentales pueden exponer la electrónica a vibración, aceleración, golpes y cambios de presión.</p>
+<p>Recomendaciones:</p>
+<ul>
+<li>Asegurar firmemente la PCB dentro de la bahía de aviónica.</li>
+<li>Usar conectores con retención mecánica cuando sea posible.</li>
+<li>Evitar cables largos sin sujeción.</li>
+<li>Proteger componentes altos o delicados.</li>
+<li>Realizar pruebas de continuidad después de manipulación e integración.</li>
+<li>Validar el comportamiento de sensores durante pruebas de vibración o movimiento.</li>
+</ul>
+<h2 id="separacion-entre-potencia-logica-y-senales-criticas">Separación entre potencia, lógica y señales críticas</h2>
+<p>Para mejorar confiabilidad y reducir interferencia, se recomienda mantener una separación funcional entre:</p>
+<table>
+<thead>
+<tr>
+<th>Grupo</th>
+<th>Ejemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Potencia</td>
+<td><code>VCC</code>, <code>5V</code>, alimentación de servos, alimentación externa</td>
+</tr>
+<tr>
+<td>Lógica</td>
+<td><code>3V3</code>, MCU, sensores, memoria</td>
+</tr>
+<tr>
+<td>Comunicación</td>
+<td>USB, CAN, LoRa, SBUS, GPS</td>
+</tr>
+<tr>
+<td>Eventos críticos</td>
+<td><code>PYRO1</code>, <code>PYRO2</code>, interruptores de armado</td>
+</tr>
+</tbody>
+</table>
+<p>En futuras revisiones, esta separación debe reflejarse tanto en el esquemático como en el diseño PCB.</p>
+<h2 id="manufactura-y-ensamble">Manufactura y ensamble</h2>
+<p>Para facilitar la fabricación y revisión del hardware, se recomienda:</p>
+<ul>
+<li>Mantener una lista de materiales actualizada.</li>
+<li>Documentar el número de capas de la PCB.</li>
+<li>Incluir archivos Gerber y taladros.</li>
+<li>Publicar esquemático y diseño PCB.</li>
+<li>Documentar orientación de componentes.</li>
+<li>Incluir referencias visibles en la serigrafía.</li>
+<li>Revisar disponibilidad de componentes antes de fabricar.</li>
+<li>Validar huellas de componentes críticos.</li>
+<li>Documentar cambios entre revisiones.</li>
+</ul>
+<h2 id="validacion-recomendada">Validación recomendada</h2>
+<p>Antes de considerar una revisión de hardware como estable, se recomienda realizar pruebas en etapas:</p>
+<ol>
+<li>Inspección visual.</li>
+<li>Prueba de continuidad.</li>
+<li>Primer encendido con fuente limitada en corriente.</li>
+<li>Verificación de rieles de alimentación.</li>
+<li>Programación del microcontrolador.</li>
+<li>Prueba de sensores internos.</li>
+<li>Prueba de memoria externa.</li>
+<li>Prueba de USB.</li>
+<li>Prueba de CAN.</li>
+<li>Prueba de LoRa.</li>
+<li>Prueba de SBUS.</li>
+<li>Prueba de PWM sin carga.</li>
+<li>Prueba de PWM con carga controlada.</li>
+<li>Prueba de canales de eventos con cargas no críticas.</li>
+<li>Prueba de integración completa en banco.</li>
+</ol>
+<h2 id="limitaciones-conocidas">Limitaciones conocidas</h2>
+<p>Las siguientes características deben validarse con pruebas o documentación adicional:</p>
+<ul>
+<li>Corriente máxima real disponible en el riel de <code>5V</code>.</li>
+<li>Corriente máxima para servos y periféricos externos.</li>
+<li>Compatibilidad entre alimentación USB y alimentación externa.</li>
+<li>Comportamiento térmico del regulador step-down.</li>
+<li>Comportamiento térmico del regulador lineal de 3.3 V.</li>
+<li>Alcance real y estabilidad del módulo LoRa.</li>
+<li>Robustez de conectores ante vibración.</li>
+<li>Repetibilidad de lectura de sensores durante pruebas dinámicas.</li>
+<li>Capacidad de los canales de eventos bajo distintas cargas.</li>
+</ul>
+<h2 id="recomendaciones-para-futuras-revisiones">Recomendaciones para futuras revisiones</h2>
+<p>Para futuras versiones de hardware se recomienda evaluar:</p>
+<ul>
+<li>Protección contra inversión de polaridad.</li>
+<li>Medición de voltaje de batería.</li>
+<li>Medición de corriente del sistema.</li>
+<li>Supervisión de rieles de alimentación.</li>
+<li>Protección adicional para salidas críticas.</li>
+<li>Conectores con bloqueo mecánico.</li>
+<li>Separación física mayor entre RF, potencia y sensores.</li>
+<li>Puntos de prueba para <code>VCC</code>, <code>5V</code>, <code>3V3</code> y <code>3V3_RF</code>.</li>
+<li>Compatibilidad con telemetría modular o antena externa.</li>
+<li>Buzzer integrado</li>
+</ul>
+<h2 id="paginas-relacionadas">Páginas relacionadas</h2>
+<ul>
+<li><a href="../Hardware/">Introducción al hardware</a></li>
+<li><a href="../especificaciones/">Especificaciones técnicas</a></li>
+<li><a href="../alimentacion/">Alimentación</a></li>
+<li><a href="../conectores-pinout/">Conectores y pinout</a></li>
+<li><a href="../archivos-fabricacion/">Archivos de fabricación</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
