@@ -65,7 +65,9 @@ typedef enum{
 	Initializer_SafeDone,
 	Initializer_SelfTestDone,
 	Initializer_FaultRegister,
-	Initializer_TimeExceeded
+	Initializer_TimeExceeded,
+	Initializer_NoImuData,
+	Initializer_NoAltitudeData
 }Initializer_Notifications_e;
 
 typedef enum{
